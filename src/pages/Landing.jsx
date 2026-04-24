@@ -158,7 +158,7 @@ export default function Landing({ lang = 'en', setLang }) {
   const reduced = useReducedMotion();
 
   return (
-    <div className="min-h-screen antialiased overflow-x-hidden" style={{ backgroundColor: '#080808', cursor: 'none' }}>
+    <div className="min-h-screen antialiased overflow-x-hidden" style={{ backgroundColor: '#080808' }}>
       <Cursor accentColor={LANDING_ACCENT} />
       <Navbar lang={lang} setLang={setLang} isLanding />
 

@@ -4,7 +4,7 @@ import { Grid2X2 } from 'lucide-react';
 import Lightbox from '../shared/Lightbox';
 import SectionReveal from '../shared/SectionReveal';
 
-export default function Gallery({ photos, theme }) {
+export default function Gallery({ photos, theme, title = 'The Space' }) {
   const [lightbox, setLightbox] = useState({ open: false, idx: 0 });
 
   const close = () => setLightbox({ open: false, idx: 0 });
@@ -16,7 +16,7 @@ export default function Gallery({ photos, theme }) {
       <section className="max-w-[1280px] mx-auto px-4 md:px-8 py-16 md:py-24">
         <div className="flex items-end justify-between mb-8">
           <h2 className="text-3xl md:text-4xl font-light tracking-tight" style={{ fontFamily: theme.fontHeading, color: theme.fg }}>
-            The Space
+            {title}
           </h2>
           <button
             data-hover

@@ -19,7 +19,7 @@ export default function Nisi({ lang = 'en', setLang }) {
   return (
     <div
       className="min-h-screen antialiased overflow-x-hidden"
-      style={{ backgroundColor: theme.bg, color: theme.fg, cursor: 'none' }}
+      style={{ backgroundColor: theme.bg, color: theme.fg }}
     >
       <Cursor accentColor={theme.accent} />
       <Navbar theme={theme} lang={lang} setLang={setLang} />
@@ -39,7 +39,7 @@ export default function Nisi({ lang = 'en', setLang }) {
           <p className="text-lg md:text-xl leading-relaxed max-w-2xl" style={{ color: theme.muted }}>{c.description}</p>
         </div>
       </SectionReveal>
-      <Gallery photos={d.gallery} theme={theme} />
+      <Gallery photos={d.gallery} theme={theme} title={lang === 'gr' ? 'Ο Χώρος' : 'The Space'} />
       <DetailsStrip details={d.details} theme={theme} />
       <RoomParallax rooms={c.rooms} theme={theme} sectionTitle={lang === 'gr' ? 'Οι Χώροι' : 'The Spaces'} />
       <AmenitiesGrid amenities={d.amenities} theme={theme} title={lang === 'gr' ? 'Τι Περιλαμβάνεται' : "What's Included"} />

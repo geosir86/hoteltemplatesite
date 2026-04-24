@@ -1,13 +1,14 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { LayoutGrid } from 'lucide-react';
 
 const versions = [
-  { id: 'athens', label: 'ATHENS', path: '/' },
+  { id: 'landing', label: 'HOME', path: '/' },
+  { id: 'athens', label: 'ATHENS', path: '/athens' },
   { id: 'cyclades', label: 'CYCLADES', path: '/cyclades' },
   { id: 'ionian', label: 'IONIAN', path: '/ionian' },
   { id: 'crete', label: 'CRETE', path: '/crete' },
+  { id: 'nisi', label: 'NISI', path: '/nisi' },
 ];
 
 export default function DemoSwitcher() {

@@ -127,7 +127,7 @@ export const DESTINATIONS = {
     theme: {
       bg: '#EAE0D5',
       fg: '#1A2E1E',
-      accent: '#1A2E1E',
+      accent: '#3B6E47',
       muted: 'rgba(26,46,30,0.5)',
       border: 'rgba(26,46,30,0.15)',
       fontHeading: "'DM Serif Display', serif",
