@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Athens Monolith - Luxury Real Estate</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Josefin+Sans:wght@300;400;600&amp;family=Manrope:wght@300;400;500;600&amp;family=Noto+Serif:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbce",
+                    "inverse-on-surface": "#e6f3f1",
+                    "on-surface": "#121e1c",
+                    "outline": "#6e7977",
+                    "on-secondary-fixed-variant": "#2e4c48",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-variant": "#d8e5e2",
+                    "primary": "#005c55",
+                    "surface-container-high": "#deebe8",
+                    "on-tertiary": "#ffffff",
+                    "secondary-container": "#c5e6e1",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#7f4025",
+                    "tertiary-fixed-dim": "#ffb598",
+                    "on-primary-fixed": "#00201d",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#80d5cb",
+                    "surface-dim": "#d0ddda",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#273331",
+                    "surface-bright": "#effcf9",
+                    "surface": "#effcf9",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#4a6864",
+                    "on-tertiary-fixed-variant": "#72361b",
+                    "tertiary-container": "#9c573a",
+                    "on-primary-fixed-variant": "#00504a",
+                    "on-background": "#121e1c",
+                    "on-error": "#ffffff",
+                    "background": "#effcf9",
+                    "surface-container": "#e4f1ee",
+                    "on-surface-variant": "#3e4947",
+                    "on-tertiary-fixed": "#370e00",
+                    "primary-fixed-dim": "#80d5cb",
+                    "secondary": "#466460",
+                    "surface-container-highest": "#d8e5e2",
+                    "secondary-fixed-dim": "#accdc8",
+                    "on-primary-container": "#a3faef",
+                    "surface-tint": "#006a63",
+                    "on-tertiary-container": "#ffe5db",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#bdc9c6",
+                    "primary-container": "#0f766e",
+                    "secondary-fixed": "#c8e9e4",
+                    "surface-container-low": "#e9f6f3",
+                    "primary-fixed": "#9cf2e8",
+                    "on-secondary-fixed": "#00201d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif", "serif"],
+                    "display": ["Cinzel", "serif"],
+                    "body": ["Manrope", "sans-serif"],
+                    "label": ["Josefin Sans", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#effcf9]/70 dark:bg-[#121e1c]/70 backdrop-blur-xl">
+<div class="flex justify-between items-center w-full px-12 py-8 max-w-[1920px] mx-auto">
+<div class="text-2xl font-['Cinzel'] tracking-widest text-[#00201d] dark:text-[#effcf9]">
+                The Grecian Gallery
+            </div>
+<div class="hidden md:flex space-x-12 items-center">
+<a class="text-[#121e1c]/60 dark:text-[#effcf9]/60 hover:text-[#005c55] transition-colors font-['Noto_Serif'] font-light tracking-[0.05em] hover:opacity-70 transition-opacity duration-500" href="#">Portfolio</a>
+<a class="text-[#121e1c]/60 dark:text-[#effcf9]/60 hover:text-[#005c55] transition-colors font-['Noto_Serif'] font-light tracking-[0.05em] hover:opacity-70 transition-opacity duration-500" href="#">Process</a>
+<a class="text-[#005c55] dark:text-[#5eead4] font-semibold border-b border-[#005c55]/30 pb-1 font-['Noto_Serif'] font-light tracking-[0.05em] hover:opacity-70 transition-opacity duration-500 transform active:scale-95 duration-300" href="#">Estates</a>
+<a class="text-[#121e1c]/60 dark:text-[#effcf9]/60 hover:text-[#005c55] transition-colors font-['Noto_Serif'] font-light tracking-[0.05em] hover:opacity-70 transition-opacity duration-500" href="#">Inquire</a>
+</div>
+<button class="md:hidden text-[#005c55] dark:text-[#5eead4]">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center justify-center pt-32 bg-surface">
+<div class="absolute inset-0 z-0">
+<img alt="Minimalist villa exterior" class="w-full h-full object-cover object-center opacity-80" data-alt="expansive ultra-modern minimalist concrete villa on a cliff overlooking the aegean sea at dusk, dramatic architectural lighting, sharp angular lines, serene and luxurious atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgasG1TWwjnKmIyXU7P71K90XwMWI8-hrKkCcG8z5ck_3Q1XJSfssek1Qzh1VrHE-94lrJt32Zr9n4Z0ScFdmRAK0_bN_nd5zm_-EVhmk4IDwDDcgWXqmoZXP_copUrnuIrDFxxV9JOJe9oGtImvbzDgL-TeG92-aTHOnJisgMxtkrQedTSZDYoJGqzDAoSvT8w61QGMhebLEASDxcJOXb64uH5tdifhiR3INZx7C2qEkdVfkc_6d6eeiw0QyYSILOgzR45wwfvOY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 w-full max-w-[1920px] px-8 md:px-24 flex flex-col items-center md:items-start text-center md:text-left">
+<span class="font-label text-sm md:text-base uppercase tracking-[0.3em] text-primary mb-6">Exclusive Offering</span>
+<h1 class="font-display text-5xl md:text-8xl lg:text-[140px] leading-tight text-on-surface tracking-[0.05em] mb-8 bg-surface-container-lowest/80 backdrop-blur-sm px-6 py-4 inline-block mix-blend-screen md:mix-blend-normal">
+                The Athens Monolith
+            </h1>
+<p class="font-body text-lg md:text-xl text-on-surface max-w-2xl font-light leading-relaxed mb-12">
+                A study in restraint and volume. This architectural masterpiece redefines Aegean luxury, merging brutalist forms with the delicate light of the Athenian riviera.
+            </p>
+<a class="inline-block bg-primary text-on-primary font-label uppercase tracking-[0.2em] px-10 py-5 text-sm hover:bg-primary-container transition-colors duration-300 rounded-none" href="#inquire">
+                Inquire for viewing
+            </a>
+</div>
+</header>
+<!-- Before-After: The Metamorphosis -->
+<section class="py-32 md:py-48 bg-surface-container-low">
+<div class="max-w-[1920px] mx-auto px-8 md:px-24">
+<div class="mb-24 flex flex-col md:flex-row justify-between items-end">
+<div>
+<h2 class="font-display text-4xl md:text-6xl text-on-surface tracking-wide mb-6">The Metamorphosis</h2>
+<p class="font-body text-lg text-on-surface-variant max-w-xl font-light leading-relaxed">
+                        Witness the transition from historical framework to contemporary sanctuary. A meticulous preservation of spirit, articulated through modern intervention.
+                    </p>
+</div>
+<div class="hidden md:block">
+<span class="font-label uppercase text-primary tracking-[0.2em] text-xs">Project #042 - Plaka, Athens</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+<div class="relative group cursor-pointer">
+<div class="absolute top-4 left-4 z-10 bg-surface-container-lowest px-4 py-2">
+<span class="font-label uppercase text-xs tracking-widest text-on-surface">Before</span>
+</div>
+<img alt="Original structure" class="w-full aspect-[4/5] object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" data-alt="dilapidated classical stone building interior with high ceilings and arched windows in athens, dusty sunlight, historical texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXpldSE19E0XTHxVuDXkJ_XEOxTnzx9Q2jtS9jAZ5CzrL_oPZn0k-p4mmYRPkI_uiJ0nW3UeFdlCyPcXKzmd3bIHi81D5TRyyD_cSGkfyLb52v0ajhd8F7eY5JC6-nYR-6gMcbOpI3t0f6JEiC91hFFUjcm82rmng08BauDjwwyXqskNJKSEDCBqs3ZXAejitYyM80yCGeWkf-_Yq6o3CJNevqfNZE_IjT0rJS60bN8Fm4DvYbYa6vx7Tset5Z4pk85emrsaoNRiI"/>
+</div>
+<div class="relative group cursor-pointer mt-12 md:mt-32">
+<div class="absolute top-4 right-4 z-10 bg-surface-container-lowest px-4 py-2">
+<span class="font-label uppercase text-xs tracking-widest text-primary">After</span>
+</div>
+<img alt="Renovated interior" class="w-full aspect-[4/5] object-cover shadow-[0px_24px_48px_rgba(19,78,74,0.06)]" data-alt="pristine minimalist luxury living room with massive floor to ceiling windows, pale wood floors, low profile designer furniture, soft diffused natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATUtY0IvTlBe0SbhqgoqFnMa5BOV4YWy-oZMBz6Czk4DmiPnY79J75Vnu8djJoHztni0krMjapbhm62zhwlt-ai4Gc8uvxTeoMb7cuGXGnHNDpd7O8x5HqWcbE9EobHkmaqFy32FAki5_sgC5L-1UiezKUQsyBXNKU_CHZWkcoQeJ7kUn2iIVTEPXaqdo1UJVUy6Tnz3pFq3qwLubLBJqJh3TjPV15MpXNPJ7yPYN6Oediths0BNw4e4w4HXcRpnY4peykht02dl0"/>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works: The Process -->
+<section class="py-40 bg-surface">
+<div class="max-w-[1920px] mx-auto px-8 md:px-24">
+<div class="text-center mb-32">
+<h2 class="font-display text-3xl md:text-5xl text-on-surface tracking-widest mb-4">Curating Space</h2>
+<div class="w-12 h-px bg-outline-variant mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-24 md:gap-12 relative">
+<!-- Step 1 -->
+<div class="flex flex-col items-center text-center">
+<span class="font-display text-7xl text-surface-variant mb-8 block font-light">01</span>
+<h3 class="font-headline text-2xl text-on-surface mb-6">Acquisition</h3>
+<p class="font-body text-base text-on-surface-variant font-light leading-relaxed max-w-xs">
+                        Identifying rare volumes and historical footprints in the most coveted Athenian enclaves.
+                    </p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center text-center mt-12 md:mt-24">
+<span class="font-display text-7xl text-surface-variant mb-8 block font-light">02</span>
+<h3 class="font-headline text-2xl text-on-surface mb-6">Vision</h3>
+<p class="font-body text-base text-on-surface-variant font-light leading-relaxed max-w-xs">
+                        Collaborating with master architects to strip away the superfluous, revealing the structural soul.
+                    </p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center text-center mt-24 md:mt-48">
+<span class="font-display text-7xl text-surface-variant mb-8 block font-light">03</span>
+<h3 class="font-headline text-2xl text-on-surface mb-6">Realization</h3>
+<p class="font-body text-base text-on-surface-variant font-light leading-relaxed max-w-xs">
+                        Executing with flawless precision. Materials sourced globally, crafted locally.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery: Architectural Fragments -->
+<section class="py-32 bg-surface-container-low">
+<div class="max-w-[1920px] mx-auto px-8 md:px-24">
+<!-- Gallery Item 1 -->
+<div class="flex flex-col md:flex-row items-center gap-16 mb-48">
+<div class="w-full md:w-7/12">
+<img alt="Living Space" class="w-full h-auto object-cover" data-alt="spacious brutalist living room with raw concrete walls, minimalist beige linen sofa, vast structural pillars, serene natural light streaming through large apertures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkcmEMActpyqvxUGebCnly43i4iytYKNRQFcziAm8NgnwoeIFwnIFXXbXijcDTH3j02wGHnYTki0j5WZ7nkNx8njpQYfWwnGpL8zZoaXyfpJUtb6elKxEwH8LeIww09SNOI7ALma-oAnimv1aPa3JJshigkdGnoOzwQzluMjtOEdph2ajFtkbMlhuIDTNBZKKo0VaDnt9wQAOTC0i3V2GaQyq8bm-Apx3en5RZiJQBicXvfoKj4TFMW9fh1ql4beRGgd-ea9L5BI0"/>
+</div>
+<div class="w-full md:w-5/12 flex flex-col justify-center">
+<h3 class="font-display text-3xl md:text-5xl text-on-surface mb-8">The Main Volume</h3>
+<p class="font-body text-lg text-on-surface-variant font-light leading-loose mb-12">
+                        A deliberate play of light and shadow across raw concrete and honed marble. The living space is designed not just to be inhabited, but to be experienced as a sculptural void.
+                    </p>
+<a class="inline-flex items-center gap-4 text-primary font-label uppercase tracking-widest text-sm hover:opacity-70 transition-opacity" href="#">
+                        View Details <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Gallery Item 2 (Asymmetric Reverse) -->
+<div class="flex flex-col md:flex-row-reverse items-center gap-16 md:gap-32 mb-48">
+<div class="w-full md:w-1/2">
+<img alt="Master Suite" class="w-full h-auto object-cover" data-alt="minimalist luxury master bedroom suite, neutral tones, sheer white curtains blowing in the breeze, low wooden bed frame, tranquil and airy aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7HdsEBfyXNQazRo4oL00G1xm1t4Fh3-klPiuexDaMeqQSge7_ntPrORx1RaliJKCu1uKm46aQw4cgWr0UUHK379Edy1pt_Sdp6Ky51nFb8n0PijYnkRhS6mXw0g3z05Ce9kI5jDGog_SwF4vOtZ-PzcCiaGyyB7gRjmiEbiz0QUb61rVKGeBawr0DzSneIo9eLvl2GFERrhw3x6MMjoB1FF6R6ZvqgKRU1f9RNZB4Z4CDEQiHy8HJbHsWquND0VP9y2E6lyx-1Xs"/>
+</div>
+<div class="w-full md:w-5/12 flex flex-col justify-center items-start md:items-end text-left md:text-right">
+<h3 class="font-display text-3xl md:text-5xl text-on-surface mb-8">The Sanctuary</h3>
+<p class="font-body text-lg text-on-surface-variant font-light leading-loose mb-12">
+                        Retreat into absolute silence. The master suite utilizes acoustic dampening architecture and a monochromatic palette to ensure rest is uncompromised.
+                    </p>
+</div>
+</div>
+<!-- Gallery Item 3 (Full Bleed-ish) -->
+<div class="w-full relative mt-32">
+<img alt="Terrace" class="w-full h-[716px] object-cover" data-alt="expansive modern outdoor terrace with a sleek infinity pool overlooking a sprawling white city skyline, minimalist loungers, golden hour lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABmYE6eNwOQcotfJjjzN2InCgV1jzY0aeKjxBAEdFwKs6UkkE7ZVjuvQmoIAr4aMJ5kzNh7GfOGEUngIn3VK_gwarBLcrfjW1ngIdxbtUIa0FvG6ZdNGzT5rluGlpaipknW8sCjIZZies2HSxtPJuthJUNuVuM5pJQmAEzxqnxKgShInTJDBn8Q1jAv0IamRsV5fOkr4epdWwTbmCPpkGrvjNtYOxdZhvi5x-9vtLfSVdxc6KC3_09Hkbx1X6ylHas5Oj_4ZY-lWc"/>
+<div class="absolute bottom-0 right-0 md:bottom-12 md:right-12 bg-surface-container-lowest p-8 md:p-16 max-w-md shadow-[0px_24px_48px_rgba(19,78,74,0.06)]">
+<h3 class="font-display text-2xl text-on-surface mb-4">The Horizon</h3>
+<p class="font-body text-base text-on-surface-variant font-light leading-relaxed">
+                        Unobstructed views stretching towards the Saronic Gulf. A private infinity edge blurring the line between architecture and nature.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#e9f6f3] dark:bg-[#00201d] w-full pt-32 pb-16 flex flex-col items-center gap-12 px-8">
+<div class="text-lg font-['Cinzel'] text-[#121e1c] dark:text-[#effcf9]">
+            The Grecian Gallery
+        </div>
+<div class="flex space-x-8">
+<a class="text-[#121e1c]/40 dark:text-[#effcf9]/40 hover:text-[#005c55] dark:hover:text-[#ffffff] transition-all font-['Josefin_Sans'] uppercase tracking-[0.2em] text-[10px]" href="#">Legal</a>
+<a class="text-[#121e1c]/40 dark:text-[#effcf9]/40 hover:text-[#005c55] dark:hover:text-[#ffffff] transition-all font-['Josefin_Sans'] uppercase tracking-[0.2em] text-[10px]" href="#">Privacy</a>
+<a class="text-[#121e1c]/40 dark:text-[#effcf9]/40 hover:text-[#005c55] dark:hover:text-[#ffffff] transition-all font-['Josefin_Sans'] uppercase tracking-[0.2em] text-[10px]" href="#">Press</a>
+<a class="text-[#121e1c]/40 dark:text-[#effcf9]/40 hover:text-[#005c55] dark:hover:text-[#ffffff] transition-all font-['Josefin_Sans'] uppercase tracking-[0.2em] text-[10px]" href="#">Contact</a>
+</div>
+<div class="font-['Josefin_Sans'] uppercase tracking-[0.2em] text-[10px] text-[#005c55] dark:text-[#5eead4]">
+            © 2024 The Grecian Gallery Monograph. All rights reserved.
+        </div>
+</footer>
+</body></html>

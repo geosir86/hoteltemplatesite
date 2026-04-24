@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+@layer base {
+  :root {
+    /* Athens / Default Theme */
+    --background: #FDFBF7;
+    --foreground: #1A1814;
+    --muted: #8A8175;
+    --dark: #0D0C0A;
+    --accent: #C5A880;
+  }
+
+  .theme-cyclades {
+    --background: #FFFFFF;
+    --foreground: #0A192F; /* Deep navy */
+    --muted: #64748B; /* Slate */
+    --dark: #0B1120;
+    --accent: #0284C7; /* Ocean blue */
+  }
+
+  .theme-ionian {
+    --background: #F8FAF7; /* Slight greenish off-white */
+    --foreground: #1E293B;
+    --muted: #475569;
+    --dark: #0F172A;
+    --accent: #15803D; /* Emerald green */
+  }
+
+  .theme-crete {
+    --background: #FDF8F5; /* Warm terracotta tint */
+    --foreground: #271C19; /* Deep brown */
+    --muted: #78716C; /* Stone */
+    --dark: #1C1917;
+    --accent: #C2410C; /* Terracotta orange */
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-serif-luxury {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 50s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .backdrop-blur-xl {
+    backdrop-filter: blur(20px);
+  }
+
+  .tracking-tighter {
+    letter-spacing: -0.04em;
+  }
+}
+
+/* Custom Scrollbar - Minimalist */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+}
+
+/* Hide cursor on small screens */
+/* (Removed media query that was hiding cursor globally) */
+
+/* Lenis Scroll Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}

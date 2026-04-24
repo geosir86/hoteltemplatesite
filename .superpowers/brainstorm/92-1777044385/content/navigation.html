@@ -1,0 +1,74 @@
+<h2>Πώς μεταβαίνουμε μεταξύ destinations;</h2>
+<p class="subtitle">Αυτό είναι το #1 differentiator για awwwards quality. Η μετάβαση πρέπει να είναι memorable.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="nav-morph" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a0a;padding:20px;min-height:200px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;position:relative;overflow:hidden;">
+      <!-- Animated morphing nav demo -->
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center;">
+        <div style="padding:6px 16px;border:1px solid #c9a84c;color:#c9a84c;font-size:10px;letter-spacing:0.2em;border-radius:2px;">ATHENS</div>
+        <div style="padding:6px 16px;border:1px solid #333;color:#555;font-size:10px;letter-spacing:0.2em;border-radius:2px;">CYCLADES</div>
+        <div style="padding:6px 16px;border:1px solid #333;color:#555;font-size:10px;letter-spacing:0.2em;border-radius:2px;">IONIAN</div>
+        <div style="padding:6px 16px;border:1px solid #333;color:#555;font-size:10px;letter-spacing:0.2em;border-radius:2px;">CRETE</div>
+        <div style="padding:6px 16px;border:1px solid #333;color:#555;font-size:10px;letter-spacing:0.2em;border-radius:2px;">NISI</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="color:#c9a84c;font-size:32px;font-weight:300;font-family:Georgia,serif;letter-spacing:-1px;">Athenian</div>
+        <div style="color:#c9a84c;font-size:32px;font-weight:300;font-family:Georgia,serif;letter-spacing:-1px;">Penthouse</div>
+      </div>
+      <div style="color:#555;font-size:10px;letter-spacing:0.15em;">← CLICK DESTINATION → FULL PAGE MORPHS</div>
+      <!-- Decorative lines -->
+      <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#c9a84c,transparent);opacity:0.3;"></div>
+    </div>
+    <div class="card-body">
+      <h3>A — Navbar Morph</h3>
+      <p>5 destinations στο navbar. Κλικ → <strong>ολόκληρη η σελίδα morphs</strong>: αλλάζουν χρώματα, fonts, εικόνες, personality. Καμία reload. Pure React state. Το πιο cinematic.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="nav-routes" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f5f3ef;padding:20px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="display:flex;gap:0;border-bottom:2px solid #1a1a1a;">
+        <div style="padding:8px 16px;background:#1a1a1a;color:#fff;font-size:10px;letter-spacing:0.15em;">ATHENS</div>
+        <div style="padding:8px 16px;color:#999;font-size:10px;letter-spacing:0.15em;border-right:1px solid #ddd;">CYCLADES</div>
+        <div style="padding:8px 16px;color:#999;font-size:10px;letter-spacing:0.15em;border-right:1px solid #ddd;">IONIAN</div>
+        <div style="padding:8px 16px;color:#999;font-size:10px;letter-spacing:0.15em;">···</div>
+      </div>
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;padding:20px 0;">
+        <div style="font-size:28px;font-weight:900;color:#1a1a1a;letter-spacing:-1px;">Athens</div>
+        <div style="font-size:11px;color:#888;letter-spacing:0.2em;">stayscape.gr/athens</div>
+        <div style="width:40px;height:1px;background:#ccc;"></div>
+        <div style="font-size:11px;color:#666;">Separate URL per destination</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Separate Routes</h3>
+      <p>Κάθε destination = δικό του URL (<code>/athens</code>, <code>/cyclades</code>). Tabs στο top. Shareable links, SEO-friendly, simpler code. Λιγότερο magical αλλά πιο πρακτικό.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="nav-landing" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0d0d0d;padding:20px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;gap:12px;">
+      <div style="color:#fff;font-size:10px;letter-spacing:0.3em;opacity:0.4;">STAYSCAPE GR</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;align-items:center;gap:12px;padding:10px;border:1px solid #222;border-radius:4px;">
+          <div style="width:50px;height:35px;background:#c9a84c;opacity:0.6;border-radius:2px;flex-shrink:0;"></div>
+          <div><div style="color:#fff;font-size:12px;">Athens Penthouse</div><div style="color:#555;font-size:10px;">from €890/night</div></div>
+          <div style="margin-left:auto;color:#c9a84c;font-size:16px;">→</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:10px;border:1px solid #222;border-radius:4px;">
+          <div style="width:50px;height:35px;background:#0e5fa8;opacity:0.6;border-radius:2px;flex-shrink:0;"></div>
+          <div><div style="color:#fff;font-size:12px;">Villa Aether</div><div style="color:#555;font-size:10px;">from €650/night</div></div>
+          <div style="margin-left:auto;color:#0e5fa8;font-size:16px;">→</div>
+        </div>
+      </div>
+      <div style="color:#555;font-size:10px;text-align:center;letter-spacing:0.1em;">LANDING → CLICK → DESTINATION PAGE</div>
+    </div>
+    <div class="card-body">
+      <h3>C — Landing Hub (Recommended)</h3>
+      <p>Homepage = stunning showcase με cards/list για όλα τα properties. Κλικ → dedicated destination page. <strong>Landing πουλάει και το service.</strong> Καλύτερο για B2B dual CTA.</p>
+    </div>
+  </div>
+
+</div>
