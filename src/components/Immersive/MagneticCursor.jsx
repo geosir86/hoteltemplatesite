@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, useSpring } from 'framer-motion';
 
 export default function MagneticCursor() {
@@ -50,3 +50,4 @@ export default function MagneticCursor() {
     </>
   );
 }
+

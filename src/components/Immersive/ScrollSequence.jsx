@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const scenes = [
@@ -108,4 +108,5 @@ export default function ScrollSequence({ image1, image2, image3, theme = {} }) {
     </section>
   );
 }
+
 

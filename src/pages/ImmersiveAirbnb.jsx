@@ -1,4 +1,3 @@
-import React from 'react';
 import SmoothScroll from '../components/SmoothScroll';
 import HeroCinematic from '../components/Immersive/HeroCinematic';
 import ScrollSequence from '../components/Immersive/ScrollSequence';
@@ -61,3 +60,4 @@ export default function ImmersiveAirbnb() {
     </SmoothScroll>
   );
 }
+

@@ -1,4 +1,4 @@
-import { Wifi, Wind, Coffee, Tv, Car, Waves, Sun, Anchor, Umbrella, Mountain, Shield, Star } from 'lucide-react';
+﻿import { Wifi, Wind, Coffee, Tv, Car, Waves, Sun, Anchor, Umbrella, Mountain, Shield } from 'lucide-react';
 
 export const DESTINATIONS = {
   athens: {
@@ -298,3 +298,4 @@ export const DESTINATIONS = {
 };
 
 export const DESTINATION_LIST = ['athens', 'cyclades', 'ionian', 'crete', 'nisi'];
+

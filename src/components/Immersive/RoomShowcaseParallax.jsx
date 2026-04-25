@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function RoomShowcaseParallax({ title, description, imageUrl, reverse = false, index = 0, theme = {} }) {
@@ -88,4 +88,5 @@ export default function RoomShowcaseParallax({ title, description, imageUrl, rev
     </section>
   );
 }
+
 

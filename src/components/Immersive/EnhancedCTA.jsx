@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+﻿import { Fragment, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useScroll, useTransform } from 'framer-motion';
 
 const copy = {
@@ -43,8 +43,8 @@ export default function EnhancedCTA({ lang = 'en', theme = {} }) {
   const accentColor = theme.primary || '#ffffff';
 
   return (
-    <footer 
-      ref={ref} 
+    <footer
+      ref={ref}
       className="relative min-h-[80vh] md:min-h-screen flex flex-col items-center justify-center overflow-hidden border-t border-white/[0.07]"
       style={{ backgroundColor: theme.secondary || '#000000' }}
     >
@@ -54,7 +54,7 @@ export default function EnhancedCTA({ lang = 'en', theme = {} }) {
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
         style={{ y: bgTextY }}
       >
-        <span 
+        <span
           className="text-[16vw] md:text-[10vw] font-bold text-white/[0.02] tracking-tighter whitespace-nowrap leading-none"
           style={headingStyle}
         >
@@ -62,8 +62,8 @@ export default function EnhancedCTA({ lang = 'en', theme = {} }) {
         </span>
       </motion.div>
 
-      <div 
-        className="absolute inset-0 pointer-events-none" 
+      <div
+        className="absolute inset-0 pointer-events-none"
         style={{ background: `radial-gradient(ellipse at center, ${accentColor}08 0%, transparent 65%)` }}
       />
 
@@ -108,11 +108,11 @@ export default function EnhancedCTA({ lang = 'en', theme = {} }) {
             className="relative group cursor-pointer md:cursor-none"
             data-magnetic
           >
-            <div 
-              className="absolute inset-0 rounded-full border scale-125 opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-700" 
+            <div
+              className="absolute inset-0 rounded-full border scale-125 opacity-0 group-hover:opacity-100 group-hover:scale-150 transition-all duration-700"
               style={{ borderColor: `${accentColor}33` }}
             />
-            <button 
+            <button
               className="relative px-10 md:px-14 py-5 md:py-7 bg-white text-black font-semibold text-sm md:text-base uppercase tracking-[0.2em] rounded-full overflow-hidden"
               style={bodyStyle}
             >
@@ -131,21 +131,21 @@ export default function EnhancedCTA({ lang = 'en', theme = {} }) {
           className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mt-2"
         >
           {c.locs.map((loc, i) => (
-            <React.Fragment key={loc}>
-              <span 
-                className="text-[10px] uppercase tracking-[0.2em] text-white/25 hover:text-white/60 transition-colors cursor-pointer" 
+            <Fragment key={loc}>
+              <span
+                className="text-[10px] uppercase tracking-[0.2em] text-white/25 hover:text-white/60 transition-colors cursor-pointer"
                 data-magnetic
                 style={bodyStyle}
               >
                 {loc}
               </span>
               {i < c.locs.length - 1 && <span className="hidden sm:block w-px h-3 bg-white/10" />}
-            </React.Fragment>
+            </Fragment>
           ))}
         </motion.div>
       </div>
 
-      <div 
+      <div
         className="absolute bottom-6 left-0 right-0 flex justify-between px-6 md:px-16 text-[9px] uppercase tracking-[0.2em] text-white/15"
         style={bodyStyle}
       >
@@ -155,4 +155,3 @@ export default function EnhancedCTA({ lang = 'en', theme = {} }) {
     </footer>
   );
 }
-

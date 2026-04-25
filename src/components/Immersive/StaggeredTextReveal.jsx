@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 export default function StaggeredTextReveal({ 
@@ -12,12 +12,7 @@ export default function StaggeredTextReveal({
   const ref = useRef(null);
   const isInView = useInView(ref, { once, margin: "-10% 0px" });
 
-  let items = [];
-  if (splitBy === 'word') {
-    items = text.split(' ');
-  } else {
-    items = text.split('');
-  }
+  const items = splitBy === 'word' ? text.split(' ') : text.split('');
 
   const container = {
     hidden: { opacity: 0 },
@@ -69,3 +64,4 @@ export default function StaggeredTextReveal({
     </motion.div>
   );
 }
+

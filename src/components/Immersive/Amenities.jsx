@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Wifi, Coffee, Wind, Tv, Shield, Key, Car, Bath, Waves, Utensils, Leaf, Star } from 'lucide-react';
 
@@ -93,4 +92,5 @@ export default function Amenities({ amenities, theme = {} }) {
     </section>
   );
 }
+
 

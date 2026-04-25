@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { 
   Phone, 
@@ -14,10 +14,7 @@ import {
   Tv,
   Car,
   Waves,
-  Heart,
   Home,
-  ShieldCheck,
-  UserCheck,
   X,
   ChevronLeft,
   ChevronRight,
@@ -496,3 +493,4 @@ export default function App() {
     </div>
   );
 }
+

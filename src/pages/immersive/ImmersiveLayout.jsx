@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import SmoothScroll from '../../components/SmoothScroll';
 import HeroCinematic from '../../components/Immersive/HeroCinematic';
@@ -131,4 +131,5 @@ export default function ImmersiveLayout({
     </SmoothScroll>
   );
 }
+
 

@@ -17,19 +17,19 @@ export default function DemoSwitcher() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-3 left-1/2 -translate-x-1/2 z-[100] pointer-events-auto"
-      style={{ maxWidth: 'calc(100vw - 1rem)' }}
+      className="fixed top-3 left-2 right-2 md:left-1/2 md:right-auto md:-translate-x-1/2 z-[100] pointer-events-auto"
     >
-      <div className="bg-foreground/95 backdrop-blur-xl rounded-full p-1 flex items-center shadow-2xl border border-white/10 overflow-x-auto no-scrollbar">
+      <div className="w-full md:w-auto bg-foreground/95 backdrop-blur-xl rounded-full p-1 flex items-center shadow-2xl border border-white/10 overflow-hidden">
 
-        {/* Label — desktop only */}
+        {/* Label - desktop only */}
         <div className="hidden md:flex pl-4 pr-3 py-2 items-center gap-2 border-r border-white/10 shrink-0">
           <LayoutGrid size={14} className="text-accent" />
           <span className="text-[10px] font-bold tracking-widest text-white/50 uppercase">Demo</span>
         </div>
 
         {/* Buttons */}
-        <div className="flex px-0.5 shrink-0">
+        <div className="flex-1 min-w-0 overflow-x-auto no-scrollbar">
+          <div className="flex px-0.5 shrink-0">
           {versions.map((v) => (
             <NavLink
               key={v.id}
@@ -53,6 +53,7 @@ export default function DemoSwitcher() {
               )}
             </NavLink>
           ))}
+          </div>
         </div>
       </div>
     </motion.div>

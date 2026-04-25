@@ -2,8 +2,6 @@ import { motion, useScroll, useMotionValueEvent, useReducedMotion } from 'framer
 import { Star } from 'lucide-react';
 import { useState } from 'react';
 
-const EASE = [0.23, 1, 0.32, 1];
-
 export default function StickyBookingBar({ title, rating, reviewCount, price, currency, accentColor, fgColor, bgColor }) {
   const [visible, setVisible] = useState(false);
   const { scrollY } = useScroll();

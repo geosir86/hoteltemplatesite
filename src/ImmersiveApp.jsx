@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ImmersiveSwitcher from './components/Immersive/ImmersiveSwitcher';
 import ImmersiveAthens from './pages/immersive/ImmersiveAthens';
 import ImmersiveCyclades from './pages/immersive/ImmersiveCyclades';
@@ -6,8 +6,7 @@ import ImmersiveIonian from './pages/immersive/ImmersiveIonian';
 import ImmersiveCrete from './pages/immersive/ImmersiveCrete';
 import ImmersiveNisi from './pages/immersive/ImmersiveNisi';
 import { AnimatePresence, motion } from 'framer-motion';
-
-export const LanguageContext = React.createContext('en');
+import { LanguageContext } from './context/LanguageContext';
 
 export default function ImmersiveApp() {
   const [activeRegion, setActiveRegion] = useState('athens');
@@ -49,3 +48,4 @@ export default function ImmersiveApp() {
     </LanguageContext.Provider>
   );
 }
+

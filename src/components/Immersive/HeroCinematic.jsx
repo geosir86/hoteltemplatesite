@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const container = {
@@ -124,4 +124,5 @@ export default function HeroCinematic({ title, subtitle, imageUrl, theme = {} })
     </section>
   );
 }
+
 

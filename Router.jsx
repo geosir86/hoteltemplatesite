@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import App from './clone.jsx';
+import { useState, useEffect } from 'react';
+import App from './src/App.jsx';
 import ImmersiveApp from './src/ImmersiveApp.jsx';
 
 export default function Router() {
@@ -31,3 +31,4 @@ export default function Router() {
     </>
   );
 }
+

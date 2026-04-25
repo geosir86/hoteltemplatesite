@@ -1,4 +1,3 @@
-import React from 'react';
 import ImmersiveLayout from './ImmersiveLayout';
 import { IMMERSIVE_DATA } from '../../data/immersiveContent';
 
@@ -20,5 +19,6 @@ export default function ImmersiveCrete({ lang = 'en' }) {
     />
   );
 }
+
 
 
