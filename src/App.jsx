@@ -13,7 +13,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      {import.meta.env.DEV && <DemoSwitcher />}
+      <DemoSwitcher />
       <Routes>
         <Route path="/" element={<Landing lang={lang} setLang={setLang} />} />
         <Route path="/athens" element={<Athens lang={lang} setLang={setLang} />} />
