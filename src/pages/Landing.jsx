@@ -42,30 +42,16 @@ const COPY = {
 
 function HeroLine({ text, delay }) {
   const reduced = useReducedMotion();
-  if (reduced) {
-    return (
-      <div className="overflow-hidden">
-        <span
-          className="block text-6xl md:text-8xl lg:text-[9rem] font-light tracking-tighter leading-[0.92] text-white"
-          style={{ fontFamily: "'Cormorant Garamond', serif" }}
-        >
-          {text}
-        </span>
-      </div>
-    );
-  }
   return (
-    <div className="overflow-hidden">
-      <motion.span
-        className="block text-6xl md:text-8xl lg:text-[9rem] font-light tracking-tighter leading-[0.92] text-white"
-        style={{ fontFamily: "'Cormorant Garamond', serif" }}
-        initial={{ y: '110%' }}
-        animate={{ y: 0 }}
-        transition={{ duration: 1.2, ease: EASE, delay }}
-      >
-        {text}
-      </motion.span>
-    </div>
+    <motion.span
+      className="block text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-light tracking-tighter leading-[0.92] text-white"
+      style={{ fontFamily: "'Cormorant Garamond', serif" }}
+      initial={reduced ? false : { opacity: 0, y: 36 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={reduced ? { duration: 0 } : { duration: 1.1, ease: EASE, delay }}
+    >
+      {text}
+    </motion.span>
   );
 }
 
@@ -169,7 +155,7 @@ export default function Landing({ lang = 'en', setLang }) {
           style={{ background: 'radial-gradient(ellipse at 70% 40%, rgba(201,168,76,0.06) 0%, transparent 60%)' }}
         />
 
-        <div className="relative z-10 max-w-[1280px] mx-auto w-full pt-24">
+        <div className="relative z-10 max-w-[1280px] mx-auto w-full pt-20 md:pt-24">
           <motion.div
             initial={reduced ? {} : { opacity: 0 }}
             animate={reduced ? {} : { opacity: 1 }}
