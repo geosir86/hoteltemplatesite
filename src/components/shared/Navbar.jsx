@@ -44,20 +44,20 @@ export default function Navbar({ theme = null, lang, setLang, isLanding = false 
             target="_blank" rel="noopener noreferrer"
             data-hover
             whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
-            className="text-xs font-bold tracking-widest px-6 py-3 rounded-full border cursor-pointer transition-colors duration-300"
+            className="text-[10px] md:text-xs font-bold tracking-widest px-4 md:px-6 py-2.5 md:py-3 rounded-full border cursor-pointer transition-colors duration-300 whitespace-nowrap"
             style={{ borderColor: accentColor, color: accentColor }}
           >
-            GET YOUR SITE →
+            <span className="hidden sm:inline">GET YOUR SITE </span>→
           </motion.a>
         ) : (
           <Link to="/">
             <motion.button
               data-hover
               whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
-              className="text-xs font-bold tracking-widest px-6 py-3 rounded-full cursor-pointer transition-colors duration-300"
+              className="text-[10px] md:text-xs font-bold tracking-widest px-4 md:px-6 py-2.5 md:py-3 rounded-full cursor-pointer transition-colors duration-300 whitespace-nowrap"
               style={{ backgroundColor: accentColor, color: theme?.bg || '#0A0A0A' }}
             >
-              ← ALL PROPERTIES
+              <span className="hidden sm:inline">← </span>ALL
             </motion.button>
           </Link>
         )}
