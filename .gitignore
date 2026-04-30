@@ -6,6 +6,9 @@ _backup_src_2026-04-24/
 .claude/
 .vercel/
 .DS_Store
+vite-dev*.log
 *.local
 .env*
 !.env.example
+
+.vercel

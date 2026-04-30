@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Home } from 'lucide-react';
 
 const versions = [
   { id: 'athens',   en: 'Athens',   gr: 'Αθήνα' },
@@ -7,9 +7,14 @@ const versions = [
   { id: 'ionian',   en: 'Ionian',   gr: 'Ιόνιο' },
   { id: 'crete',    en: 'Crete',    gr: 'Κρήτη' },
   { id: 'nisi',     en: 'Nisi',     gr: 'Νησί' },
+  { id: 'greece',   en: 'Greece',   gr: 'Ελλάδα' },
 ];
 
 export default function ImmersiveSwitcher({ activeRegion, setActiveRegion, lang, setLang }) {
+  const goHome = () => {
+    window.location.hash = '#stayscape';
+  };
+
   return (
     <motion.div
       initial={{ y: -80, opacity: 0 }}
@@ -19,10 +24,16 @@ export default function ImmersiveSwitcher({ activeRegion, setActiveRegion, lang,
     >
       <div className="relative w-full md:w-auto bg-black/60 backdrop-blur-2xl rounded-full p-1.5 flex items-center gap-0.5 border border-white/[0.12] shadow-[0_8px_40px_rgba(0,0,0,0.6)] overflow-hidden">
 
-        {/* Brand icon */}
-        <div className="hidden sm:flex pl-3 pr-2 py-2 items-center gap-1.5 border-r border-white/[0.1]">
-          <Sparkles size={11} className="text-white/50" />
-        </div>
+        {/* Home/Arxi Link */}
+        <button
+          onClick={goHome}
+          className="flex pl-4 pr-3 py-2 items-center gap-2 border-r border-white/[0.1] hover:bg-white/10 transition-colors rounded-l-full"
+        >
+          <Home size={14} className="text-white/70" />
+          <span className="text-[10px] font-bold tracking-widest text-white/50 uppercase">
+            {lang === 'gr' ? 'ΑΡΧΗ' : 'HOME'}
+          </span>
+        </button>
 
         {/* Region tabs - scrollable on mobile */}
         <div className="flex-1 min-w-0 flex items-center overflow-x-auto no-scrollbar">

@@ -5,11 +5,17 @@ import ImmersiveCyclades from './pages/immersive/ImmersiveCyclades';
 import ImmersiveIonian from './pages/immersive/ImmersiveIonian';
 import ImmersiveCrete from './pages/immersive/ImmersiveCrete';
 import ImmersiveNisi from './pages/immersive/ImmersiveNisi';
+import ImmersiveGreece from './pages/immersive/ImmersiveGreece';
 import { AnimatePresence, motion } from 'framer-motion';
 import { LanguageContext } from './context/LanguageContext';
 
 export default function ImmersiveApp() {
-  const [activeRegion, setActiveRegion] = useState('athens');
+  const [activeRegion, setActiveRegion] = useState(() => {
+    const path = window.location.pathname.replace('/', '');
+    return path && ['athens', 'cyclades', 'ionian', 'crete', 'nisi', 'greece'].includes(path) 
+      ? path 
+      : 'athens';
+  });
   const [lang, setLang] = useState('en');
 
   const renderRegion = () => {
@@ -19,13 +25,14 @@ export default function ImmersiveApp() {
       case 'ionian':   return <ImmersiveIonian key="ionian" lang={lang} />;
       case 'crete':    return <ImmersiveCrete key="crete" lang={lang} />;
       case 'nisi':     return <ImmersiveNisi key="nisi" lang={lang} />;
+      case 'greece':   return <ImmersiveGreece key="greece" lang={lang} />;
       default:         return <ImmersiveAthens key="athens" lang={lang} />;
     }
   };
 
   return (
     <LanguageContext.Provider value={lang}>
-      <div className="relative bg-black min-h-screen">
+      <div className={`relative min-h-screen theme-${activeRegion}`}>
         <ImmersiveSwitcher
           activeRegion={activeRegion}
           setActiveRegion={setActiveRegion}
@@ -33,7 +40,7 @@ export default function ImmersiveApp() {
           setLang={setLang}
         />
 
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           <motion.div
             key={activeRegion}
             initial={{ opacity: 0 }}

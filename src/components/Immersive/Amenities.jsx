@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Wifi, Coffee, Wind, Tv, Shield, Key, Car, Bath, Waves, Utensils, Leaf, Star } from 'lucide-react';
+import { Wifi, Coffee, Wind, Tv, Shield, Key, Car, Bath, Waves, Utensils, Leaf, Star, Mountain, Flame } from 'lucide-react';
 
 const iconMap = {
   wifi: Wifi,
@@ -14,7 +14,9 @@ const iconMap = {
   pool: Waves,
   kitchen: Utensils,
   garden: Leaf,
-  premium: Star
+  premium: Star,
+  mountain: Mountain,
+  fireplace: Flame
 };
 
 const containerVariants = {

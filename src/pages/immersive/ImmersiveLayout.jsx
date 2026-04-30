@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import SmoothScroll from '../../components/SmoothScroll';
 import HeroCinematic from '../../components/Immersive/HeroCinematic';
+import SpatialScrollShowcase from '../../components/Immersive/SpatialScrollShowcase';
 import ScrollSequence from '../../components/Immersive/ScrollSequence';
 import RoomShowcaseParallax from '../../components/Immersive/RoomShowcaseParallax';
 import Amenities from '../../components/Immersive/Amenities';
@@ -102,6 +103,13 @@ export default function ImmersiveLayout({
         <IntroSection introText={introText} theme={theme} />
 
         <div className="h-px bg-white/[0.07] mx-6 md:mx-20" />
+
+        <SpatialScrollShowcase
+          heroImage={heroImage}
+          sequenceImages={sequenceImages}
+          rooms={rooms}
+          theme={theme}
+        />
 
         {sequenceImages && sequenceImages.length >= 2 && (
           <ScrollSequence

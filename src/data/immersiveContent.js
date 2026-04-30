@@ -230,74 +230,92 @@ export const IMMERSIVE_DATA = {
   crete: {
     theme: {
       id: 'crete',
-      primary: '#D4892A', // Ochre (lighter for better readability)
-      secondary: '#1A0F08', // Deep Brown-Black
-      accent: '#F2E8D9', // Parchment
-      fontHeading: "'Libre Baskerville', serif",
-      fontBody: "'Source Sans 3', sans-serif",
-      style: 'heritage-warmth'
+      primary: '#4B4B2D', // Olive Green
+      secondary: '#F1EDE1', // Warm Cream
+      accent: '#8B4513', // Saddle Brown
+      fontHeading: "'Playfair Display', serif",
+      fontBody: "'Montserrat', sans-serif",
+      style: 'tenuta-rustic'
     },
     heroImage: '/assets/crete_hero.png',
-    sequenceImages: [
-      '/assets/greek_luxury_marble_bathroom_1776942694181.png',
-      '/assets/greek_luxury_interior_master_bedroom_1776942408192.png',
-      '/assets/greek_luxury_terrace_sunset_view_1776942676038.png',
-    ],
+    interiorImage: '/assets/crete_interior.png',
+    aerialImage: '/assets/crete_aerial.png',
+    details: {
+      location: 'Apokoronas, Chania',
+      land: '40,000 m²',
+      vibe: 'Rustic Estate'
+    },
     content: {
       en: {
-        title: 'Villa Minos',
-        subtitle: 'Timeless Cretan Luxury',
-        introText: 'Where rugged mountains meet the Libyan Sea. A heritage estate reimagined for modern luxury, offering an authentic Cretan experience.',
+        title: 'Creta Heritage',
+        subtitle: 'An Organic Heritage Estate',
+        introText: 'Nestled between the White Mountains and the Libyan Sea, Creta Heritage is an century-old estate reimagined as a sanctuary of slow living.',
+        philosophy: 'Our philosophy is rooted in the earth. Here, luxury is defined by the rustle of olive leaves and the taste of sun-warmed stone.',
+        sections: [
+          {
+            title: 'The Stone House',
+            text: 'Original Cretan architecture restored with minimalist Italian precision.',
+            image: '/assets/crete_interior.png'
+          },
+          {
+            title: 'The Olive Groves',
+            text: '40 acres of organic olive trees that produce our signature liquid gold.',
+            image: '/assets/crete_aerial.png'
+          }
+        ],
         rooms: [
           {
-            title: 'The Heritage Suite',
-            description: 'Featuring exposed wooden beams, terracotta floors, and a private balcony overlooking the vast olive groves and the sea beyond.',
-            imageUrl: '/assets/crete_bed.png'
+            title: 'Stone Master Suite',
+            description: 'Exposed stone walls and raw linen textures create a grounding atmosphere.',
+            imageUrl: '/assets/crete_interior.png'
           },
           {
-            title: 'The Courtyard Pool',
-            description: 'An enclosed stone courtyard provides total privacy around the heated pool, shaded by a century-old carob tree.',
-            imageUrl: '/assets/crete_living.png'
-          },
-          {
-            title: 'The Outdoor Kitchen',
-            description: 'A fully equipped summer kitchen with a traditional wood-fired oven. Perfect for slow-cooked Cretan feasts under the stars.',
-            imageUrl: '/assets/greek_luxury_terrace_sunset_view_1776942676038.png'
+            title: 'The Garden Studio',
+            description: 'Nestled within the olive groves, offering ultimate privacy and connection to nature.',
+            imageUrl: '/assets/crete_hero.png'
           }
         ],
         amenities: [
-          { icon: 'wifi', label: 'High Speed WiFi' },
-          { icon: 'tv', label: 'Smart TV' },
-          { icon: 'coffee', label: 'Local Produce' },
-          { icon: 'shield', label: 'Secure Estate' }
+          { icon: 'leaf', label: 'Organic Estate', desc: '40 acres of private olive groves and gardens.' },
+          { icon: 'waves', label: 'Stone Pool', desc: 'Hand-carved infinity pool with mountain views.' },
+          { icon: 'wind', label: 'Sea Breeze', desc: 'Naturally cooled by the Libyan Sea winds.' },
+          { icon: 'shield', label: 'Total Privacy', desc: 'A gated estate with no neighbors in sight.' }
         ]
       },
       gr: {
-        title: 'Βίλα Μίνως',
-        subtitle: 'Διαχρονική Κρητική Πολυτέλεια',
-        introText: 'Εκεί όπου τα τραχιά βουνά συναντούν το Λιβυκό Πέλαγος. Ένα ιστορικό κτήμα επανασχεδιασμένο για μοντέρνα πολυτέλεια, προσφέροντας μια αυθεντική κρητική εμπειρία.',
+        title: 'Creta Heritage',
+        subtitle: 'Ένα Ιστορικό Βιολογικό Κτήμα',
+        introText: 'Ανάμεσα στα Λευκά Όρη και το Λιβυκό Πέλαγος, το Creta Heritage είναι ένα κτήμα αιώνων που αναγεννήθηκε ως καταφύγιο αργής διαβίωσης.',
+        philosophy: 'Η φιλοσοφία μας ριζώνει στη γη. Εδώ, η πολυτέλεια ορίζεται από το θρόισμα των φύλλων της ελιάς και τη ζεστασιά της πέτρας.',
+        sections: [
+          {
+            title: 'Το Πέτρινο Σπίτι',
+            text: 'Αυθεντική κρητική αρχιτεκτονική αποκατεστημένη με ιταλική μινιμαλιστική ακρίβεια.',
+            image: '/assets/crete_interior.png'
+          },
+          {
+            title: 'Οι Ελαιώνες',
+            text: '160 στρέμματα βιολογικών ελαιόδεντρων που παράγουν τον δικό μας υγρό χρυσό.',
+            image: '/assets/crete_aerial.png'
+          }
+        ],
         rooms: [
           {
-            title: 'Η Ιστορική Σουίτα',
-            description: 'Με εμφανή ξύλινα δοκάρια, δάπεδα από τερακότα και ιδιωτικό μπαλκόνι με θέα στους απέραντους ελαιώνες και τη θάλασσα.',
-            imageUrl: '/assets/crete_bed.png'
+            title: 'Πέτρινη Κύρια Σουίτα',
+            description: 'Οι εκτεθειμένοι πέτρινοι τοίχοι και οι υφές από λινό δημιουργούν μια ατμόσφαιρα γαλήνης.',
+            imageUrl: '/assets/crete_interior.png'
           },
           {
-            title: 'Η Πισίνα της Αυλής',
-            description: 'Μια κλειστή πέτρινη αυλή παρέχει απόλυτη ιδιωτικότητα γύρω από τη θερμαινόμενη πισίνα, κάτω από τη σκιά μιας χαρουπιάς εκατό ετών.',
-            imageUrl: '/assets/crete_living.png'
-          },
-          {
-            title: 'Η Εξωτερική Κουζίνα',
-            description: 'Μια πλήρως εξοπλισμένη καλοκαιρινή κουζίνα με παραδοσιακό ξυλόφουρνο. Ιδανική για σιγομαγειρεμένα κρητικά γεύματα κάτω από τα αστέρια.',
-            imageUrl: '/assets/greek_luxury_terrace_sunset_view_1776942676038.png'
+            title: 'Το Στούντιο του Κήπου',
+            description: 'Μέσα στους ελαιώνες, προσφέροντας απόλυτη ιδιωτικότητα και σύνδεση με τη φύση.',
+            imageUrl: '/assets/crete_hero.png'
           }
         ],
         amenities: [
-          { icon: 'wifi', label: 'Γρήγορο WiFi' },
-          { icon: 'tv', label: 'Smart TV' },
-          { icon: 'coffee', label: 'Τοπικά Προϊόντα' },
-          { icon: 'shield', label: 'Ασφαλές Κτήμα' }
+          { icon: 'leaf', label: 'Βιολογικό Κτήμα', desc: '160 στρέμματα ιδιωτικών ελαιώνων και κήπων.' },
+          { icon: 'waves', label: 'Πέτρινη Πισίνα', desc: 'Χειροποίητη πισίνα υπερχείλισης με θέα στο βουνό.' },
+          { icon: 'wind', label: 'Θαλασσινή Αύρα', desc: 'Φυσική ψύξη από τους ανέμους του Λιβυκού Πελάγους.' },
+          { icon: 'shield', label: 'Απόλυτη Ιδιωτικότητα', desc: 'Περιφραγμένο κτήμα χωρίς γείτονες σε κοντινή απόσταση.' }
         ]
       }
     }
@@ -382,6 +400,100 @@ export const IMMERSIVE_DATA = {
           { icon: 'premium', label: 'Superhost' },
           { icon: 'tv', label: 'Χωρίς TV' },
           { icon: 'garden', label: 'Βιολογικός Κήπος' },
+        ]
+      }
+    }
+  },
+  santorini: {
+    theme: {
+      id: 'santorini',
+      primary: '#1A1A1A',
+      secondary: '#FCFAF7',
+      accent: '#D1B07C',
+      fontHeading: "'Cormorant Garamond', serif",
+      fontBody: "'Inter', sans-serif",
+      style: 'hutstuf-premium'
+    },
+    heroImage: '/assets/santorini_hero_day.png',
+    heroImageNight: '/assets/santorini_hero_night.png',
+    heroVideo: '/assets/santorini_hero.mp4',
+    volcanoImage: '/assets/santorini_volcano.png',
+    volcanoSunset: '/assets/santorini_volcano_sunset.png',
+    sequenceImages: [
+      '/assets/santorini_interior.png',
+      '/assets/santorini_terrace.png',
+      '/assets/santorini_volcano.png',
+      '/assets/santorini_hero_night.png',
+    ],
+    details: {
+      capacity: '4 Guests',
+      size: '140 m²',
+      beds: '2 Master Suites',
+      baths: '2 En-suite'
+    },
+    content: {
+      en: {
+        title: 'The Santorini Estate',
+        subtitle: 'Sculpted Solitude Above the Aegean',
+        introText: 'A geometric sanctuary carved into the volcanic cliffs of Oia. Where organic white stone meets the infinite blue of the Aegean summer.',
+        volcanoTitle: 'Facing the Fire',
+        volcanoText: 'The estate is positioned at the highest point of the caldera, offering an unobstructed view of the volcanic Nea Kameni. A reminder of the raw power that shaped this beauty.',
+        rooms: [
+          {
+            title: 'The Caldera Suite',
+            description: 'Minimalist Cycladic architecture reimagined. Curved walls, natural light, and a window that frames the sea like living art.',
+            imageUrl: '/assets/santorini_interior.png'
+          },
+          {
+            title: 'The Infinite Terrace',
+            description: 'Suspended between sky and sea. Featuring a private plunge pool and panoramic views of the Santorini sunset.',
+            imageUrl: '/assets/santorini_terrace.png'
+          },
+          {
+            title: 'Aegean Twilight',
+            description: 'As the sun dips below the horizon, the estate transforms into a softly glowing sculpture against the indigo sky.',
+            imageUrl: '/assets/santorini_hero_night.png'
+          }
+        ],
+        amenities: [
+          { icon: 'waves', label: 'Infinity Pool', desc: 'Temperature-controlled with caldera views.' },
+          { icon: 'sun', label: 'Sunset Deck', desc: 'Positioned for the ultimate golden hour.' },
+          { icon: 'wine', label: 'Local Cellar', desc: 'Curated selection of Assyrtiko wines.' },
+          { icon: 'shield', label: 'Full Privacy', desc: 'Discrete access and total seclusion.' },
+          { icon: 'wifi', label: 'Starlink', desc: 'High-speed connectivity everywhere.' },
+          { icon: 'key', label: 'Concierge', desc: '24/7 dedicated estate manager.' },
+        ]
+      },
+      gr: {
+        title: 'Το Κτήμα της Σαντορίνης',
+        subtitle: 'Σμιλεμένη Μοναξιά πάνω από το Αιγαίο',
+        introText: 'Ένα γεωμετρικό καταφύγιο λαξευμένο στους ηφαιστειογενείς βράχους της Οίας. Εκεί όπου η λευκή πέτρα συναντά το απέραντο γαλάζιο του ελληνικού καλοκαιριού.',
+        volcanoTitle: 'Απέναντι στο Ηφαίστειο',
+        volcanoText: 'Το κτήμα βρίσκεται στο υψηλότερο σημείο της καλντέρας, προσφέροντας ανεμπόδιστη θέα στη Νέα Καμένη. Μια υπενθύμιση της δύναμης που δημιούργησε αυτή την ομορφιά.',
+        rooms: [
+          {
+            title: 'Η Σουίτα της Καλντέρας',
+            description: 'Η μινιμαλιστική κυκλαδίτικη αρχιτεκτονική σε νέα μορφή. Καμπύλοι τοίχοι και φως που αναδεικνύει το Αιγαίο.',
+            imageUrl: '/assets/santorini_interior.png'
+          },
+          {
+            title: 'Η Απέραντη Βεράντα',
+            description: 'Αιωρούμενη μεταξύ ουρανού και θάλασσας. Με ιδιωτική πισίνα και πανοραμική θέα στο ηλιοβασίλεμα.',
+            imageUrl: '/assets/santorini_terrace.png'
+          },
+          {
+            title: 'Λυκόφως στο Αιγαίο',
+            description: 'Καθώς ο ήλιος δύει, το κτήμα μεταμορφώνεται σε ένα λαμπερό γλυπτό πάνω στον νυχτερινό ουρανό.',
+            imageUrl: '/assets/santorini_hero_night.png'
+          }
+        ],
+        amenities: [
+          { icon: 'waves', label: 'Infinity Pool', desc: 'Θερμαινόμενη με θέα στην καλντέρα.' },
+          { icon: 'sun', label: 'Sunset Deck', desc: 'Το ιδανικό σημείο για το ηλιοβασίλεμα.' },
+          { icon: 'wine', label: 'Κελάρι', desc: 'Επιλεγμένα κρασιά Ασύρτικο.' },
+          { icon: 'shield', label: 'Ιδιωτικότητα', desc: 'Απόλυτη απομόνωση και ασφάλεια.' },
+          { icon: 'wifi', label: 'Starlink', desc: 'Γρήγορη σύνδεση σε όλους τους χώρους.' },
+          { icon: 'key', label: 'Concierge', desc: '24/7 προσωπικός βοηθός.' },
         ]
       }
     }

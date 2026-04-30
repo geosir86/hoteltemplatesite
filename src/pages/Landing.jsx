@@ -1,137 +1,251 @@
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useReducedMotion } from 'framer-motion';
-import Cursor from '../components/shared/Cursor';
-import Navbar from '../components/shared/Navbar';
-import SectionReveal from '../components/shared/SectionReveal';
-import { DESTINATIONS, DESTINATION_LIST } from '../data/destinations';
+import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, ArrowUpRight, Menu, X, Globe, Play } from 'lucide-react';
+import { DESTINATIONS, DESTINATION_LIST, AIRBNB_PROPERTY } from '../data/destinations';
 
 const EASE = [0.23, 1, 0.32, 1];
-const LANDING_ACCENT = '#C9A84C';
+const GOLD = '#C9A84C';
+
+/* ── Nav Links ── */
+const NAV_LINKS = {
+  en: [
+    { label: 'Our Work', href: '#work' },
+    { label: 'How It Works', href: '#how' },
+    { label: 'Contact', href: '#contact' },
+  ],
+  gr: [
+    { label: 'Η Δουλειά μας', href: '#work' },
+    { label: 'Πώς λειτουργεί', href: '#how' },
+    { label: 'Επικοινωνία', href: '#contact' },
+  ],
+};
+
+/* ── Portfolio data: what we build ── */
+const PROJECTS = [
+  ...DESTINATION_LIST.map((id) => ({ id, ...DESTINATIONS[id] })),
+  { ...AIRBNB_PROPERTY },
+];
 
 const COPY = {
   en: {
-    heroLine1: 'Where Greek',
-    heroLine2: 'Luxury Lives',
-    heroLine3: 'Online.',
-    heroSub: 'Five destinations. Five personalities. One standard.',
-    ourWork: 'Our Work',
-    b2bHeadline: 'Want a site like this for your property?',
-    b2bSub: 'We design and build world-class luxury listing pages for Greek hospitality businesses — Airbnb hosts, boutique hotels, and private villas across Greece.',
-    b2bCta1: 'WhatsApp Us →',
-    b2bCta2: 'See how it works',
-    social: 'Trusted by hosts across Athens · Cyclades · Ionian · Crete',
-    fromLabel: 'from',
-    night: '/ night',
+    eyebrow: 'Digital Studio — Greece',
+    h1a: 'We Build',
+    h1b: 'Luxury',
+    h1c: 'Estate Sites.',
+    sub: 'Cinematic, bilingual, conversion-focused websites for Greek villas, boutique hotels and exclusive estates.',
+    scrollCta: 'Explore our portfolio',
+    workLabel: 'Our Work',
+    workSub: 'Live demo showcases. Click any project to explore the full experience.',
+    howLabel: 'How It Works',
+    steps: [
+      { n: '01', title: 'Discovery Call', body: 'We learn your property, brand and guest profile.' },
+      { n: '02', title: 'Design & Build', body: 'Cinematic visuals, bilingual copy and bespoke UI — delivered in 2 weeks.' },
+      { n: '03', title: 'Launch & Own', body: 'You receive a fully hosted site, analytics and lifetime access.' },
+    ],
+    contactLabel: 'Ready to stand out?',
+    contactSub: 'WhatsApp us or drop an email. We respond within 4 hours.',
+    wa: 'WhatsApp Us →',
+    email: 'hello@stayscape.gr',
   },
   gr: {
-    heroLine1: 'Η Ελληνική',
-    heroLine2: 'Πολυτέλεια',
-    heroLine3: 'Online.',
-    heroSub: 'Πέντε προορισμοί. Πέντε προσωπικότητες. Ένα επίπεδο.',
-    ourWork: 'Η Δουλειά μας',
-    b2bHeadline: 'Θέλεις τέτοιο site για το property σου;',
-    b2bSub: 'Σχεδιάζουμε και χτίζουμε luxury listing pages για ελληνικές επιχειρήσεις φιλοξενίας — Airbnb hosts, boutique ξενοδοχεία και βίλες σε όλη την Ελλάδα.',
-    b2bCta1: 'WhatsApp →',
-    b2bCta2: 'Δες πώς λειτουργεί',
-    social: 'Εμπιστεύονται hosts σε Αθήνα · Κυκλάδες · Ιόνιο · Κρήτη',
-    fromLabel: 'από',
-    night: '/ νύχτα',
+    eyebrow: 'Digital Studio — Ελλάδα',
+    h1a: 'Χτίζουμε',
+    h1b: 'Luxury',
+    h1c: 'Estate Sites.',
+    sub: 'Κινηματογραφικά, δίγλωσσα, sites υψηλής μετατροπής για βίλες, boutique ξενοδοχεία και αποκλειστικά κτήματα.',
+    scrollCta: 'Δες τo portfolio',
+    workLabel: 'Η Δουλειά μας',
+    workSub: 'Live demo showcases. Κλίκ σε κάθε project για πλήρη εμπειρία.',
+    howLabel: 'Πώς Λειτουργεί',
+    steps: [
+      { n: '01', title: 'Discovery Call', body: 'Μαθαίνουμε το property, το brand και το κοινό σου.' },
+      { n: '02', title: 'Design & Build', body: 'Κινηματογραφικά visuals, δίγλωσσο κείμενο και bespoke UI — σε 2 εβδομάδες.' },
+      { n: '03', title: 'Launch & Own', body: 'Παραλαμβάνεις hosted site, analytics και lifetime access.' },
+    ],
+    contactLabel: 'Έτοιμος να ξεχωρίσεις;',
+    contactSub: 'WhatsApp ή email. Απαντάμε σε 4 ώρες.',
+    wa: 'WhatsApp →',
+    email: 'hello@stayscape.gr',
   },
 };
 
-function HeroLine({ text, delay }) {
-  const reduced = useReducedMotion();
+/* ── Agency Navbar ── */
+function AgencyNav({ lang, setLang }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const links = NAV_LINKS[lang];
+  const c = COPY[lang];
+
   return (
-    <motion.span
-      className="block text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-light tracking-tighter leading-[0.92] text-white"
-      style={{ fontFamily: "'Cormorant Garamond', serif" }}
-      initial={reduced ? false : { opacity: 0, y: 36 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={reduced ? { duration: 0 } : { duration: 1.1, ease: EASE, delay }}
-    >
-      {text}
-    </motion.span>
+    <>
+      <nav className="fixed top-0 left-0 w-full z-[500] px-6 md:px-12 py-5 flex items-center justify-between">
+        {/* Brand */}
+        <motion.a
+          href="/"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-white font-bold tracking-[0.2em] uppercase text-sm"
+          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+        >
+          STAYSCAPE<span style={{ color: GOLD }}>.</span>GR
+        </motion.a>
+
+        {/* Desktop links */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          className="hidden md:flex items-center gap-10"
+        >
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="text-white/50 hover:text-white text-xs tracking-[0.3em] uppercase transition-colors duration-200"
+            >
+              {l.label}
+            </a>
+          ))}
+          <button
+            onClick={() => setLang(lang === 'en' ? 'gr' : 'en')}
+            className="flex items-center gap-2 text-white/40 hover:text-white text-xs tracking-widest uppercase transition-colors duration-200 cursor-pointer"
+          >
+            <Globe size={13} />
+            {lang === 'en' ? 'GR' : 'EN'}
+          </button>
+          <a
+            href="#contact"
+            className="px-6 py-2.5 rounded-full text-xs font-bold tracking-[0.3em] uppercase transition-all duration-300 hover:scale-105 cursor-pointer"
+            style={{ backgroundColor: GOLD, color: '#080808' }}
+          >
+            {lang === 'en' ? 'Get a Site' : 'Ζήτα Site'}
+          </a>
+        </motion.div>
+
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setMenuOpen(true)}
+          className="md:hidden text-white/60 hover:text-white transition-colors cursor-pointer"
+        >
+          <Menu size={22} />
+        </button>
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ duration: 0.4, ease: EASE }}
+            className="fixed inset-0 z-[600] flex flex-col px-8 py-10"
+            style={{ backgroundColor: '#0A0A0A' }}
+          >
+            <div className="flex justify-between items-center mb-16">
+              <span className="text-white font-bold tracking-[0.2em] text-sm uppercase">
+                STAYSCAPE<span style={{ color: GOLD }}>.</span>GR
+              </span>
+              <button onClick={() => setMenuOpen(false)} className="text-white/60 hover:text-white cursor-pointer">
+                <X size={24} />
+              </button>
+            </div>
+            <nav className="flex flex-col gap-8 flex-1">
+              {links.map((l, i) => (
+                <motion.a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setMenuOpen(false)}
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.08 }}
+                  className="text-4xl font-light text-white hover:opacity-50 transition-opacity cursor-pointer"
+                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                >
+                  {l.label}
+                </motion.a>
+              ))}
+            </nav>
+            <div className="flex items-center gap-6 mt-8">
+              <button onClick={() => { setLang('en'); setMenuOpen(false); }}
+                className={`text-sm tracking-widest ${lang === 'en' ? 'text-white' : 'text-white/30'} cursor-pointer`}>EN</button>
+              <span style={{ color: GOLD }}>|</span>
+              <button onClick={() => { setLang('gr'); setMenuOpen(false); }}
+                className={`text-sm tracking-widest ${lang === 'gr' ? 'text-white' : 'text-white/30'} cursor-pointer`}>GR</button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
-function PropertyRow({ id, lang, copy }) {
+/* ── Project Card ── */
+function ProjectCard({ project, lang, index }) {
   const [hovered, setHovered] = useState(false);
-  const [mouseY, setMouseY] = useState(0);
-  const rowRef = useRef(null);
-  const d = DESTINATIONS[id];
-  const c = d.content[lang];
-  const reduced = useReducedMotion();
-
-  const handleMouseMove = (e) => {
-    if (!rowRef.current) return;
-    const rect = rowRef.current.getBoundingClientRect();
-    setMouseY(e.clientY - rect.top);
-  };
+  const c = project.content[lang];
+  const label = lang === 'en' ? 'View Live Demo' : 'Δες Live Demo';
 
   return (
-    <Link to={d.path}>
+    <Link to={project.path} className="block cursor-pointer">
       <motion.div
-        ref={rowRef}
-        data-hover
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.9, delay: index * 0.1, ease: EASE }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        onMouseMove={handleMouseMove}
-        className="relative flex items-center justify-between px-4 md:px-10 py-7 border-b cursor-pointer overflow-hidden group"
-        style={{ borderColor: 'rgba(255,255,255,0.08)' }}
-        whileHover={{ backgroundColor: 'rgba(255,255,255,0.03)' }}
-        transition={{ duration: 0.3 }}
+        className="relative overflow-hidden rounded-2xl group cursor-pointer"
+        style={{ aspectRatio: index % 3 === 0 ? '16/9' : '4/5' }}
       >
-        {!reduced && (
-          <motion.div
-            className="absolute right-0 top-0 h-full w-1/3 pointer-events-none overflow-hidden"
-            initial={{ opacity: 0, x: 60 }}
-            animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : 60 }}
-            transition={{ duration: 0.5, ease: EASE }}
-          >
-            <img
-              src={d.heroImage}
-              alt={c.name}
-              className="w-full h-full object-cover"
-              style={{ transform: `translateY(${mouseY * 0.1 - 20}px)`, transition: 'transform 0.3s ease' }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#080808]" />
-          </motion.div>
-        )}
+        {/* Hero image */}
+        <motion.img
+          src={project.heroImage}
+          alt={c.title}
+          className="w-full h-full object-cover"
+          animate={{ scale: hovered ? 1.06 : 1 }}
+          transition={{ duration: 1, ease: EASE }}
+        />
 
-        <div className="flex items-center gap-6 md:gap-10 relative z-10">
-          <span className="text-xs font-mono" style={{ color: 'rgba(255,255,255,0.2)' }}>
-            {String(DESTINATION_LIST.indexOf(id) + 1).padStart(2, '0')}
+        {/* Overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+        {/* Live demo badge */}
+        <div className="absolute top-5 left-5">
+          <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase"
+            style={{ backgroundColor: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(12px)', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.15)' }}>
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            Live Demo
           </span>
-          <div className="flex flex-col gap-1">
-            <motion.span
-              className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-white"
-              style={{ fontFamily: d.theme.fontHeading }}
-              animate={{ x: hovered && !reduced ? 8 : 0 }}
-              transition={{ duration: 0.4, ease: EASE }}
-            >
-              {c.title}
-            </motion.span>
-            <span className="text-xs tracking-widest uppercase" style={{ color: d.theme.accent }}>
-              {c.location}
-            </span>
-          </div>
         </div>
 
-        <div className="flex items-center gap-6 relative z-10">
-          <div className="hidden md:flex flex-col items-end">
-            <span className="text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>{copy.fromLabel}</span>
-            <span className="text-lg font-light text-white">
-              {d.pricing.currency}{d.pricing.from}{' '}
-              <span className="text-xs opacity-50">{copy.night}</span>
-            </span>
-          </div>
+        {/* Hover CTA */}
+        <motion.div
+          animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 8 }}
+          transition={{ duration: 0.3 }}
+          className="absolute top-5 right-5 w-12 h-12 rounded-full flex items-center justify-center"
+          style={{ backgroundColor: GOLD }}
+        >
+          <ArrowUpRight size={18} color="#080808" />
+        </motion.div>
+
+        {/* Bottom content */}
+        <div className="absolute bottom-0 left-0 right-0 p-7">
+          <span className="text-[10px] tracking-[0.4em] uppercase mb-3 block"
+            style={{ color: project.theme.accent || GOLD }}>
+            {c.location}
+          </span>
+          <h3 className="text-2xl md:text-3xl font-light text-white leading-tight mb-1"
+            style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+            {c.title}
+          </h3>
           <motion.span
-            animate={{ x: hovered && !reduced ? 6 : 0, color: hovered ? d.theme.accent : 'rgba(255,255,255,0.3)' }}
+            animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -8 }}
             transition={{ duration: 0.3 }}
-            className="text-lg"
+            className="flex items-center gap-2 text-xs tracking-widest uppercase mt-4"
+            style={{ color: GOLD }}
           >
-            →
+            {label} <ArrowRight size={14} />
           </motion.span>
         </div>
       </motion.div>
@@ -139,162 +253,282 @@ function PropertyRow({ id, lang, copy }) {
   );
 }
 
+/* ── Main Landing Page ── */
 export default function Landing({ lang = 'en', setLang }) {
-  const copy = COPY[lang];
+  const c = COPY[lang];
   const reduced = useReducedMotion();
 
   return (
-    <div className="min-h-screen antialiased overflow-x-hidden" style={{ backgroundColor: '#080808' }}>
-      <Cursor accentColor={LANDING_ACCENT} />
-      <Navbar lang={lang} setLang={setLang} isLanding />
+    <div className="min-h-screen antialiased overflow-x-hidden" style={{ backgroundColor: '#080808', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+      <AgencyNav lang={lang} setLang={setLang} />
 
-      {/* HERO */}
-      <section className="relative h-screen flex flex-col justify-center px-6 md:px-16 overflow-hidden">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse at 70% 40%, rgba(201,168,76,0.06) 0%, transparent 60%)' }}
-        />
+      {/* ── HERO ── */}
+      <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-28 pb-16 overflow-hidden">
+        {/* Background glow */}
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse at 65% 50%, rgba(201,168,76,0.07) 0%, transparent 65%)' }} />
+        <div className="absolute top-0 left-0 w-px h-full opacity-10"
+          style={{ background: `linear-gradient(to bottom, transparent, ${GOLD}, transparent)` }} />
 
-        <div className="relative z-10 max-w-[1280px] mx-auto w-full pt-20 md:pt-24">
+        <div className="relative z-10 max-w-[1280px] mx-auto w-full">
+          {/* Eyebrow */}
           <motion.div
-            initial={reduced ? {} : { opacity: 0 }}
-            animate={reduced ? {} : { opacity: 1 }}
-            transition={{ delay: 0.3, duration: 1 }}
-            className="text-xs tracking-[0.4em] uppercase mb-8"
-            style={{ color: LANDING_ACCENT }}
+            initial={reduced ? {} : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="flex items-center gap-4 mb-10"
           >
-            Stayscape GR — Luxury Property Sites
+            <div className="w-8 h-px" style={{ backgroundColor: GOLD }} />
+            <span className="text-[11px] tracking-[0.5em] uppercase" style={{ color: GOLD }}>
+              {c.eyebrow}
+            </span>
           </motion.div>
 
-          <div className="flex flex-col mb-8">
-            <HeroLine text={copy.heroLine1} delay={0.5} />
-            <HeroLine text={copy.heroLine2} delay={0.65} />
-            <HeroLine text={copy.heroLine3} delay={0.8} />
+          {/* Giant headline */}
+          <div className="mb-10 overflow-hidden">
+            {[c.h1a, c.h1b, c.h1c].map((line, i) => (
+              <motion.div
+                key={i}
+                initial={reduced ? {} : { y: '110%' }}
+                animate={{ y: 0 }}
+                transition={{ delay: 0.5 + i * 0.15, duration: 1.1, ease: EASE }}
+              >
+                <span
+                  className="block leading-[0.88] text-white"
+                  style={{
+                    fontSize: 'clamp(3.5rem, 10vw, 10rem)',
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontWeight: 300,
+                    letterSpacing: '-0.03em',
+                    fontStyle: i === 1 ? 'italic' : 'normal',
+                    color: i === 1 ? GOLD : 'white',
+                  }}
+                >
+                  {line}
+                </span>
+              </motion.div>
+            ))}
           </div>
 
+          {/* Sub */}
           <motion.p
             initial={reduced ? {} : { opacity: 0, y: 20 }}
-            animate={reduced ? {} : { opacity: 1, y: 0 }}
-            transition={{ delay: 1.4, duration: 1, ease: EASE }}
-            className="text-base md:text-lg max-w-md"
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.9 }}
+            className="max-w-lg text-base md:text-lg leading-relaxed mb-12"
             style={{ color: 'rgba(255,255,255,0.45)' }}
           >
-            {copy.heroSub}
+            {c.sub}
           </motion.p>
+
+          {/* CTA Row */}
+          <motion.div
+            initial={reduced ? {} : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.5, duration: 0.8 }}
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
+          >
+            <a
+              href="#work"
+              className="flex items-center gap-3 px-8 py-4 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 hover:scale-105 cursor-pointer"
+              style={{ backgroundColor: GOLD, color: '#080808' }}
+            >
+              {c.scrollCta} <ArrowRight size={16} />
+            </a>
+            <a
+              href="#contact"
+              className="text-xs tracking-[0.3em] uppercase transition-colors duration-200 hover:text-white cursor-pointer"
+              style={{ color: 'rgba(255,255,255,0.4)' }}
+            >
+              {lang === 'en' ? 'Talk to us first →' : 'Μίλησε μαζί μας →'}
+            </a>
+          </motion.div>
         </div>
 
+        {/* Scroll hint */}
         <motion.div
-          initial={reduced ? {} : { opacity: 0 }}
-          animate={reduced ? {} : { opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.2 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-          style={{ color: 'rgba(255,255,255,0.25)' }}
+          style={{ color: 'rgba(255,255,255,0.2)' }}
         >
-          <span className="text-[10px] tracking-[0.4em] uppercase">Scroll</span>
+          <span className="text-[10px] tracking-[0.5em] uppercase">Scroll</span>
           <motion.div
             animate={reduced ? {} : { y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="w-px h-8 bg-white/20"
+            transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+            className="w-px h-10"
+            style={{ background: `linear-gradient(to bottom, ${GOLD}, transparent)` }}
           />
         </motion.div>
       </section>
 
-      {/* PROPERTIES LIST */}
-      <SectionReveal>
-        <section className="max-w-[1280px] mx-auto px-4 md:px-8 py-16 md:py-24">
-          <div className="flex items-center gap-6 mb-12">
-            <div className="w-10 h-px" style={{ backgroundColor: LANDING_ACCENT }} />
-            <span className="text-xs tracking-[0.4em] uppercase" style={{ color: LANDING_ACCENT }}>
-              {copy.ourWork}
-            </span>
-          </div>
+      {/* ── OUR WORK ── */}
+      <section id="work" className="py-24 md:py-36 px-6 md:px-16">
+        <div className="max-w-[1280px] mx-auto">
+          {/* Section header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-6"
+          >
+            <div>
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-8 h-px" style={{ backgroundColor: GOLD }} />
+                <span className="text-[11px] tracking-[0.5em] uppercase" style={{ color: GOLD }}>
+                  {c.workLabel}
+                </span>
+              </div>
+              <h2
+                className="text-4xl md:text-6xl font-light text-white leading-tight"
+                style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
+              >
+                {lang === 'en' ? 'Live Estate\nShowcases' : 'Live Estate\nShowcases'}
+              </h2>
+            </div>
+            <p className="max-w-sm text-sm leading-relaxed md:text-right" style={{ color: 'rgba(255,255,255,0.4)' }}>
+              {c.workSub}
+            </p>
+          </motion.div>
 
-          <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
-            {DESTINATION_LIST.map((id) => (
-              <PropertyRow key={id} id={id} lang={lang} copy={copy} />
+          {/* Masonry-style grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* First card: wide */}
+            <div className="lg:col-span-2">
+              <ProjectCard project={PROJECTS[0]} lang={lang} index={0} />
+            </div>
+            {/* Second card: tall */}
+            <div>
+              <ProjectCard project={PROJECTS[1]} lang={lang} index={1} />
+            </div>
+            {/* Remaining cards */}
+            {PROJECTS.slice(2).map((p, i) => (
+              <ProjectCard key={p.id} project={p} lang={lang} index={i + 2} />
             ))}
           </div>
-        </section>
-      </SectionReveal>
+        </div>
+      </section>
 
-      {/* B2B SECTION */}
-      <SectionReveal>
-        <section
-          className="py-24 md:py-36 px-6 md:px-16 border-t"
-          style={{ borderColor: 'rgba(255,255,255,0.06)' }}
-        >
-          <div className="max-w-[900px] mx-auto text-center flex flex-col items-center gap-8">
-            <div className="w-10 h-px" style={{ backgroundColor: LANDING_ACCENT }} />
-
+      {/* ── HOW IT WORKS ── */}
+      <section id="how" className="py-24 md:py-36 px-6 md:px-16 border-t" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+        <div className="max-w-[1280px] mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-20"
+          >
+            <div className="flex items-center gap-4 mb-5">
+              <div className="w-8 h-px" style={{ backgroundColor: GOLD }} />
+              <span className="text-[11px] tracking-[0.5em] uppercase" style={{ color: GOLD }}>
+                {c.howLabel}
+              </span>
+            </div>
             <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-tight text-white"
+              className="text-4xl md:text-6xl font-light text-white"
               style={{ fontFamily: "'Cormorant Garamond', serif" }}
             >
-              {copy.b2bHeadline}
+              {lang === 'en' ? 'From zero to\nlive in 2 weeks.' : 'Από μηδέν σε live\nσε 2 εβδομάδες.'}
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
+            {c.steps.map((step, i) => (
+              <motion.div
+                key={step.n}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15, duration: 0.8, ease: EASE }}
+                className="p-10 md:p-14 border-t flex flex-col gap-6 group hover:bg-white/[0.02] transition-colors duration-300 cursor-default"
+                style={{ borderColor: 'rgba(255,255,255,0.08)' }}
+              >
+                <span className="text-xs font-mono" style={{ color: GOLD }}>{step.n}</span>
+                <h3
+                  className="text-2xl md:text-3xl font-light text-white"
+                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                >
+                  {step.title}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                  {step.body}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CONTACT / CTA ── */}
+      <section id="contact" className="py-24 md:py-48 px-6 md:px-16 border-t" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+        <div className="max-w-[900px] mx-auto text-center flex flex-col items-center gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9 }}
+            className="flex flex-col items-center gap-8"
+          >
+            <div className="w-10 h-px" style={{ backgroundColor: GOLD }} />
+
+            <h2
+              className="text-4xl md:text-6xl lg:text-7xl font-light text-white leading-tight"
+              style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            >
+              {c.contactLabel}
             </h2>
 
-            <p className="text-base md:text-lg max-w-lg" style={{ color: 'rgba(255,255,255,0.45)' }}>
-              {copy.b2bSub}
+            <p className="text-base md:text-lg max-w-md" style={{ color: 'rgba(255,255,255,0.4)' }}>
+              {c.contactSub}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mt-2">
+            <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <motion.a
                 href="https://wa.me/306900000000"
                 target="_blank"
                 rel="noopener noreferrer"
-                data-hover
-                whileHover={{ scale: 1.04 }}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
-                className="px-10 py-4 rounded-full text-sm font-bold tracking-widest uppercase cursor-pointer"
-                style={{ backgroundColor: LANDING_ACCENT, color: '#080808' }}
+                className="px-10 py-4 rounded-full text-sm font-bold tracking-widest uppercase cursor-pointer transition-all"
+                style={{ backgroundColor: GOLD, color: '#080808' }}
               >
-                {copy.b2bCta1}
+                {c.wa}
               </motion.a>
-              <motion.button
-                data-hover
+              <motion.a
+                href={`mailto:${c.email}`}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="px-10 py-4 rounded-full text-sm font-bold tracking-widest uppercase border cursor-pointer"
+                className="px-10 py-4 rounded-full text-sm font-bold tracking-widest uppercase border cursor-pointer transition-all hover:bg-white/5"
                 style={{ borderColor: 'rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.7)' }}
               >
-                {copy.b2bCta2}
-              </motion.button>
+                {c.email}
+              </motion.a>
             </div>
 
-            <p className="text-xs tracking-widest" style={{ color: 'rgba(255,255,255,0.2)' }}>
-              {copy.social}
+            <p className="text-xs tracking-widest mt-2" style={{ color: 'rgba(255,255,255,0.2)' }}>
+              {lang === 'en'
+                ? 'Trusted by hosts across Athens · Cyclades · Ionian · Crete'
+                : 'Εμπιστεύονται hosts σε Αθήνα · Κυκλάδες · Ιόνιο · Κρήτη'}
             </p>
-          </div>
-        </section>
-      </SectionReveal>
+          </motion.div>
+        </div>
+      </section>
 
-      {/* FOOTER */}
+      {/* ── FOOTER ── */}
       <footer
         className="py-8 px-6 md:px-16 flex flex-col md:flex-row items-center justify-between gap-4 border-t text-xs"
         style={{ borderColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.25)' }}
       >
         <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, color: 'rgba(255,255,255,0.4)' }}>
-          STAYSCAPE<span style={{ color: LANDING_ACCENT }}>.</span>GR
+          STAYSCAPE<span style={{ color: GOLD }}>.</span>GR
         </span>
-        <span>© 2026 · All properties are demo showcases</span>
+        <span>© 2026 · All showcases are demo builds for client preview</span>
         <div className="flex gap-1 items-center">
-          <button
-            data-hover
-            onClick={() => setLang('en')}
-            className="cursor-pointer hover:opacity-60 transition-opacity"
-            style={{ color: lang === 'en' ? LANDING_ACCENT : 'rgba(255,255,255,0.25)' }}
-          >
-            EN
-          </button>
-          <span className="mx-1" style={{ color: LANDING_ACCENT }}>|</span>
-          <button
-            data-hover
-            onClick={() => setLang('gr')}
-            className="cursor-pointer hover:opacity-60 transition-opacity"
-            style={{ color: lang === 'gr' ? LANDING_ACCENT : 'rgba(255,255,255,0.25)' }}
-          >
-            GR
-          </button>
+          <button onClick={() => setLang('en')} className="cursor-pointer hover:opacity-60 transition-opacity"
+            style={{ color: lang === 'en' ? GOLD : 'rgba(255,255,255,0.25)' }}>EN</button>
+          <span className="mx-1" style={{ color: GOLD }}>|</span>
+          <button onClick={() => setLang('gr')} className="cursor-pointer hover:opacity-60 transition-opacity"
+            style={{ color: lang === 'gr' ? GOLD : 'rgba(255,255,255,0.25)' }}>GR</button>
         </div>
       </footer>
     </div>

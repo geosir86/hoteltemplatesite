@@ -35,11 +35,19 @@
   }
 
   .theme-crete {
-    --background: #FDF8F5; /* Warm terracotta tint */
-    --foreground: #271C19; /* Deep brown */
-    --muted: #78716C; /* Stone */
-    --dark: #1C1917;
-    --accent: #C2410C; /* Terracotta orange */
+    --background: #F1EDE1; /* Warm Cream */
+    --foreground: #4B4B2D; /* Olive Green */
+    --muted: #828268; /* Dusty Olive */
+    --dark: #2C2C1A;
+    --accent: #8B4513; /* Saddle Brown */
+  }
+
+  .theme-santorini {
+    --background: #FCFAF7; /* Warm off-white */
+    --foreground: #1A1A1A; /* Deep charcoal */
+    --muted: #64748B;
+    --dark: #0D0C0A;
+    --accent: #D1B07C;
   }
 
   body {
@@ -51,9 +59,20 @@
     font-family: 'Cormorant Garamond', serif;
     letter-spacing: -0.02em;
   }
+
+  .font-hutstuf {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.04em;
+    font-weight: 800;
+  }
 }
 
 @layer utilities {
+  .vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+  
   .marquee {
     display: flex;
     width: max-content;
