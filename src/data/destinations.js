@@ -1,5 +1,110 @@
 import { Wifi, Wind, Coffee, Tv, Car, Waves, Sun, Anchor, Umbrella, Mountain, Shield } from 'lucide-react';
 
+export const AIRBNB_PROPERTY = {
+  id: 'airbnb',
+  path: '/airbnb',
+  theme: {
+    bg: '#FFFFFF',
+    fg: '#1A1A1A',
+    accent: '#FF385C',       // Airbnb red
+    accentLight: '#FFF0F2',
+    muted: '#717171',
+    border: '#EBEBEB',
+    fontHeading: "'DM Sans', sans-serif",
+    fontBody: "'DM Sans', sans-serif",
+  },
+  host: {
+    name: 'Eleni',
+    avatar: 'https://i.pravatar.cc/100?img=32',
+    joined: '2019',
+    isSuperhost: true,
+    reviews: 142,
+    rating: 4.97,
+  },
+  pricing: { from: 420, currency: '€', label: '/ night', cleaningFee: 80, serviceFee: 55 },
+  heroImage: '/assets/athens_flat_hero.png',
+  gallery: [
+    '/assets/athens_flat_hero.png',
+    '/assets/athens_flat_bedroom.png',
+    '/assets/athens_flat_kitchen.png',
+  ],
+  details: { guests: 2, beds: 1, bedrooms: 1, baths: 1, sqm: '45m²', rating: 4.96, reviews: 87 },
+  amenities: [
+    { label: 'High-speed WiFi' },
+    { label: 'Air Conditioning' },
+    { label: 'Nespresso machine' },
+    { label: 'Smart TV' },
+    { label: 'Self check-in' },
+    { label: 'Central location' },
+  ],
+  houseRules: {
+    en: [
+      'Check-in: 3:00 PM – 10:00 PM',
+      'Checkout before 11:00 AM',
+      'Up to 6 guests allowed',
+      'No smoking on the premises',
+      'No pets',
+      'No parties or events',
+    ],
+    gr: [
+      'Check-in: 3:00 μμ – 10:00 μμ',
+      'Check-out πριν τις 11:00 πμ',
+      'Μέχρι 6 φιλοξενούμενοι',
+      'Δεν επιτρέπεται το κάπνισμα',
+      'Δεν επιτρέπονται κατοικίδια',
+      'Δεν επιτρέπονται πάρτι ή εκδηλώσεις',
+    ],
+  },
+  content: {
+    en: {
+      name: 'Airbnb',
+      badge: 'Airbnb-style Demo',
+      title: 'Villa Thea',
+      subtitle: 'Cliff-edge villa · Paros, Cyclades',
+      location: 'Naoussa, Paros, Greece',
+      locationShort: 'Naoussa, Paros',
+      description: 'Perched on the cliffs above Naoussa Bay, Villa Thea is a contemporary Cycladic retreat with three suites, a private infinity pool, and uninterrupted views across the Aegean. Every detail has been curated for the discerning traveller.',
+      hostNote: 'I am delighted to welcome guests to Villa Thea. I will be available throughout your stay for any recommendations or assistance. Enjoy the magic of Paros!',
+      highlights: [
+        { title: 'Rare Find', desc: 'This villa is usually booked.' },
+        { title: 'Superhost', desc: 'Eleni has a 99% response rate.' },
+        { title: 'Free cancellation', desc: 'Until 5 days before check-in.' },
+      ],
+      reviews: [
+        { name: 'Charlotte D.', loc: 'London', rating: 5, date: 'August 2024', text: 'Absolutely stunning. The infinity pool with the Aegean view is something straight out of a dream. Eleni was the most attentive host we have ever had.', avatar: 'https://i.pravatar.cc/100?img=9' },
+        { name: 'Lars P.', loc: 'Copenhagen', rating: 5, date: 'July 2024', text: 'Perfect in every way. The villa is even more beautiful than the photos. We did not want to leave. Will definitely come back next summer.', avatar: 'https://i.pravatar.cc/100?img=15' },
+        { name: 'Maria T.', loc: 'Madrid', rating: 5, date: 'September 2024', text: 'If you are looking for the best villa in Paros, stop searching. This is it. Immaculate, peaceful, and absolutely magical at sunset.', avatar: 'https://i.pravatar.cc/100?img=21' },
+        { name: 'James R.', loc: 'New York', rating: 5, date: 'June 2024', text: 'Three families, three suites, zero complaints. The pool area, the sunsets, the fresh linens every day — Eleni runs this place like a 5-star hotel.', avatar: 'https://i.pravatar.cc/100?img=52' },
+        { name: 'Isabelle M.', loc: 'Paris', rating: 5, date: 'August 2024', text: 'We have stayed in many luxury villas across Europe. Villa Thea is among the very best. The location, the design, the hospitality — all perfect.', avatar: 'https://i.pravatar.cc/100?img=41' },
+        { name: 'Nikos K.', loc: 'Athens', rating: 5, date: 'May 2024', text: 'Exceptional property. We celebrated our anniversary here and every moment was unforgettable. Highly recommend the local fish taverna Eleni suggested.', avatar: 'https://i.pravatar.cc/100?img=60' },
+      ],
+    },
+    gr: {
+      name: 'Airbnb',
+      badge: 'Demo Airbnb-style',
+      title: 'Villa Thea',
+      subtitle: 'Βίλα σε γκρεμό · Πάρος, Κυκλάδες',
+      location: 'Νάουσα, Πάρος, Ελλάδα',
+      locationShort: 'Νάουσα, Πάρος',
+      description: 'Στις άκρες των βράχων πάνω από τον κόλπο της Νάουσας, η Villa Thea είναι ένα σύγχρονο κυκλαδίτικο καταφύγιο με τρεις σουίτες, ιδιωτική πισίνα infinity και απέραντη θέα στο Αιγαίο.',
+      hostNote: 'Χαίρομαι πολύ που φιλοξενώ επισκέπτες στη Villa Thea. Θα είμαι πάντα διαθέσιμη για οποιαδήποτε βοήθεια ή σύσταση. Απολαύστε τη μαγεία της Πάρου!',
+      highlights: [
+        { title: 'Σπάνια Εύρεση', desc: 'Αυτή η βίλα κλείνεται συνήθως γρήγορα.' },
+        { title: 'Superhost', desc: 'Η Ελένη έχει ποσοστό απόκρισης 99%.' },
+        { title: 'Δωρεάν ακύρωση', desc: 'Έως 5 ημέρες πριν το check-in.' },
+      ],
+      reviews: [
+        { name: 'Charlotte D.', loc: 'Λονδίνο', rating: 5, date: 'Αύγουστος 2024', text: 'Απολύτως εκπληκτικό. Η piscina infinity με τη θέα του Αιγαίου είναι κάτι σαν όνειρο. Η Ελένη ήταν η πιο προσεκτική οικοδέσποινα που έχουμε συναντήσει.', avatar: 'https://i.pravatar.cc/100?img=9' },
+        { name: 'Lars P.', loc: 'Κοπεγχάγη', rating: 5, date: 'Ιούλιος 2024', text: 'Τέλειο σε κάθε λεπτομέρεια. Η βίλα είναι ακόμη πιο όμορφη από τις φωτογραφίες. Δεν θέλαμε να φύγουμε. Επιστρέφουμε σίγουρα.', avatar: 'https://i.pravatar.cc/100?img=15' },
+        { name: 'Maria T.', loc: 'Μαδρίτη', rating: 5, date: 'Σεπτέμβριος 2024', text: 'Αν ψάχνετε για την καλύτερη βίλα στην Πάρο, σταματήστε. Αυτή είναι. Αψεγάδιαστη, ήρεμη και μαγευτική στο ηλιοβασίλεμα.', avatar: 'https://i.pravatar.cc/100?img=21' },
+        { name: 'James R.', loc: 'Νέα Υόρκη', rating: 5, date: 'Ιούνιος 2024', text: 'Τρεις οικογένειες, τρεις σουίτες, μηδέν παράπονα. Η Ελένη το διαχειρίζεται σαν ξενοδοχείο 5 αστέρων.', avatar: 'https://i.pravatar.cc/100?img=52' },
+        { name: 'Isabelle M.', loc: 'Παρίσι', rating: 5, date: 'Αύγουστος 2024', text: 'Έχουμε μείνει σε πολλές luxury βίλες. Η Villa Thea είναι από τις καλύτερες. Τοποθεσία, σχεδιασμός, φιλοξενία — όλα τέλεια.', avatar: 'https://i.pravatar.cc/100?img=41' },
+        { name: 'Νίκος Κ.', loc: 'Αθήνα', rating: 5, date: 'Μάιος 2024', text: 'Εξαιρετικό property. Γιορτάσαμε την επέτειό μας εδώ και κάθε στιγμή ήταν αξέχαστη.', avatar: 'https://i.pravatar.cc/100?img=60' },
+      ],
+    },
+  },
+};
+
 export const DESTINATIONS = {
   athens: {
     id: 'athens',
@@ -332,111 +437,9 @@ export const DESTINATIONS = {
       },
     },
   },
+  airbnb: AIRBNB_PROPERTY,
 };
 
 export const DESTINATION_LIST = ['athens', 'cyclades', 'ionian', 'crete', 'nisi', 'greece', 'airbnb'];
 
-export const AIRBNB_PROPERTY = {
-  id: 'airbnb',
-  path: '/airbnb',
-  theme: {
-    bg: '#FFFFFF',
-    fg: '#1A1A1A',
-    accent: '#FF385C',       // Airbnb red
-    accentLight: '#FFF0F2',
-    muted: '#717171',
-    border: '#EBEBEB',
-    fontHeading: "'DM Sans', sans-serif",
-    fontBody: "'DM Sans', sans-serif",
-  },
-  host: {
-    name: 'Eleni',
-    avatar: 'https://i.pravatar.cc/100?img=32',
-    joined: '2019',
-    isSuperhost: true,
-    reviews: 142,
-    rating: 4.97,
-  },
-  pricing: { from: 420, currency: '€', label: '/ night', cleaningFee: 80, serviceFee: 55 },
-  heroImage: '/assets/athens_flat_hero.png',
-  gallery: [
-    '/assets/athens_flat_hero.png',
-    '/assets/athens_flat_bedroom.png',
-    '/assets/athens_flat_kitchen.png',
-  ],
-  details: { guests: 2, beds: 1, bedrooms: 1, baths: 1, sqm: '45m²', rating: 4.96, reviews: 87 },
-  amenities: [
-    { label: 'High-speed WiFi' },
-    { label: 'Air Conditioning' },
-    { label: 'Nespresso machine' },
-    { label: 'Smart TV' },
-    { label: 'Self check-in' },
-    { label: 'Central location' },
-  ],
-  houseRules: {
-    en: [
-      'Check-in: 3:00 PM – 10:00 PM',
-      'Checkout before 11:00 AM',
-      'Up to 6 guests allowed',
-      'No smoking on the premises',
-      'No pets',
-      'No parties or events',
-    ],
-    gr: [
-      'Check-in: 3:00 μμ – 10:00 μμ',
-      'Check-out πριν τις 11:00 πμ',
-      'Μέχρι 6 φιλοξενούμενοι',
-      'Δεν επιτρέπεται το κάπνισμα',
-      'Δεν επιτρέπονται κατοικίδια',
-      'Δεν επιτρέπονται πάρτι ή εκδηλώσεις',
-    ],
-  },
-  content: {
-    en: {
-      name: 'Airbnb',
-      badge: 'Airbnb-style Demo',
-      title: 'Villa Thea',
-      subtitle: 'Cliff-edge villa · Paros, Cyclades',
-      location: 'Naoussa, Paros, Greece',
-      locationShort: 'Naoussa, Paros',
-      description: 'Perched on the cliffs above Naoussa Bay, Villa Thea is a contemporary Cycladic retreat with three suites, a private infinity pool, and uninterrupted views across the Aegean. Every detail has been curated for the discerning traveller.',
-      hostNote: 'I am delighted to welcome guests to Villa Thea. I will be available throughout your stay for any recommendations or assistance. Enjoy the magic of Paros!',
-      highlights: [
-        { title: 'Rare Find', desc: 'This villa is usually booked.' },
-        { title: 'Superhost', desc: 'Eleni has a 99% response rate.' },
-        { title: 'Free cancellation', desc: 'Until 5 days before check-in.' },
-      ],
-      reviews: [
-        { name: 'Charlotte D.', loc: 'London', rating: 5, date: 'August 2024', text: 'Absolutely stunning. The infinity pool with the Aegean view is something straight out of a dream. Eleni was the most attentive host we have ever had.', avatar: 'https://i.pravatar.cc/100?img=9' },
-        { name: 'Lars P.', loc: 'Copenhagen', rating: 5, date: 'July 2024', text: 'Perfect in every way. The villa is even more beautiful than the photos. We did not want to leave. Will definitely come back next summer.', avatar: 'https://i.pravatar.cc/100?img=15' },
-        { name: 'Maria T.', loc: 'Madrid', rating: 5, date: 'September 2024', text: 'If you are looking for the best villa in Paros, stop searching. This is it. Immaculate, peaceful, and absolutely magical at sunset.', avatar: 'https://i.pravatar.cc/100?img=21' },
-        { name: 'James R.', loc: 'New York', rating: 5, date: 'June 2024', text: 'Three families, three suites, zero complaints. The pool area, the sunsets, the fresh linens every day — Eleni runs this place like a 5-star hotel.', avatar: 'https://i.pravatar.cc/100?img=52' },
-        { name: 'Isabelle M.', loc: 'Paris', rating: 5, date: 'August 2024', text: 'We have stayed in many luxury villas across Europe. Villa Thea is among the very best. The location, the design, the hospitality — all perfect.', avatar: 'https://i.pravatar.cc/100?img=41' },
-        { name: 'Nikos K.', loc: 'Athens', rating: 5, date: 'May 2024', text: 'Exceptional property. We celebrated our anniversary here and every moment was unforgettable. Highly recommend the local fish taverna Eleni suggested.', avatar: 'https://i.pravatar.cc/100?img=60' },
-      ],
-    },
-    gr: {
-      name: 'Airbnb',
-      badge: 'Demo Airbnb-style',
-      title: 'Villa Thea',
-      subtitle: 'Βίλα σε γκρεμό · Πάρος, Κυκλάδες',
-      location: 'Νάουσα, Πάρος, Ελλάδα',
-      locationShort: 'Νάουσα, Πάρος',
-      description: 'Στις άκρες των βράχων πάνω από τον κόλπο της Νάουσας, η Villa Thea είναι ένα σύγχρονο κυκλαδίτικο καταφύγιο με τρεις σουίτες, ιδιωτική πισίνα infinity και απέραντη θέα στο Αιγαίο.',
-      hostNote: 'Χαίρομαι πολύ που φιλοξενώ επισκέπτες στη Villa Thea. Θα είμαι πάντα διαθέσιμη για οποιαδήποτε βοήθεια ή σύσταση. Απολαύστε τη μαγεία της Πάρου!',
-      highlights: [
-        { title: 'Σπάνια Εύρεση', desc: 'Αυτή η βίλα κλείνεται συνήθως γρήγορα.' },
-        { title: 'Superhost', desc: 'Η Ελένη έχει ποσοστό απόκρισης 99%.' },
-        { title: 'Δωρεάν ακύρωση', desc: 'Έως 5 ημέρες πριν το check-in.' },
-      ],
-      reviews: [
-        { name: 'Charlotte D.', loc: 'Λονδίνο', rating: 5, date: 'Αύγουστος 2024', text: 'Απολύτως εκπληκτικό. Η piscina infinity με τη θέα του Αιγαίου είναι κάτι σαν όνειρο. Η Ελένη ήταν η πιο προσεκτική οικοδέσποινα που έχουμε συναντήσει.', avatar: 'https://i.pravatar.cc/100?img=9' },
-        { name: 'Lars P.', loc: 'Κοπεγχάγη', rating: 5, date: 'Ιούλιος 2024', text: 'Τέλειο σε κάθε λεπτομέρεια. Η βίλα είναι ακόμη πιο όμορφη από τις φωτογραφίες. Δεν θέλαμε να φύγουμε. Επιστρέφουμε σίγουρα.', avatar: 'https://i.pravatar.cc/100?img=15' },
-        { name: 'Maria T.', loc: 'Μαδρίτη', rating: 5, date: 'Σεπτέμβριος 2024', text: 'Αν ψάχνετε για την καλύτερη βίλα στην Πάρο, σταματήστε. Αυτή είναι. Αψεγάδιαστη, ήρεμη και μαγευτική στο ηλιοβασίλεμα.', avatar: 'https://i.pravatar.cc/100?img=21' },
-        { name: 'James R.', loc: 'Νέα Υόρκη', rating: 5, date: 'Ιούνιος 2024', text: 'Τρεις οικογένειες, τρεις σουίτες, μηδέν παράπονα. Η Ελένη το διαχειρίζεται σαν ξενοδοχείο 5 αστέρων.', avatar: 'https://i.pravatar.cc/100?img=52' },
-        { name: 'Isabelle M.', loc: 'Παρίσι', rating: 5, date: 'Αύγουστος 2024', text: 'Έχουμε μείνει σε πολλές luxury βίλες. Η Villa Thea είναι από τις καλύτερες. Τοποθεσία, σχεδιασμός, φιλοξενία — όλα τέλεια.', avatar: 'https://i.pravatar.cc/100?img=41' },
-        { name: 'Νίκος Κ.', loc: 'Αθήνα', rating: 5, date: 'Μάιος 2024', text: 'Εξαιρετικό property. Γιορτάσαμε την επέτειό μας εδώ και κάθε στιγμή ήταν αξέχαστη.', avatar: 'https://i.pravatar.cc/100?img=60' },
-      ],
-    },
-  },
-};
+

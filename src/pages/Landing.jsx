@@ -24,7 +24,6 @@ const NAV_LINKS = {
 /* ── Portfolio data: what we build ── */
 const PROJECTS = [
   ...DESTINATION_LIST.map((id) => ({ id, ...DESTINATIONS[id] })),
-  { ...AIRBNB_PROPERTY },
 ];
 
 const COPY = {
