@@ -58,7 +58,7 @@ export default function EnhancedCTA({ lang = 'en', theme = {} }) {
           className="text-[16vw] md:text-[10vw] font-bold text-white/[0.02] tracking-tighter whitespace-nowrap leading-none"
           style={headingStyle}
         >
-          STAYSCAPE
+          STAYFOLIO
         </span>
       </motion.div>
 

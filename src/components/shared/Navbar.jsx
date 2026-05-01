@@ -25,7 +25,7 @@ export default function Navbar({ theme = null, lang, setLang, isLanding = false 
       style={{ backgroundColor: bg, backdropFilter: scrolled ? 'blur(20px)' : 'none' }}
     >
       <Link to="/" data-hover className="font-bold text-lg tracking-wider" style={{ color: textColor, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-        STAYSCAPE<span style={{ color: accentColor }}>.</span>GR
+        STAYFOLIO<span style={{ color: accentColor }}>.</span>GR
       </Link>
 
       <div className="flex items-center gap-4">

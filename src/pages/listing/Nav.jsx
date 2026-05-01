@@ -13,7 +13,7 @@ export default function Nav({ lang, setLang }) {
       transition: `all 0.5s ${EASE}`,
     }}>
       <Link to="/" style={{ color: 'white', fontWeight: 700, fontSize: 12, letterSpacing: '0.22em', textDecoration: 'none' }}>
-        STAYSCAPE<span style={{ color: GOLD }}>.</span>GR
+        STAYFOLIO<span style={{ color: GOLD }}>.</span>GR
       </Link>
       <div style={{ display: 'flex', gap: 32, alignItems: 'center' }}>
         {[
