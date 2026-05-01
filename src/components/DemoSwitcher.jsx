@@ -4,13 +4,13 @@ import { Home } from 'lucide-react';
 
 // Estate demo pages only — HOME is now handled by Landing's AgencyNav
 const versions = [
-  { id: 'athens',    en: 'ATHENS',    gr: 'ΑΘΗΝΑ',     path: '/athens' },
-  { id: 'cyclades',  en: 'CYCLADES',  gr: 'ΚΥΚΛΑΔΕΣ',  path: '/cyclades' },
-  { id: 'ionian',    en: 'IONIAN',    gr: 'ΙΟΝΙΟ',      path: '/ionian' },
-  { id: 'crete',     en: 'CRETE',     gr: 'ΚΡΗΤΗ',      path: '/crete' },
-  { id: 'nisi',      en: 'NISI',      gr: 'ΝΗΣΙ',       path: '/nisi' },
-  { id: 'santorini', en: 'SANTORINI', gr: 'ΣΑΝΤΟΡΙΝΗ',  path: '/santorini' },
-  { id: 'airbnb',    en: 'AIRBNB',    gr: 'AIRBNB',     path: '/airbnb' },
+  { id: 'airbnb',    en: 'ATHENS FLAT', gr: 'ΑΘΗΝΑ FLAT',  path: '/airbnb' },
+  { id: 'santorini', en: 'SANTORINI',   gr: 'ΣΑΝΤΟΡΙΝΗ',   path: '/santorini' },
+  { id: 'crete',     en: 'CRETE',       gr: 'ΚΡΗΤΗ',       path: '/crete' },
+  { id: 'athens',    en: 'ATHENS',      gr: 'ΑΘΗΝΑ',       path: '/athens' },
+  { id: 'cyclades',  en: 'CYCLADES',    gr: 'ΚΥΚΛΑΔΕΣ',    path: '/cyclades' },
+  { id: 'ionian',    en: 'IONIAN',      gr: 'ΙΟΝΙΟ',       path: '/ionian' },
+  { id: 'nisi',      en: 'NISI',        gr: 'ΝΗΣΙ',        path: '/nisi' },
 ];
 
 export default function DemoSwitcher({ lang = 'en', setLang }) {
