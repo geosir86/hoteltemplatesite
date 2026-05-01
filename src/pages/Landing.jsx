@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ArrowUpRight, Menu, X, Globe, Play } from 'lucide-react';
+import PricingSection from '../components/landing/PricingSection';
 import { DESTINATIONS, DESTINATION_LIST, AIRBNB_PROPERTY } from '../data/destinations';
 
 const EASE = [0.23, 1, 0.32, 1];
@@ -12,11 +13,13 @@ const NAV_LINKS = {
   en: [
     { label: 'Our Work', href: '#work' },
     { label: 'How It Works', href: '#how' },
+    { label: 'Pricing', href: '#pricing' },
     { label: 'Contact', href: '#contact' },
   ],
   gr: [
     { label: 'Η Δουλειά μας', href: '#work' },
     { label: 'Πώς λειτουργεί', href: '#how' },
+    { label: 'Τιμές', href: '#pricing' },
     { label: 'Επικοινωνία', href: '#contact' },
   ],
 };
@@ -457,6 +460,9 @@ export default function Landing({ lang = 'en', setLang }) {
           </div>
         </div>
       </section>
+
+      {/* ── PRICING ── */}
+      <PricingSection lang={lang} />
 
       {/* ── CONTACT / CTA ── */}
       <section id="contact" className="py-24 md:py-48 px-6 md:px-16 border-t" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
