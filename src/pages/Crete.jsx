@@ -33,7 +33,7 @@ export default function Crete({ lang = 'en', setLang }) {
         fgColor={theme.fg}
         bgColor={theme.bg}
       />
-      <HeroCinematic title={c.title} subtitle={c.subtitle} location={c.location} imageUrl={d.heroImage} theme={theme} />
+      <HeroCinematic title={c.title} subtitle={c.subtitle} location={c.location} imageUrl={d.heroImage} videoUrl={d.videoUrl} theme={theme} variant="crete" gallery={d.gallery} labels={c.labels} />
       <SectionReveal>
         <div className="max-w-[1280px] mx-auto px-4 md:px-8 pt-16 md:pt-24" style={{ borderTop: `1px solid ${theme.border}` }}>
           <p className="text-lg md:text-xl leading-relaxed max-w-2xl" style={{ color: theme.muted }}>{c.description}</p>

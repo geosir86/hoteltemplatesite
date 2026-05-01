@@ -1,0 +1,125 @@
+
+> stayscape-clone@0.0.0 dev
+> vite --host 127.0.0.1
+
+
+  [32m[1mVITE[22m v8.0.10[39m  [2mready in [0m[1m291[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m5173[22m/[39m
+[2m9:58:02 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/DemoSwitcher.jsx, /index.css[22m
+[2m9:59:07 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Athens.jsx, /index.css[22m
+[2m9:59:14 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Cyclades.jsx, /index.css[22m
+[2m9:59:23 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Ionian.jsx, /index.css[22m
+[2m9:59:32 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Nisi.jsx, /index.css[22m
+[2m10:00:06 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/DemoSwitcher.jsx, /index.css[22m
+[2m10:06:14 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/components/property/HeroCinematic.jsx[22m
+[2m10:06:32 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/components/property/HeroCinematic.jsx[22m
+[2m10:06:35 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Athens.jsx, /index.css[22m
+[2m10:06:39 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Cyclades.jsx, /index.css[22m
+[2m10:06:43 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Ionian.jsx, /index.css[22m
+[2m10:06:47 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Nisi.jsx, /index.css[22m
+[2m10:10:15 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/components/property/HeroCinematic.jsx[22m
+[2m10:14:47 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-retire/index.html[22m
+[2m10:25:53 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-retire/index.html[22m
+[2m10:26:27 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-retire/index.html[22m
+[2m10:31:44 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/Athens.jsx, /src/pages/Cyclades.jsx, /src/pages/Nisi.jsx, /src/pages/Ionian.jsx, /src/pages/Landing.jsx[22m
+[2m10:31:48 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/immersive/ImmersiveSantorini.jsx, /src/pages/immersive/ImmersiveCrete.jsx[22m
+[2m10:36:06 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/index.html[22m
+[2m10:51:58 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/index.html[22m
+[2m10:54:59 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/index.html[22m
+[2m11:03:07 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/renders/work-210b2ea3-88e3-4db3-8b32-2c79606e34fa/compiled/index.html[22m
+[2m11:03:07 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/renders/work-210b2ea3-88e3-4db3-8b32-2c79606e34fa/compiled/index.html[22m
+[2m11:07:12 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/renders/work-9acba663-eb12-40aa-9126-35d1384955d9/compiled/index.html[22m
+[2m11:07:34 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/renders/work-9acba663-eb12-40aa-9126-35d1384955d9/compiled/index.html[22m
+[2m11:14:06 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/Athens.jsx, /src/pages/Cyclades.jsx, /src/pages/Nisi.jsx, /src/pages/Ionian.jsx, /src/pages/Landing.jsx[22m
+[2m11:14:41 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/Athens.jsx, /src/pages/Cyclades.jsx, /src/pages/Nisi.jsx, /src/pages/Ionian.jsx, /src/pages/Landing.jsx[22m
+[2m11:15:12 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/Athens.jsx, /src/pages/Cyclades.jsx, /src/pages/Nisi.jsx, /src/pages/Ionian.jsx, /src/pages/Landing.jsx[22m
+[2m11:17:55 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/Athens.jsx, /src/pages/Cyclades.jsx, /src/pages/Nisi.jsx, /src/pages/Ionian.jsx, /src/pages/Landing.jsx[22m
+[2m11:18:07 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/components/property/HeroCinematic.jsx[22m
+[2m11:18:15 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Athens.jsx, /index.css[22m
+[2m11:24:51 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/ffmpeg/fftools/resources/graph.html[22m
+[2m11:25:27 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/ffmpeg/tools/bookmarklets.html[22m
+[2m11:38:19 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/crete-heritage/index.html[22m
+[2m11:38:26 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/crete-heritage/index.html[22m
+[2m11:40:19 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Amenities.jsx[22m
+[2m11:41:07 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Amenities.jsx[22m
+[2m11:41:39 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/components/property/HeroCinematic.jsx[22m
+[2m11:42:15 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/crete-heritage/renders/work-119ecd8f-fd01-412d-a43c-1a6401186846/compiled/index.html[22m
+[2m11:42:15 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/crete-heritage/renders/work-119ecd8f-fd01-412d-a43c-1a6401186846/compiled/index.html[22m
+[2m11:42:50 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/crete-heritage/renders/work-32530837-1b5b-493f-b70d-f11accfda786/compiled/index.html[22m
+[2m11:43:05 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/Athens.jsx, /src/pages/Cyclades.jsx, /src/pages/Nisi.jsx, /src/pages/Ionian.jsx, /src/pages/Landing.jsx[22m
+[2m11:43:10 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css[22m
+[2m11:43:14 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/crete-heritage/renders/work-32530837-1b5b-493f-b70d-f11accfda786/compiled/index.html[22m
+[2m11:44:01 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css[22m
+[2m11:45:15 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/index.html[22m
+[2m11:45:24 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/index.html[22m
+[2m11:47:53 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/renders/work-fc83887f-aa53-4b89-85a8-2946e40b6ef2/compiled/index.html[22m
+[2m11:47:53 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/renders/work-fc83887f-aa53-4b89-85a8-2946e40b6ef2/compiled/index.html[22m
+[2m11:48:42 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/renders/work-410a904d-467d-46e8-8380-d66229a09639/compiled/index.html[22m
+[2m11:48:59 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/renders/work-410a904d-467d-46e8-8380-d66229a09639/compiled/index.html[22m
+[2m11:50:26 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Description.jsx[22m
+[2m11:50:36 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/components/property/HeroCinematic.jsx[22m
+[2m11:50:41 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/components/property/HeroCinematic.jsx[22m
+[2m11:50:47 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/Athens.jsx, /src/pages/Cyclades.jsx, /src/pages/Nisi.jsx, /src/pages/Ionian.jsx, /src/pages/Landing.jsx[22m
+[2m11:50:53 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/Athens.jsx, /src/pages/Cyclades.jsx, /src/pages/Nisi.jsx, /src/pages/Ionian.jsx, /src/pages/Landing.jsx[22m
+[2m11:50:58 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Athens.jsx, /index.css[22m
+[2m11:51:01 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Amenities.jsx[22m
+[2m11:51:10 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/Athens.jsx, /src/pages/Cyclades.jsx, /src/pages/Nisi.jsx, /src/pages/Ionian.jsx, /src/pages/Landing.jsx[22m
+[2m11:51:16 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/Athens.jsx, /src/pages/Cyclades.jsx, /src/pages/Nisi.jsx, /src/pages/Ionian.jsx, /src/pages/Landing.jsx[22m
+[2m11:51:21 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css[22m
+[2m11:52:00 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/index.html[22m
+[2m11:52:10 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/renders/work-6405ebcb-3ed3-4511-b847-0051534885d4/compiled/index.html[22m
+[2m11:52:27 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/renders/work-6405ebcb-3ed3-4511-b847-0051534885d4/compiled/index.html[22m
+[2m11:54:19 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Description.jsx[22m
+[2m11:55:51 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Description.jsx[22m
+[2m11:57:30 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Amenities.jsx[22m
+[2m11:58:39 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Calendar.jsx[22m
+[2m11:58:43 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/crete-heritage/index.html[22m
+[2m11:59:15 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/crete-heritage/renders/work-95e9fe75-eef9-4893-8a0a-37d1eb24ee38/compiled/index.html[22m
+[2m11:59:48 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/crete-heritage/renders/work-95e9fe75-eef9-4893-8a0a-37d1eb24ee38/compiled/index.html[22m
+[2m12:03:03 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/index.html[22m
+[2m12:03:04 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/index.html[22m
+[2m12:03:07 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/primitives.jsx[22m
+[2m12:03:29 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Description.jsx[22m
+[2m12:03:58 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Calendar.jsx[22m
+[2m12:04:23 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Reviews.jsx[22m
+[2m12:05:07 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/index.html[22m
+[2m12:05:12 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Hero.jsx[22m
+[2m12:05:36 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Hero.jsx[22m
+[2m12:05:52 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Nav.jsx[22m
+[2m12:06:06 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Gallery.jsx[22m
+[2m12:06:14 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/renders/work-c6a78c6a-6d43-4556-8bfd-c4c5293eb8bb/compiled/index.html[22m
+[2m12:06:26 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Amenities.jsx[22m
+[2m12:06:38 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/crete-heritage/renders/work-0f46fc42-e841-4bcb-963d-d39880015fdd/compiled/index.html[22m
+[2m12:06:47 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/StickyBar.jsx[22m
+[2m12:06:50 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/renders/work-c6a78c6a-6d43-4556-8bfd-c4c5293eb8bb/compiled/index.html[22m
+[2m12:07:08 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/crete-heritage/renders/work-0f46fc42-e841-4bcb-963d-d39880015fdd/compiled/index.html[22m
+[2m12:07:48 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/index.html[22m
+[2m12:09:59 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/ffmpeg/fftools/resources/graph.html[22m
+[2m12:10:42 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mhyperframes/athens-acropolis/ffmpeg/tools/bookmarklets.html[22m
+[2m12:24:01 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/DemoSwitcher.jsx, /index.css[22m
+[2m12:25:43 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Nav.jsx[22m
+[2m12:25:53 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Hero.jsx[22m
+[2m12:28:34 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Landing.jsx, /index.css[22m
+[2m12:30:24 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/Athens.jsx, /src/pages/Cyclades.jsx, /src/pages/Nisi.jsx, /src/pages/Ionian.jsx, /src/pages/Landing.jsx[22m
+[2m12:31:44 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Landing.jsx, /index.css[22m
+[2m12:31:44 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Nav.jsx[22m
+[2m12:31:46 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Landing.jsx, /index.css[22m
+[2m12:31:51 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/listing/Nav.jsx[22m
+[2m12:38:41 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/components/landing/CapabilityBento.jsx[22m
+[2m12:40:52 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/components/landing/CapabilityBento.jsx[22m
+[2m12:40:59 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Landing.jsx, /index.css[22m
+[2m12:41:18 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/components/landing/CapabilityBento.jsx[22m
+[2m12:45:25 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/components/landing/CapabilityBento.jsx[22m
+[2m12:46:23 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Landing.jsx, /index.css[22m
+[2m12:46:36 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/Athens.jsx, /src/pages/Cyclades.jsx, /src/pages/Nisi.jsx, /src/pages/Ionian.jsx, /src/pages/Landing.jsx[22m
+[2m12:48:39 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/components/landing/CapabilityBento.jsx[22m
+[2m12:50:14 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/Athens.jsx, /src/pages/Cyclades.jsx, /src/pages/Nisi.jsx, /src/pages/Ionian.jsx, /src/pages/Landing.jsx[22m
+[2m12:50:29 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/Athens.jsx, /src/pages/Cyclades.jsx, /src/pages/Nisi.jsx, /src/pages/Ionian.jsx, /src/pages/Landing.jsx[22m
+[2m12:50:44 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Landing.jsx, /index.css[22m
+[2m12:52:05 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/Athens.jsx, /src/pages/Cyclades.jsx, /src/pages/Nisi.jsx, /src/pages/Ionian.jsx, /src/pages/Landing.jsx[22m
+[2m12:53:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/index.css, /src/pages/Athens.jsx, /src/pages/Cyclades.jsx, /src/pages/Nisi.jsx, /src/pages/Ionian.jsx, /src/pages/Landing.jsx[22m
+[2m12:53:15 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/Landing.jsx, /index.css[22m
+[2m12:54:57 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mindex.html[22m
+[2m1:16:59 AM[22m [36m[1m[vite][22m[39m changed tsconfig file detected: C:/Users/geosi/Desktop/ai projects/test clone site/my-remotion-video/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.
+[2m1:50:36 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mmy-remotion-video/build/index.html[22m

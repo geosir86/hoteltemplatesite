@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { box-sizing: border-box; }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        margin: 0;
+        overflow: hidden;
+        background: #070707;
+      }
+
+      #athens-retire {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #070707;
+      }
+
+      .full {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .media-shell {
+        overflow: hidden;
+        background: #070707;
+      }
+
+      .hero-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: saturate(0.95) contrast(1.08) brightness(0.82);
+      }
+
+      .still {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.18;
+        filter: saturate(0.7) blur(0.5px);
+        mix-blend-mode: screen;
+      }
+
+      .shade {
+        background:
+          radial-gradient(circle at 68% 38%, rgba(201, 168, 76, 0.24), transparent 24%),
+          radial-gradient(circle at 22% 68%, rgba(245, 240, 232, 0.14), transparent 28%),
+          linear-gradient(90deg, rgba(7, 7, 7, 0.88), rgba(7, 7, 7, 0.46) 44%, rgba(7, 7, 7, 0.18) 72%, rgba(7, 7, 7, 0.72));
+      }
+
+      .marble {
+        position: absolute;
+        left: -80px;
+        bottom: -120px;
+        width: 760px;
+        height: 520px;
+        background-image: url("assets/marble-detail.png");
+        background-size: cover;
+        opacity: 0.22;
+        clip-path: polygon(0 12%, 82% 0, 100% 72%, 18% 100%);
+        filter: contrast(1.18) brightness(0.95);
+        mix-blend-mode: screen;
+      }
+
+      .terrace-mask {
+        position: absolute;
+        right: 118px;
+        top: 138px;
+        width: 510px;
+        height: 680px;
+        border: 1px solid rgba(245, 240, 232, 0.24);
+        background: rgba(255, 255, 255, 0.055);
+        backdrop-filter: blur(10px);
+        overflow: hidden;
+        box-shadow: 0 40px 120px rgba(0, 0, 0, 0.42);
+      }
+
+      .terrace-mask img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.48;
+        filter: saturate(0.8) contrast(1.08);
+      }
+
+      .gold-frame {
+        position: absolute;
+        inset: 96px 104px 92px 104px;
+        border: 1px solid rgba(201, 168, 76, 0.38);
+      }
+
+      .gold-frame::before,
+      .gold-frame::after {
+        content: "";
+        position: absolute;
+        background: rgba(201, 168, 76, 0.55);
+      }
+
+      .gold-frame::before {
+        left: 0;
+        top: 38%;
+        width: 100%;
+        height: 1px;
+      }
+
+      .gold-frame::after {
+        left: 32%;
+        top: 0;
+        width: 1px;
+        height: 100%;
+      }
+
+      .glass-grid {
+        position: absolute;
+        left: 150px;
+        top: 178px;
+        width: 540px;
+        height: 590px;
+        display: grid;
+        grid-template-columns: 1fr 0.64fr;
+        grid-template-rows: 1fr 0.72fr 0.4fr;
+        gap: 14px;
+      }
+
+      .glass-cell {
+        border: 1px solid rgba(245, 240, 232, 0.18);
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(8px);
+      }
+
+      .glass-cell:nth-child(1) { grid-row: span 2; }
+      .glass-cell:nth-child(4) { grid-column: span 2; }
+
+      .scan {
+        position: absolute;
+        top: -20%;
+        left: -18%;
+        width: 42%;
+        height: 140%;
+        background: linear-gradient(90deg, transparent, rgba(245, 240, 232, 0.18), transparent);
+        transform: skewX(-14deg);
+        mix-blend-mode: screen;
+      }
+
+      .light-dot {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        background: #c9a84c;
+        box-shadow: 0 0 42px rgba(201, 168, 76, 0.85);
+      }
+
+      .dot-a { left: 104px; top: 96px; }
+      .dot-b { right: 104px; bottom: 92px; }
+      .dot-c { left: 43%; top: 96px; }
+
+      .bottom-band {
+        position: absolute;
+        left: 104px;
+        right: 104px;
+        bottom: 92px;
+        height: 104px;
+        display: grid;
+        grid-template-columns: 0.8fr 1.3fr 0.55fr;
+        gap: 16px;
+      }
+
+      .band-panel {
+        border: 1px solid rgba(245, 240, 232, 0.16);
+        background: rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(12px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .band-panel::before {
+        content: "";
+        position: absolute;
+        inset: 26px 28px;
+        border-top: 1px solid rgba(201, 168, 76, 0.38);
+        border-bottom: 1px solid rgba(245, 240, 232, 0.13);
+      }
+    </style>
+  </head>
+  <body>
+      <div
+        id="athens-retire"
+        data-composition-id="athens-retire"
+      data-start="0"
+      data-duration="12"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div id="video-shell" class="full media-shell" data-layout-ignore>
+        <video
+          id="athens-video"
+          class="hero-video"
+          data-start="0"
+          data-duration="12"
+          data-track-index="0"
+          data-media-start="0.7"
+          data-has-audio="false"
+          src="assets/athens-acropolis.mp4"
+          muted
+          playsinline
+        ></video>
+      </div>
+
+      <img
+        id="still-layer"
+        class="clip full still"
+        data-start="0"
+        data-duration="12"
+        data-track-index="1"
+        src="assets/penthouse-view.png"
+        alt=""
+      />
+
+      <div id="shade" class="clip full shade" data-start="0" data-duration="12" data-track-index="2"></div>
+      <div id="marble" class="clip marble" data-start="0" data-duration="12" data-track-index="3" data-layout-ignore></div>
+      <div id="frame" class="clip gold-frame" data-start="0" data-duration="12" data-track-index="4" data-layout-ignore></div>
+
+      <div id="glass-grid" class="clip glass-grid" data-start="0" data-duration="12" data-track-index="5" data-layout-ignore>
+        <div class="glass-cell"></div>
+        <div class="glass-cell"></div>
+        <div class="glass-cell"></div>
+        <div class="glass-cell"></div>
+      </div>
+
+      <div id="terrace" class="clip terrace-mask" data-start="0" data-duration="12" data-track-index="6" data-layout-ignore>
+        <img src="assets/penthouse-view.png" alt="" />
+      </div>
+
+      <div id="scan" class="clip scan" data-start="0" data-duration="12" data-track-index="7" data-layout-ignore></div>
+      <div id="dot-a" class="clip light-dot dot-a" data-start="0" data-duration="12" data-track-index="8" data-layout-ignore></div>
+      <div id="dot-b" class="clip light-dot dot-b" data-start="0" data-duration="12" data-track-index="9" data-layout-ignore></div>
+      <div id="dot-c" class="clip light-dot dot-c" data-start="0" data-duration="12" data-track-index="10" data-layout-ignore></div>
+
+      <div id="bottom-band" class="clip bottom-band" data-start="0" data-duration="12" data-track-index="11" data-layout-ignore>
+        <div class="band-panel"></div>
+        <div class="band-panel"></div>
+        <div class="band-panel"></div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      tl.from("#shade", { opacity: 0, duration: 0.8, ease: "power2.out" }, 0.15);
+      tl.from("#frame", { scaleX: 0.82, scaleY: 0.92, opacity: 0, duration: 1.35, ease: "expo.out" }, 0.25);
+      tl.from("#marble", { x: -80, y: 80, opacity: 0, duration: 1.1, ease: "power4.out" }, 0.45);
+      tl.from("#glass-grid .glass-cell", { y: 36, opacity: 0, duration: 0.75, stagger: 0.11, ease: "back.out(1.3)" }, 0.65);
+      tl.from("#terrace", { x: 90, opacity: 0, clipPath: "inset(0 0 100% 0)", duration: 1.2, ease: "power3.out" }, 0.95);
+      tl.from("#bottom-band .band-panel", { y: 36, opacity: 0, duration: 0.65, stagger: 0.08, ease: "circ.out" }, 1.3);
+      tl.from(".light-dot", { scale: 0, opacity: 0, duration: 0.45, stagger: 0.14, ease: "back.out(2)" }, 1.55);
+
+      tl.to("#video-shell", { scale: 1.055, duration: 12, ease: "none" }, 0);
+      tl.to("#still-layer", { scale: 1.04, x: 28, duration: 12, ease: "none" }, 0);
+      tl.to("#terrace img", { scale: 1.08, x: -20, duration: 10.5, ease: "none" }, 0.95);
+      tl.to("#scan", { x: 2500, duration: 4.8, ease: "power1.inOut" }, 2.0);
+      tl.to(".light-dot", { scale: 1.55, opacity: 0.55, duration: 1.2, repeat: 7, yoyo: true, ease: "sine.inOut" }, 2.25);
+      tl.to("#glass-grid", { x: 18, y: -10, duration: 8.5, ease: "sine.inOut" }, 2.0);
+      tl.to("#marble", { x: 34, y: -18, rotation: -1.5, duration: 9, ease: "sine.inOut" }, 2.0);
+
+      tl.to("#bottom-band", { opacity: 0.82, duration: 0.8, ease: "power2.inOut" }, 10.8);
+      tl.to("#frame", { opacity: 0.62, duration: 0.8, ease: "power2.inOut" }, 10.8);
+
+      window.__timelines["athens-retire"] = tl;
+    </script>
+  </body>
+</html>

@@ -9,7 +9,7 @@ import RoomParallax from '../components/property/RoomParallax';
 import AmenitiesGrid from '../components/property/AmenitiesGrid';
 import ReviewCards from '../components/property/ReviewCards';
 import DualCTA from '../components/property/DualCTA';
-import SectionReveal from '../components/shared/SectionReveal';
+import DestinationSignature from '../components/property/DestinationSignature';
 
 export default function Nisi({ lang = 'en', setLang }) {
   const d = DESTINATIONS.nisi;
@@ -33,15 +33,11 @@ export default function Nisi({ lang = 'en', setLang }) {
         fgColor={theme.fg}
         bgColor={theme.bg}
       />
-      <HeroCinematic title={c.title} subtitle={c.subtitle} location={c.location} imageUrl={d.heroImage} theme={theme} />
-      <SectionReveal>
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8 pt-16 md:pt-24" style={{ borderTop: `1px solid ${theme.border}` }}>
-          <p className="text-lg md:text-xl leading-relaxed max-w-2xl" style={{ color: theme.muted }}>{c.description}</p>
-        </div>
-      </SectionReveal>
-      <Gallery photos={d.gallery} theme={theme} title={lang === 'gr' ? 'Ο Χώρος' : 'The Space'} />
+      <HeroCinematic title={c.title} subtitle={c.subtitle} location={c.location} imageUrl={d.heroImage} theme={theme} variant="nisi" gallery={d.gallery} />
+      <DestinationSignature variant="nisi" destination={d} content={c} theme={theme} />
+      <RoomParallax rooms={c.rooms} theme={theme} sectionTitle={lang === 'gr' ? 'Οι Στιγμές' : 'The Moments'} />
       <DetailsStrip details={d.details} theme={theme} />
-      <RoomParallax rooms={c.rooms} theme={theme} sectionTitle={lang === 'gr' ? 'Οι Χώροι' : 'The Spaces'} />
+      <Gallery photos={d.gallery} theme={theme} title={lang === 'gr' ? 'Ο Χώρος' : 'The Space'} />
       <AmenitiesGrid amenities={d.amenities} theme={theme} title={lang === 'gr' ? 'Τι Περιλαμβάνεται' : "What's Included"} />
       <ReviewCards reviews={c.reviews} theme={theme} title={lang === 'gr' ? 'Λένε οι Επισκέπτες' : 'What Guests Say'} />
       <DualCTA theme={theme} price={d.pricing.from} currency={d.pricing.currency} lang={lang} />

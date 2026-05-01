@@ -62,21 +62,15 @@ export const AIRBNB_PROPERTY = {
       title: 'The Athens Flat',
       subtitle: 'Modern Urban Sanctuary · Plaka',
       location: 'Plaka, Athens, Greece',
-      locationShort: 'Naoussa, Paros',
-      description: 'Perched on the cliffs above Naoussa Bay, Villa Thea is a contemporary Cycladic retreat with three suites, a private infinity pool, and uninterrupted views across the Aegean. Every detail has been curated for the discerning traveller.',
-      hostNote: 'I am delighted to welcome guests to Villa Thea. I will be available throughout your stay for any recommendations or assistance. Enjoy the magic of Paros!',
+      description: 'Perched on the cliffs above Naoussa Bay, Villa Thea is a contemporary Cycladic retreat with three suites, a private infinity pool, and uninterrupted views across the Aegean.',
+      hostNote: 'I am delighted to welcome guests to Villa Thea. I will be available throughout your stay for any recommendations or assistance.',
       highlights: [
         { title: 'Rare Find', desc: 'This villa is usually booked.' },
         { title: 'Superhost', desc: 'Eleni has a 99% response rate.' },
         { title: 'Free cancellation', desc: 'Until 5 days before check-in.' },
       ],
       reviews: [
-        { name: 'Charlotte D.', loc: 'London', rating: 5, date: 'August 2024', text: 'Absolutely stunning. The infinity pool with the Aegean view is something straight out of a dream. Eleni was the most attentive host we have ever had.', avatar: 'https://i.pravatar.cc/100?img=9' },
-        { name: 'Lars P.', loc: 'Copenhagen', rating: 5, date: 'July 2024', text: 'Perfect in every way. The villa is even more beautiful than the photos. We did not want to leave. Will definitely come back next summer.', avatar: 'https://i.pravatar.cc/100?img=15' },
-        { name: 'Maria T.', loc: 'Madrid', rating: 5, date: 'September 2024', text: 'If you are looking for the best villa in Paros, stop searching. This is it. Immaculate, peaceful, and absolutely magical at sunset.', avatar: 'https://i.pravatar.cc/100?img=21' },
-        { name: 'James R.', loc: 'New York', rating: 5, date: 'June 2024', text: 'Three families, three suites, zero complaints. The pool area, the sunsets, the fresh linens every day — Eleni runs this place like a 5-star hotel.', avatar: 'https://i.pravatar.cc/100?img=52' },
-        { name: 'Isabelle M.', loc: 'Paris', rating: 5, date: 'August 2024', text: 'We have stayed in many luxury villas across Europe. Villa Thea is among the very best. The location, the design, the hospitality — all perfect.', avatar: 'https://i.pravatar.cc/100?img=41' },
-        { name: 'Nikos K.', loc: 'Athens', rating: 5, date: 'May 2024', text: 'Exceptional property. We celebrated our anniversary here and every moment was unforgettable. Highly recommend the local fish taverna Eleni suggested.', avatar: 'https://i.pravatar.cc/100?img=60' },
+        { name: 'Charlotte D.', loc: 'London', rating: 5, date: 'August 2024', text: 'Absolutely stunning. The infinity pool with the Aegean view is something straight out of a dream.', avatar: 'https://i.pravatar.cc/100?img=9' },
       ],
     },
     gr: {
@@ -85,21 +79,15 @@ export const AIRBNB_PROPERTY = {
       title: 'The Athens Flat',
       subtitle: 'Σύγχρονο Αστικό Καταφύγιο · Πλάκα',
       location: 'Πλάκα, Αθήνα, Ελλάδα',
-      locationShort: 'Νάουσα, Πάρος',
-      description: 'Στις άκρες των βράχων πάνω από τον κόλπο της Νάουσας, η Villa Thea είναι ένα σύγχρονο κυκλαδίτικο καταφύγιο με τρεις σουίτες, ιδιωτική πισίνα infinity και απέραντη θέα στο Αιγαίο.',
-      hostNote: 'Χαίρομαι πολύ που φιλοξενώ επισκέπτες στη Villa Thea. Θα είμαι πάντα διαθέσιμη για οποιαδήποτε βοήθεια ή σύσταση. Απολαύστε τη μαγεία της Πάρου!',
+      description: 'Στις άκρες των βράχων πάνω από τον κόλπο της Νάουσας, η Villa Thea είναι ένα σύγχρονο κυκλαδίτικο καταφύγιο με τρεις σουίτες.',
+      hostNote: 'Χαίρομαι πολύ που φιλοξενώ επισκέπτες στη Villa Thea.',
       highlights: [
         { title: 'Σπάνια Εύρεση', desc: 'Αυτή η βίλα κλείνεται συνήθως γρήγορα.' },
         { title: 'Superhost', desc: 'Η Ελένη έχει ποσοστό απόκρισης 99%.' },
         { title: 'Δωρεάν ακύρωση', desc: 'Έως 5 ημέρες πριν το check-in.' },
       ],
       reviews: [
-        { name: 'Charlotte D.', loc: 'Λονδίνο', rating: 5, date: 'Αύγουστος 2024', text: 'Απολύτως εκπληκτικό. Η piscina infinity με τη θέα του Αιγαίου είναι κάτι σαν όνειρο. Η Ελένη ήταν η πιο προσεκτική οικοδέσποινα που έχουμε συναντήσει.', avatar: 'https://i.pravatar.cc/100?img=9' },
-        { name: 'Lars P.', loc: 'Κοπεγχάγη', rating: 5, date: 'Ιούλιος 2024', text: 'Τέλειο σε κάθε λεπτομέρεια. Η βίλα είναι ακόμη πιο όμορφη από τις φωτογραφίες. Δεν θέλαμε να φύγουμε. Επιστρέφουμε σίγουρα.', avatar: 'https://i.pravatar.cc/100?img=15' },
-        { name: 'Maria T.', loc: 'Μαδρίτη', rating: 5, date: 'Σεπτέμβριος 2024', text: 'Αν ψάχνετε για την καλύτερη βίλα στην Πάρο, σταματήστε. Αυτή είναι. Αψεγάδιαστη, ήρεμη και μαγευτική στο ηλιοβασίλεμα.', avatar: 'https://i.pravatar.cc/100?img=21' },
-        { name: 'James R.', loc: 'Νέα Υόρκη', rating: 5, date: 'Ιούνιος 2024', text: 'Τρεις οικογένειες, τρεις σουίτες, μηδέν παράπονα. Η Ελένη το διαχειρίζεται σαν ξενοδοχείο 5 αστέρων.', avatar: 'https://i.pravatar.cc/100?img=52' },
-        { name: 'Isabelle M.', loc: 'Παρίσι', rating: 5, date: 'Αύγουστος 2024', text: 'Έχουμε μείνει σε πολλές luxury βίλες. Η Villa Thea είναι από τις καλύτερες. Τοποθεσία, σχεδιασμός, φιλοξενία — όλα τέλεια.', avatar: 'https://i.pravatar.cc/100?img=41' },
-        { name: 'Νίκος Κ.', loc: 'Αθήνα', rating: 5, date: 'Μάιος 2024', text: 'Εξαιρετικό property. Γιορτάσαμε την επέτειό μας εδώ και κάθε στιγμή ήταν αξέχαστη.', avatar: 'https://i.pravatar.cc/100?img=60' },
+        { name: 'Charlotte D.', loc: 'Λονδίνο', rating: 5, date: 'Αύγουστος 2024', text: 'Απολύτως εκπληκτικό. Η piscina infinity με τη θέα του Αιγαίου είναι κάτι σαν όνειρο.', avatar: 'https://i.pravatar.cc/100?img=9' },
       ],
     },
   },
@@ -111,35 +99,37 @@ export const DESTINATIONS = {
     path: '/athens',
     theme: {
       bg: '#0A0A0A',
-      fg: '#F5F0E8',
-      accent: '#C9A84C',
-      muted: 'rgba(245,240,232,0.5)',
-      border: 'rgba(201,168,76,0.2)',
+      fg: '#FFFFFF',
+      accent: '#E5D5B3',
+      muted: 'rgba(255,255,255,0.45)',
+      border: 'rgba(229,213,179,0.25)',
       fontHeading: "'Cormorant Garamond', serif",
     },
-    pricing: { from: 290, currency: '€', label: '/ νύχτα' },
-    heroImage: '/assets/greek_luxury_penthouse_acropolis_view_1776942386364.png',
+    pricing: { from: 1200, currency: '€', label: '/ night' },
+    heroImage: '/assets/greek_luxury_terrace_sunset_view_1776942676038.png',
+    videoUrl: '/assets/athens-cinematic.mp4',
     gallery: [
-      '/assets/greek_luxury_penthouse_acropolis_view_1776942386364.png',
-      '/assets/greek_luxury_interior_master_bedroom_1776942408192.png',
-      '/assets/greek_luxury_living_room_dining_1776942426126.png',
       '/assets/greek_luxury_terrace_sunset_view_1776942676038.png',
+      '/assets/greek_luxury_penthouse_acropolis_view_1776942386364.png',
+      '/assets/athens_acropolis_master_bedroom.png',
+      '/assets/greek_luxury_living_room_dining_1776942426126.png',
       '/assets/greek_luxury_marble_bathroom_1776942694181.png',
-      '/assets/greek_luxury_kitchen_detail_1776942713864.png',
     ],
-    details: { guests: 8, beds: 4, baths: 3, sqm: '280m²', rating: 4.98, reviews: 200 },
+    details: { guests: 4, beds: 2, baths: 2, sqm: '280m²', rating: 4.98, reviews: 34 },
     amenities: [
-      { icon: Wifi, label: 'WiFi 1Gbps' }, { icon: Wind, label: 'A/C Nest' },
-      { icon: Coffee, label: 'Nespresso' }, { icon: Tv, label: '85" 8K TV' },
-      { icon: Car, label: 'Parking' }, { icon: Waves, label: 'Ιδ. SPA' },
+      { icon: Waves, label: 'Infinity Pool' }, { icon: Wind, label: 'Climate Control' },
+      { icon: Sun, label: 'Acropolis View' }, { icon: Wifi, label: 'High-speed WiFi' },
+      { icon: Shield, label: '24/7 Security' }, { icon: Car, label: 'Private Valet' },
     ],
     content: {
       en: {
-        name: 'Athens', title: 'Athenian Penthouse', subtitle: 'Urban Elegance Above the City',
+        name: 'Athens', title: 'The Acropolis Penthouse', subtitle: 'Urban Elegance Above the Ancients',
         location: 'Plaka, Athens',
-        description: 'An extraordinary 280sqm penthouse in Plaka with unobstructed Acropolis views. Designed for those who demand the best — from the texture of the fabrics to the quality of sound.',
+        labels: { accent: 'Acropolis View', sqm: '280' },
+        description: 'An extraordinary 280sqm penthouse in the heart of Plaka, featuring unobstructed views of the Acropolis. Designed for those who demand the finest in contemporary living.',
+
         rooms: [
-          { title: 'The Master Suite', description: 'Wake up to panoramic city views. Floor-to-ceiling windows, private terrace, spa-like en-suite.', imageUrl: '/assets/greek_luxury_interior_master_bedroom_1776942408192.png' },
+          { title: 'The Master Suite', description: 'Wake up to panoramic city views. Floor-to-ceiling windows, private terrace, spa-like en-suite.', imageUrl: '/assets/athens_acropolis_master_bedroom.png' },
           { title: 'The Rooftop Terrace', description: 'Your private vantage point. Evening cocktails with an unobstructed view of the illuminated Parthenon.', imageUrl: '/assets/greek_luxury_terrace_sunset_view_1776942676038.png' },
           { title: 'The Living Space', description: 'Open-concept entertaining area with designer furniture and bespoke artwork.', imageUrl: '/assets/greek_luxury_living_room_dining_1776942426126.png' },
         ],
@@ -152,16 +142,18 @@ export const DESTINATIONS = {
       gr: {
         name: 'Αθήνα', title: 'Αθηναϊκό Ρετιρέ', subtitle: 'Αστική Κομψότητα Πάνω από την Πόλη',
         location: 'Πλάκα, Αθήνα',
+        labels: { accent: 'Θέα Ακρόπολη', sqm: '280' },
         description: 'Ένα εξαιρετικό penthouse 280τμ στην Πλάκα με ανεμπόδιστη θέα στην Ακρόπολη. Σχεδιασμένο για όσους αξιώνουν το καλύτερο.',
+
         rooms: [
-          { title: 'Η Κύρια Σουίτα', description: 'Ξυπνήστε με πανοραμική θέα. Παράθυρα από το δάπεδο, ιδιωτική βεράντα, μπάνιο σπα.', imageUrl: '/assets/greek_luxury_interior_master_bedroom_1776942408192.png' },
+          { title: 'Η Κύρια Σουίτα', description: 'Ξυπνήστε με πανοραμική θέα. Παράθυρα από το δάπεδο, ιδιωτική βεράντα, μπάνιο σπα.', imageUrl: '/assets/athens_acropolis_master_bedroom.png' },
           { title: 'Η Ταράτσα', description: 'Το δικό σας ιδιωτικό παρατηρητήριο. Βραδινά κοκτέιλ με θέα στον φωτισμένο Παρθενώνα.', imageUrl: '/assets/greek_luxury_terrace_sunset_view_1776942676038.png' },
           { title: 'Ο Χώρος Διημέρευσης', description: 'Ενιαίος χώρος με επώνυμα έπιπλα και ειδικά επιλεγμένα έργα τέχνης.', imageUrl: '/assets/greek_luxury_living_room_dining_1776942426126.png' },
         ],
         reviews: [
           { name: 'Sofia M.', loc: 'Λονδίνο', rating: 5, text: 'Απίστευτη θέα στην Ακρόπολη. Η καλύτερη εμπειρία που είχαμε ποτέ στην Αθήνα.', avatar: 'https://i.pravatar.cc/100?img=47' },
-          { name: 'Marco R.', loc: 'Μιλάνο', rating: 5, text: 'Perfectly curated space. The marble bathroom alone is worth every euro.', avatar: 'https://i.pravatar.cc/100?img=33' },
-          { name: 'Anna K.', loc: 'Παρίσι', rating: 5, text: 'Superhost με κάθε έννοια. Επιστρέφουμε σίγουρα.', avatar: 'https://i.pravatar.cc/100?img=25' },
+          { name: 'Marco R.', loc: 'Μιλάνο', rating: 5, text: 'Εξαιρετικός χώρος. Το μαρμάρινο μπάνιο από μόνο του αξίζει κάθε ευρώ.', avatar: 'https://i.pravatar.cc/100?img=33' },
+          { name: 'Anna K.', loc: 'Παρίσι', rating: 5, text: 'Superhost με κάθε έννοια. Θα επιστρέψουμε σίγουρα.', avatar: 'https://i.pravatar.cc/100?img=25' },
         ],
       },
     },
@@ -178,7 +170,7 @@ export const DESTINATIONS = {
       border: 'rgba(14,95,168,0.15)',
       fontHeading: "'Playfair Display', serif",
     },
-    pricing: { from: 650, currency: '€', label: '/ νύχτα' },
+    pricing: { from: 650, currency: '€', label: '/ night' },
     heroImage: '/assets/cyclades_hero.png',
     gallery: [
       '/assets/cyclades_hero.png', '/assets/cyclades_pool.png', '/assets/cyclades_bed.png',
@@ -237,13 +229,13 @@ export const DESTINATIONS = {
       border: 'rgba(26,46,30,0.15)',
       fontHeading: "'DM Serif Display', serif",
     },
-    pricing: { from: 480, currency: '€', label: '/ νύχτα' },
+    pricing: { from: 480, currency: '€', label: '/ night' },
     heroImage: '/assets/ionian_hero.png',
     gallery: [
       '/assets/ionian_hero.png', '/assets/ionian_terrace.png', '/assets/ionian_bed.png',
-      '/assets/greek_luxury_living_room_dining_1776942426126.png',
+      '/assets/ionian_living_room.png',
       '/assets/greek_luxury_decor_olive_tree_1776942733057.png',
-      '/assets/greek_luxury_kitchen_detail_1776942713864.png',
+      '/assets/ionian_secret_cove.png',
     ],
     details: { guests: 10, beds: 5, baths: 3, sqm: '320m²', rating: 4.99, reviews: 89 },
     amenities: [
@@ -257,29 +249,25 @@ export const DESTINATIONS = {
         location: 'Lefkada, Ionian Islands',
         description: "Surrounded by ancient olive groves and emerald waters. A stone-built sanctuary offering the ultimate retreat into nature's embrace.",
         rooms: [
-          { title: 'The Forest Suite', description: 'Sleep among the trees. Vast windows frame the lush Ionian landscape with a private balcony.', imageUrl: '/assets/ionian_bed.png' },
+          { title: 'The Forest Suite', description: 'Sleep among the trees. Vast windows frame the lush Ionian landscape with a private balcony.', imageUrl: '/assets/ionian_forest_bedroom.png' },
           { title: 'The Stone Terrace', description: 'Hand-carved local stone meets modern luxury. An outdoor living space for long evenings under the stars.', imageUrl: '/assets/ionian_terrace.png' },
-          { title: 'The Secret Cove', description: 'Steps from your door lies a private pebble beach with crystal-clear emerald waters.', imageUrl: '/assets/greek_luxury_kitchen_detail_1776942713864.png' },
+          { title: 'The Secret Cove', description: 'Steps from your door lies a private pebble beach with crystal-clear emerald waters.', imageUrl: '/assets/ionian_secret_cove.png' },
         ],
         reviews: [
           { name: 'Elena P.', loc: 'Athens', rating: 5, text: "The olive grove at golden hour made us feel like we were living inside a painting.", avatar: 'https://i.pravatar.cc/100?img=32' },
-          { name: 'Thomas B.', loc: 'Berlin', rating: 5, text: "Nature, silence, and absolute comfort. The perfect detox.", avatar: 'https://i.pravatar.cc/100?img=57' },
-          { name: 'Maria C.', loc: 'Lisbon', rating: 5, text: "The secret cove is the kind of place you want to keep to yourself.", avatar: 'https://i.pravatar.cc/100?img=23' },
         ],
       },
       gr: {
-        name: 'Ιόνιο', title: 'Πράσινη Οικία', subtitle: 'Μια Καταπράσινη Απόδραση στο Ιόνιο',
+        name: 'Ιόνιο', title: 'Casa Verde', subtitle: 'Μια Καταπράσινη Απόδραση στο Ιόνιο',
         location: 'Λευκάδα, Ιόνιο',
         description: 'Περιτριγυρισμένο από αρχαίους ελαιώνες και σμαραγδένια νερά. Ένα πέτρινο καταφύγιο στην αγκαλιά της φύσης.',
         rooms: [
-          { title: 'Η Σουίτα του Δάσους', description: 'Κοιμηθείτε ανάμεσα στα δέντρα. Μεγάλα παράθυρα με θέα στο τοπίο και ιδιωτικό μπαλκόνι.', imageUrl: '/assets/ionian_bed.png' },
+          { title: 'Η Σουίτα του Δάσους', description: 'Κοιμηθείτε ανάμεσα στα δέντρα. Μεγάλα παράθυρα με θέα στο τοπίο και ιδιωτικό μπαλκόνι.', imageUrl: '/assets/ionian_forest_bedroom.png' },
           { title: 'Η Πέτρινη Βεράντα', description: 'Χειροποίητη πέτρα και μοντέρνα πολυτέλεια. Χώρος για βραδιές κάτω από τα αστέρια.', imageUrl: '/assets/ionian_terrace.png' },
-          { title: 'Ο Κρυφός Κολπίσκος', description: 'Λίγα βήματα από την πόρτα σας — ιδιωτική παραλία με κρυστάλλινα νερά.', imageUrl: '/assets/greek_luxury_kitchen_detail_1776942713864.png' },
+          { title: 'Ο Κρυφός Κολπίσκος', description: 'Λίγα βήματα από την πόρτα σας — ιδιωτική παραλία με κρυστάλλινα νερά.', imageUrl: '/assets/ionian_secret_cove.png' },
         ],
         reviews: [
           { name: 'Elena P.', loc: 'Αθήνα', rating: 5, text: 'Ο ελαιώνας στη χρυσή ώρα μας έκανε να νιώθουμε μέσα σε πίνακα ζωγραφικής.', avatar: 'https://i.pravatar.cc/100?img=32' },
-          { name: 'Thomas B.', loc: 'Βερολίνο', rating: 5, text: 'Φύση, ησυχία και άνεση. Η τέλεια αποτοξίνωση.', avatar: 'https://i.pravatar.cc/100?img=57' },
-          { name: 'Maria C.', loc: 'Λισαβόνα', rating: 5, text: 'Ο κρυφός κολπίσκος είναι το είδος του τόπου που θέλεις να κρατάς μυστικό.', avatar: 'https://i.pravatar.cc/100?img=23' },
         ],
       },
     },
@@ -296,13 +284,14 @@ export const DESTINATIONS = {
       border: 'rgba(212,137,42,0.2)',
       fontHeading: "'Libre Baskerville', serif",
     },
-    pricing: { from: 560, currency: '€', label: '/ νύχτα' },
+    pricing: { from: 560, currency: '€', label: '/ night' },
     heroImage: '/assets/crete_hero.png',
+    videoUrl: '/assets/crete-cinematic.mp4',
     gallery: [
       '/assets/crete_hero.png', '/assets/crete_living.png', '/assets/crete_bed.png',
       '/assets/greek_luxury_terrace_sunset_view_1776942676038.png',
       '/assets/greek_luxury_marble_bathroom_1776942694181.png',
-      '/assets/greek_luxury_kitchen_detail_1776942713864.png',
+      '/assets/greek_luxury_kitchen_detail_1776942713984.png',
     ],
     details: { guests: 12, beds: 6, baths: 4, sqm: '450m²', rating: 4.96, reviews: 124 },
     amenities: [
@@ -314,7 +303,9 @@ export const DESTINATIONS = {
       en: {
         name: 'Crete', title: 'Villa Minos', subtitle: 'Timeless Cretan Luxury',
         location: 'Chania, Crete',
+        labels: { accent: 'Cretan Heritage' },
         description: 'Where rugged mountains meet the Libyan Sea. A heritage estate reimagined for modern luxury, offering an authentic Cretan experience.',
+
         rooms: [
           { title: 'The Heritage Suite', description: 'Exposed wooden beams, terracotta floors, and a private balcony overlooking olive groves and sea.', imageUrl: '/assets/crete_bed.png' },
           { title: 'The Courtyard Pool', description: 'An enclosed stone courtyard with total privacy around the heated pool, shaded by a century-old carob tree.', imageUrl: '/assets/crete_living.png' },
@@ -322,14 +313,14 @@ export const DESTINATIONS = {
         ],
         reviews: [
           { name: 'Nikos A.', loc: 'Thessaloniki', rating: 5, text: 'This is what luxury means in Crete. Raw, authentic, and absolutely breathtaking.', avatar: 'https://i.pravatar.cc/100?img=61' },
-          { name: 'Sophie L.', loc: 'Lyon', rating: 5, text: 'The outdoor kitchen was the highlight — cooking Cretan food in a wood-fired oven at sunset.', avatar: 'https://i.pravatar.cc/100?img=19' },
-          { name: 'David M.', loc: 'Tel Aviv', rating: 5, text: 'The estate has a soul. You feel the history in every stone.', avatar: 'https://i.pravatar.cc/100?img=42' },
         ],
       },
       gr: {
         name: 'Κρήτη', title: 'Βίλα Μίνως', subtitle: 'Διαχρονική Κρητική Πολυτέλεια',
         location: 'Χανιά, Κρήτη',
+        labels: { accent: 'Κρητική Κληρονομιά' },
         description: 'Εκεί όπου τα τραχιά βουνά συναντούν το Λιβυκό Πέλαγος. Ένα ιστορικό κτήμα για μοντέρνα πολυτέλεια με αυθεντική κρητική εμπειρία.',
+
         rooms: [
           { title: 'Η Ιστορική Σουίτα', description: 'Εμφανή ξύλινα δοκάρια, δάπεδα τερακότα και μπαλκόνι με θέα σε ελαιώνες και θάλασσα.', imageUrl: '/assets/crete_bed.png' },
           { title: 'Η Πισίνα της Αυλής', description: 'Κλειστή πέτρινη αυλή με απόλυτη ιδιωτικότητα γύρω από τη θερμαινόμενη πισίνα.', imageUrl: '/assets/crete_living.png' },
@@ -337,8 +328,6 @@ export const DESTINATIONS = {
         ],
         reviews: [
           { name: 'Νίκος Α.', loc: 'Θεσσαλονίκη', rating: 5, text: 'Αυτή είναι η πολυτέλεια στην Κρήτη. Αδάμαστη, αυθεντική και συγκλονιστική.', avatar: 'https://i.pravatar.cc/100?img=61' },
-          { name: 'Sophie L.', loc: 'Λυών', rating: 5, text: 'Η εξωτερική κουζίνα ήταν η κορύφωση — μαγείρεμα κρητικής κουζίνας στο ξυλόφουρνο.', avatar: 'https://i.pravatar.cc/100?img=19' },
-          { name: 'David M.', loc: 'Τελ Αβίβ', rating: 5, text: 'Το κτήμα έχει ψυχή. Νιώθεις την ιστορία σε κάθε πέτρα.', avatar: 'https://i.pravatar.cc/100?img=42' },
         ],
       },
     },
@@ -355,7 +344,7 @@ export const DESTINATIONS = {
       border: 'rgba(200,149,108,0.2)',
       fontHeading: "'Fraunces', serif",
     },
-    pricing: { from: 420, currency: '€', label: '/ νύχτα' },
+    pricing: { from: 420, currency: '€', label: '/ night' },
     heroImage: '/assets/nisi_hero.png',
     gallery: [
       '/assets/nisi_hero.png', '/assets/nisi_pool.png', '/assets/nisi_terrace.png',
@@ -379,30 +368,27 @@ export const DESTINATIONS = {
         ],
         reviews: [
           { name: 'Yuki T.', loc: 'Tokyo', rating: 5, text: "I have stayed in luxury hotels worldwide. Nisi is in a different category entirely.", avatar: 'https://i.pravatar.cc/100?img=38' },
-          { name: 'Clara B.', loc: 'Amsterdam', rating: 5, text: "The morning ritual — coffee, plunge pool, sunrise — changed something in me.", avatar: 'https://i.pravatar.cc/100?img=16' },
-          { name: 'Omar S.', loc: 'Dubai', rating: 5, text: "Perfection is rare. This is it.", avatar: 'https://i.pravatar.cc/100?img=68' },
         ],
       },
       gr: {
-        name: 'Νησί', title: 'Νησί', subtitle: 'Η Εμπειρία του Νησιώτικου Δωματίου',
+        name: 'Νησί', title: 'Nisi', subtitle: 'Η Εμπειρία του Νησιώτικου Δωματίου',
         location: 'Μήλος, Κυκλάδες',
         description: 'Ούτε ξενοδοχείο, ούτε απλώς δωμάτιο. Ένας ζωντανός πίνακας. Η ουσία του ελληνικού νησιώτικου ονείρου.',
         rooms: [
           { title: 'Το Σπηλαιώδες Δωμάτιο', description: 'Λαξευμένο στο ηφαιστειογενές βράχο. Καμπυλωτοί τοίχοι και παράθυρο που πλαισιώνει το Αιγαίο.', imageUrl: '/assets/nisi_room.png' },
           { title: 'Η Μικρή Πισίνα', description: 'Βγείτε σε ζεστά κοβαλτί νερά με αδιατάρακτη θέα στη θάλασσα. Η ανατολή εδώ είναι τελετουργία.', imageUrl: '/assets/nisi_pool.png' },
-          { title: 'Το Πρωινό Τραπέζι', description: 'Τοπικό μέλι, τυρί θυμαριού, ντοματίνια και καφές. Κάθε πρωί είναι ξεχωριστό.', imageUrl: '/assets/nisi_room.png' },
+          { title: 'Το Πρωινό Τραπέζι', description: 'Τοπικό μέλι, τυρί θυμαριού, ντοματίνια και καφές. Κάθε πρωί είναι ξεχωριστό.', imageUrl: '/assets/nisi_terrace.png' },
         ],
         reviews: [
           { name: 'Yuki T.', loc: 'Τόκιο', rating: 5, text: 'Έχω μείνει σε luxury ξενοδοχεία σε όλο τον κόσμο. Το Νησί είναι σε άλλη κατηγορία.', avatar: 'https://i.pravatar.cc/100?img=38' },
-          { name: 'Clara B.', loc: 'Άμστερνταμ', rating: 5, text: 'Η πρωινή τελετουργία — καφές, πισίνα, ανατολή — άλλαξε κάτι μέσα μου.', avatar: 'https://i.pravatar.cc/100?img=16' },
-          { name: 'Omar S.', loc: 'Ντουμπάι', rating: 5, text: 'Η τελειότητα είναι σπάνια. Αυτό είναι.', avatar: 'https://i.pravatar.cc/100?img=68' },
         ],
       },
     },
   },
+
   greece: {
     id: 'greece',
-    path: '/greece',
+    path: '/santorini',
     theme: {
       bg: '#FCFAF7',
       fg: '#1A1A1A',
@@ -411,7 +397,7 @@ export const DESTINATIONS = {
       border: 'rgba(209,176,124,0.3)',
       fontHeading: "'Cormorant Garamond', serif",
     },
-    pricing: { from: 720, currency: '€', label: '/ νύχτα' },
+    pricing: { from: 720, currency: '€', label: '/ night' },
     heroImage: '/assets/santorini_hero_day.png',
     gallery: [
       '/assets/santorini_hero_day.png', 
@@ -441,5 +427,3 @@ export const DESTINATIONS = {
 };
 
 export const DESTINATION_LIST = ['athens', 'cyclades', 'ionian', 'crete', 'nisi', 'greece', 'airbnb'];
-
-

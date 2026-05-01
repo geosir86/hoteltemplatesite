@@ -1,0 +1,17 @@
+{
+  "name": "athens-retire",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.4.41 preview",
+    "lint": "npx --yes hyperframes@0.4.41 lint",
+    "validate": "npx --yes hyperframes@0.4.41 validate",
+    "inspect": "npx --yes hyperframes@0.4.41 inspect",
+    "check": "npx --yes hyperframes@0.4.41 lint && npx --yes hyperframes@0.4.41 validate && npx --yes hyperframes@0.4.41 inspect",
+    "render": "npx --yes hyperframes@0.4.41 render --output renders/athens-retire.mp4"
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.3.0",
+    "ffprobe-static": "^3.1.0"
+  }
+}

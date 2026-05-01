@@ -16,7 +16,7 @@ export default function ImmersiveApp() {
       ? path 
       : 'athens';
   });
-  const [lang, setLang] = useState('en');
+  const [lang, setLang] = useState('gr');
 
   const renderRegion = () => {
     switch (activeRegion) {

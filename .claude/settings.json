@@ -7,7 +7,9 @@
       "Bash(git init *)",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(py .agent/skills/ui-ux-pro-max/scripts/search.py \"luxury real estate property portfolio showcase grid dark\" --design-system -p \"Stayscape GR\")",
+      "Bash(py .agent/skills/ui-ux-pro-max/scripts/search.py \"editorial card grid gallery hover luxury\" --domain ux)"
     ]
   }
 }

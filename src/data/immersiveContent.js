@@ -197,7 +197,7 @@ export const IMMERSIVE_DATA = {
         ]
       },
       gr: {
-        title: 'Πράσινη Οικία',
+        title: 'Casa Verde',
         subtitle: 'Μια Καταπράσινη Απόδραση στο Ιόνιο',
         introText: 'Περιτριγυρισμένο από αρχαίους ελαιώνες και σμαραγδένια νερά. Ένα πέτρινο καταφύγιο που προσφέρει την απόλυτη απόδραση στην αγκαλιά της φύσης.',
         rooms: [
@@ -371,7 +371,7 @@ export const IMMERSIVE_DATA = {
         ]
       },
       gr: {
-        title: 'Νησί',
+        title: 'Nisi',
         subtitle: 'Η Εμπειρία του Νησιώτικου Δωματίου',
         introText: 'Ούτε ξενοδοχείο, ούτε απλώς δωμάτιο. Ένας ζωντανός πίνακας. Το Νησί είναι η ουσία του ελληνικού νησιώτικου ονείρου — όπου κάθε πρωινό μοιάζει με πρώτη φορά.',
         rooms: [
@@ -417,6 +417,7 @@ export const IMMERSIVE_DATA = {
     heroImage: '/assets/santorini_hero_day.png',
     heroImageNight: '/assets/santorini_hero_night.png',
     heroVideo: '/assets/santorini_hero.mp4',
+    heroNightVideo: '/assets/santorini_hero_night_pool.mp4',
     volcanoImage: '/assets/santorini_volcano.png',
     volcanoSunset: '/assets/santorini_volcano_sunset.png',
     sequenceImages: [
@@ -465,7 +466,7 @@ export const IMMERSIVE_DATA = {
         ]
       },
       gr: {
-        title: 'Το Κτήμα της Σαντορίνης',
+        title: 'The Santorini Estate',
         subtitle: 'Σμιλεμένη Μοναξιά πάνω από το Αιγαίο',
         introText: 'Ένα γεωμετρικό καταφύγιο λαξευμένο στους ηφαιστειογενείς βράχους της Οίας. Εκεί όπου η λευκή πέτρα συναντά το απέραντο γαλάζιο του ελληνικού καλοκαιριού.',
         volcanoTitle: 'Απέναντι στο Ηφαίστειο',

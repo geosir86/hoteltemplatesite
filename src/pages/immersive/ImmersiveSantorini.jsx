@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IMMERSIVE_DATA } from '../../data/immersiveContent';
 import IntroGoogleFlow from '../../components/Immersive/IntroGoogleFlow';
@@ -13,9 +13,25 @@ const VerticalLabel = ({ children }) => (
   </div>
 );
 
-const HutStufHero = ({ title, subtitle, image, isNight, videoUrl }) => (
+const HutStufHero = ({ title, subtitle, image, isNight, videoUrl, nightVideoUrl, nightVideoStart = 0 }) => {
+  const videoRef = useRef(null);
+  const activeVideoUrl = isNight ? nightVideoUrl : videoUrl;
+  const shouldStartOffset = isNight && nightVideoStart > 0;
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !activeVideoUrl) return;
+
+    if (shouldStartOffset) {
+      video.currentTime = nightVideoStart;
+    }
+
+    video.play().catch(() => {});
+  }, [activeVideoUrl, nightVideoStart, shouldStartOffset]);
+
+  return (
   <section className="relative h-screen w-full flex items-center justify-center overflow-hidden px-6">
-    <motion.div 
+    <motion.div
       key={isNight ? 'night' : 'day'}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -23,15 +39,22 @@ const HutStufHero = ({ title, subtitle, image, isNight, videoUrl }) => (
       transition={{ duration: 1.5 }}
       className="absolute inset-0 z-0"
     >
-      {!isNight && videoUrl ? (
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline 
+      {activeVideoUrl ? (
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
           className="w-full h-full object-cover"
+          onLoadedMetadata={(event) => {
+            if (shouldStartOffset) {
+              event.currentTarget.currentTime = nightVideoStart;
+            }
+          }}
         >
-          <source src={videoUrl} type="video/mp4" />
+          <source src={activeVideoUrl} type="video/mp4" />
         </video>
       ) : (
         <img src={image} className="w-full h-full object-cover" alt="" />
@@ -58,7 +81,8 @@ const HutStufHero = ({ title, subtitle, image, isNight, videoUrl }) => (
       </motion.h1>
     </div>
   </section>
-);
+  );
+};
 
 const InfoGrid = ({ details }) => (
   <section className="py-20 px-6 border-b border-foreground/5">
@@ -187,6 +211,8 @@ export default function ImmersiveSantorini({ lang = 'en' }) {
             subtitle={content.subtitle}
             image={isNight ? data.heroImageNight : data.heroImage}
             videoUrl={videoUrl}
+            nightVideoUrl={data.heroNightVideo}
+            nightVideoStart={4}
             isNight={isNight}
           />
 
