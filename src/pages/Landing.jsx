@@ -183,7 +183,7 @@ function AgencyNav({ lang, setLang }) {
 }
 
 /* ── Project Card ── */
-function ProjectCard({ project, lang, index }) {
+function ProjectCard({ project, lang, index, aspectRatio = '4/3' }) {
   const [hovered, setHovered] = useState(false);
   const c = project.content[lang];
   const label = lang === 'en' ? 'View Live Demo' : 'Δες Live Demo';
@@ -194,11 +194,11 @@ function ProjectCard({ project, lang, index }) {
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.9, delay: index * 0.1, ease: EASE }}
+        transition={{ duration: 0.9, delay: (index % 3) * 0.1, ease: EASE }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative overflow-hidden rounded-2xl group cursor-pointer"
-        style={{ aspectRatio: index % 3 === 0 ? '16/9' : '4/5' }}
+        className="relative overflow-hidden rounded-2xl group cursor-pointer w-full"
+        style={{ aspectRatio }}
       >
         {/* Hero image */}
         <motion.img
@@ -393,20 +393,34 @@ export default function Landing({ lang = 'en', setLang }) {
             </p>
           </motion.div>
 
-          {/* Masonry-style grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* First card: wide */}
-            <div className="lg:col-span-2">
-              <ProjectCard project={PROJECTS[0]} lang={lang} index={0} />
+          {/* Editorial grid — symmetric layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+
+            {/* Row 1: wide hero + portrait */}
+            <div className="md:col-span-2 lg:col-span-2">
+              <ProjectCard project={PROJECTS[0]} lang={lang} index={0} aspectRatio="16/9" />
             </div>
-            {/* Second card: tall */}
             <div>
-              <ProjectCard project={PROJECTS[1]} lang={lang} index={1} />
+              <ProjectCard project={PROJECTS[1]} lang={lang} index={1} aspectRatio="4/3" />
             </div>
-            {/* Remaining cards */}
-            {PROJECTS.slice(2).map((p, i) => (
-              <ProjectCard key={p.id} project={p} lang={lang} index={i + 2} />
+
+            {/* Row 2: three equal */}
+            {PROJECTS.slice(2, 5).map((p, i) => (
+              <ProjectCard key={p.id} project={p} lang={lang} index={i + 2} aspectRatio="4/3" />
             ))}
+
+            {/* Row 3: wide + portrait (mirrors row 1) */}
+            {PROJECTS[5] && (
+              <div className="md:col-span-2 lg:col-span-2">
+                <ProjectCard project={PROJECTS[5]} lang={lang} index={5} aspectRatio="16/9" />
+              </div>
+            )}
+            {PROJECTS[6] && (
+              <div>
+                <ProjectCard project={PROJECTS[6]} lang={lang} index={6} aspectRatio="4/3" />
+              </div>
+            )}
+
           </div>
         </div>
       </section>
