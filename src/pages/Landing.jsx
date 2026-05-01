@@ -185,71 +185,106 @@ function AgencyNav({ lang, setLang }) {
 /* ── Project Card ── */
 function ProjectCard({ project, lang, index, aspectRatio = '4/3' }) {
   const [hovered, setHovered] = useState(false);
+  const reduced = useReducedMotion();
   const c = project.content[lang];
-  const label = lang === 'en' ? 'View Live Demo' : 'Δες Live Demo';
+  const accent = project.theme?.accent || GOLD;
+  const headingFont = project.theme?.fontHeading || "'Cormorant Garamond', serif";
+  const num = String(index + 1).padStart(2, '0');
+  const exploreLabel = lang === 'en' ? 'Explore' : 'Ανακάλυψε';
 
   return (
-    <Link to={project.path} className="block cursor-pointer">
+    <Link to={project.path} className="block cursor-pointer group">
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={reduced ? {} : { opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.9, delay: (index % 3) * 0.1, ease: EASE }}
+        transition={{ duration: 0.9, delay: (index % 3) * 0.12, ease: EASE }}
+        className="relative overflow-hidden w-full"
+        style={{ aspectRatio, borderRadius: '12px' }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative overflow-hidden rounded-2xl group cursor-pointer w-full"
-        style={{ aspectRatio }}
       >
-        {/* Hero image */}
+        {/* Image */}
         <motion.img
           src={project.heroImage}
           alt={c.title}
+          loading={index < 2 ? 'eager' : 'lazy'}
           className="w-full h-full object-cover"
-          animate={{ scale: hovered ? 1.06 : 1 }}
-          transition={{ duration: 1, ease: EASE }}
+          animate={reduced ? {} : { scale: hovered ? 1.07 : 1 }}
+          transition={{ duration: 1.2, ease: EASE }}
         />
 
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+        {/* Multi-layer gradient — strong at bottom, touch-friendly */}
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.05) 70%, transparent 100%)' }}
+        />
 
-        {/* Live demo badge */}
-        <div className="absolute top-5 left-5">
-          <span className="flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase"
-            style={{ backgroundColor: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(12px)', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.15)' }}>
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            Live Demo
+        {/* Hover bright overlay */}
+        <motion.div
+          className="absolute inset-0"
+          animate={reduced ? {} : { opacity: hovered ? 1 : 0 }}
+          transition={{ duration: 0.5 }}
+          style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.04) 0%, transparent 60%)' }}
+        />
+
+        {/* Top row: index number + explore button */}
+        <div className="absolute top-5 left-5 right-5 flex items-start justify-between">
+          <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.3)' }}>
+            {num}
           </span>
+          <motion.div
+            animate={reduced ? {} : { opacity: hovered ? 1 : 0, scale: hovered ? 1 : 0.8 }}
+            transition={{ duration: 0.25 }}
+            className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
+            style={{ backgroundColor: accent }}
+          >
+            <ArrowUpRight size={15} color="#000" strokeWidth={2.5} />
+          </motion.div>
         </div>
 
-        {/* Hover CTA */}
-        <motion.div
-          animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 8 }}
-          transition={{ duration: 0.3 }}
-          className="absolute top-5 right-5 w-12 h-12 rounded-full flex items-center justify-center"
-          style={{ backgroundColor: GOLD }}
-        >
-          <ArrowUpRight size={18} color="#080808" />
-        </motion.div>
+        {/* Bottom caption */}
+        <div className="absolute bottom-0 left-0 right-0 px-6 pb-5 pt-16">
+          {/* Location */}
+          <div className="flex items-center gap-2 mb-2">
+            <span
+              className="text-[9px] tracking-[0.45em] uppercase font-semibold"
+              style={{ color: accent }}
+            >
+              {c.location}
+            </span>
+          </div>
 
-        {/* Bottom content */}
-        <div className="absolute bottom-0 left-0 right-0 p-7">
-          <span className="text-[10px] tracking-[0.4em] uppercase mb-3 block"
-            style={{ color: project.theme.accent || GOLD }}>
-            {c.location}
-          </span>
-          <h3 className="text-2xl md:text-3xl font-light text-white leading-tight mb-1"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+          {/* Title */}
+          <h3
+            className="font-light text-white leading-[1.05] mb-3"
+            style={{
+              fontFamily: headingFont,
+              fontSize: 'clamp(1.4rem, 2.8vw, 2rem)',
+            }}
+          >
             {c.title}
           </h3>
-          <motion.span
-            animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -8 }}
+
+          {/* Explore label — always visible on mobile, hover on desktop */}
+          <motion.div
+            className="flex items-center gap-2"
+            animate={reduced ? {} : { opacity: hovered ? 1 : 0, y: hovered ? 0 : 6 }}
+            initial={reduced ? { opacity: 1 } : { opacity: 0, y: 6 }}
             transition={{ duration: 0.3 }}
-            className="flex items-center gap-2 text-xs tracking-widest uppercase mt-4"
-            style={{ color: GOLD }}
           >
-            {label} <ArrowRight size={14} />
-          </motion.span>
+            <span className="text-[10px] tracking-[0.35em] uppercase font-semibold" style={{ color: 'rgba(255,255,255,0.55)' }}>
+              {exploreLabel}
+            </span>
+            <ArrowRight size={12} style={{ color: 'rgba(255,255,255,0.55)' }} />
+          </motion.div>
         </div>
+
+        {/* Accent line at very bottom — destination color signature */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-[3px]"
+          style={{ backgroundColor: accent, opacity: hovered ? 1 : 0.35, transition: 'opacity 0.4s ease' }}
+        />
       </motion.div>
     </Link>
   );
