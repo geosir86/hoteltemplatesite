@@ -26,13 +26,25 @@ The page should combine:
 
 ## 3. UI/UX Pro Max Guidance Used
 
-The local `ui-ux-pro-max` skill recommends this task as a hybrid of:
+The local `ui-ux-pro-max` skill was run with portable Python using this query:
+
+> premium hospitality landing cinematic Greek stays video first before after transformation luxury editorial
+
+The recommended design system was:
+
+- Primary pattern: `Before-After Transformation`
+- Style: `Liquid Glass`
+- Color direction: luxury navy / blue + gold service accents
+- Typography: `Playfair Display / Inter`, adapted to the existing `Cormorant Garamond / Plus Jakarta Sans` stack for consistency
+
+Additional targeted searches confirmed this task as a hybrid of:
 
 - `Video-First Hero`: hero media should lead, with muted autoplay or frame-based fallback.
 - `Product Demo + Features`: show the website capabilities visually, not only as text.
 - `Before-After Transformation`: compare generic listing presence with branded Stayfolio presence.
 - `Classic Elegant` / `Luxury Serif`: use refined serif headings with clean sans UI text.
 - `Parallax Storytelling` only sparingly: use cinematic motion, but avoid heavy scroll effects that hurt performance or accessibility.
+- `Liquid Glass` only as a restrained overlay/detail style, not as a full-page visual gimmick.
 
 Important constraints from the skill:
 
@@ -43,6 +55,8 @@ Important constraints from the skill:
 - Avoid hover-only important interactions.
 - Make mobile touch targets at least 44px.
 - Avoid content hidden behind fixed nav.
+- Avoid heavy autoplay video loops. Use compressed media, `playsInline`, `muted`, a poster/fallback, and pause or avoid motion when off-screen if implemented.
+- Liquid/glass elements must preserve text contrast; no low-opacity glass behind important copy.
 
 ## 4. Visual Direction
 
@@ -56,9 +70,18 @@ Palette:
 | Stone | `#F7F3EA` | General light background |
 | Deep ink | `#1A1612` | Main text and dark UI |
 | Aegean blue | `#0E5FA8` | Hero kinetic word, frame indicators, Greek identity accent |
+| Luxury navy | `#1E3A8A` | Optional deeper blue accent for CTA/focus details |
 | Bronze light | `#EBC777` | Film details, divider lines, premium highlight |
 | Espresso | `#14110E` | Dark sections and video overlays |
 | Taupe | `#6F685F` | Muted body text |
+
+Liquid Glass usage:
+
+- Use only for small overlays: `REC` pill, timecode, frame metadata, mini capability previews, or before/after labels.
+- Keep blur moderate: 10-16px.
+- Use dark translucent glass over media and light translucent glass over light panels.
+- Do not place body paragraphs on weak transparent surfaces.
+- No iridescent rainbow treatment; Stayfolio should feel Greek-hospitality premium, not tech demo.
 
 Typography:
 
@@ -177,6 +200,8 @@ Purpose:
 
 Show the transformation from generic platform presence to branded Stayfolio experience.
 
+This is the main conversion pattern from `ui-ux-pro-max`, so it should be treated as a major proof section, not a small supporting block.
+
 Structure:
 
 - Section label: `Before / After`
@@ -211,6 +236,9 @@ Interaction:
 - Desktop can have subtle hover reveal.
 - Mobile should not depend on hover.
 - Optional later enhancement: draggable before/after slider. Do not require it for the first implementation.
+- CTA should appear after the transformation reveal:
+  - EN: `See what this could become`
+  - GR: `Δες πώς μπορεί να γίνει`
 
 ## 7. Capability Strip / Bento
 
@@ -322,11 +350,15 @@ Implementation should make it easy to switch by defining a hero media configurat
 
 Video rules:
 
-- Autoplay muted loop playsInline.
+- Prefer compressed muted loop only when the file is ready and small enough.
+- Use `playsInline`, `muted`, `loop`, and a poster image.
+- Avoid eager high-resolution autoplay video. Load responsibly.
 - Poster image required.
 - Dark overlay for text/metadata readability.
 - If video fails, fallback to first image frame.
 - Respect reduced motion by preferring still poster/frame.
+- If practical, pause video when the hero is off-screen.
+- Rotating fallback frames should stop under reduced motion.
 
 ## 11. Implementation Scope
 
@@ -354,6 +386,7 @@ Do not modify destination demo pages for this upgrade.
 - Hero copy remains Stayfolio/solo-specialist, not agency.
 - Kinetic word is restrained and disabled/reduced under reduced motion.
 - Before/after section appears immediately after hero.
+- Before/after is visually prominent enough to communicate the core transformation.
 - Capability bento appears before examples.
 - Examples read as `Stay experiences`, not `Our Work`.
 - Page still supports EN/GR.
