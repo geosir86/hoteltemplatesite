@@ -260,7 +260,7 @@ export default function CinematicHero({ lang = 'en', brand, copy }) {
             </div>
             <div className="mt-8 grid grid-cols-3 border-y" style={{ borderColor: 'rgba(26,22,18,0.12)' }}>
               {stats.map((stat) => (
-                <div key={stat.label} className="border-r py-5 last:border-r-0" style={{ borderColor: 'rgba(26,22,18,0.1)' }}>
+                <div key={stat.label} className="border-r py-5 text-center last:border-r-0" style={{ borderColor: 'rgba(26,22,18,0.1)' }}>
                   <div
                     className="text-3xl font-light italic leading-none"
                     style={{ fontFamily: "'Cormorant Garamond', serif", color: brand.aegeanBlue }}
