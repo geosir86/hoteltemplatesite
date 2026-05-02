@@ -76,12 +76,12 @@ const COPY = {
       'I build cinematic, bilingual websites for Greek studios, apartments, Airbnb hosts, and villas — so their online presence feels as considered as the real stay.',
     heroTrust:
       'A clear, personal process with the person designing and building your site.',
-    primaryCta: 'See the experiences',
-    secondaryCta: 'Send your listing',
+    primaryCta: 'See the Demos',
+    secondaryCta: 'Start your own',
     heroStats: [
-      { value: '2', label: 'languages' },
-      { value: '14 days', label: 'build cycle' },
-      { value: '1', label: 'specialist' },
+      { value: 'Premium', label: 'design' },
+      { label: 'YOUR DESIGNER', hasAvatar: true },
+      { value: '3-10 days', label: 'build cycle' },
     ],
 
     problemLabel: 'The online gap',
@@ -165,12 +165,12 @@ const COPY = {
       'Φτιάχνω cinematic, δίγλωσσα websites για studios, διαμερίσματα, Airbnb και villas στην Ελλάδα, ώστε η online παρουσία τους να δείχνει όσο προσεγμένη είναι και η πραγματική εμπειρία.',
     heroTrust:
       'Ένα καθαρό, προσωπικό process από τον άνθρωπο που σχεδιάζει και χτίζει το site σου.',
-    primaryCta: 'Δες εμπειρίες',
-    secondaryCta: 'Στείλε μου την καταχώρηση',
+    primaryCta: 'Δες τα Demos',
+    secondaryCta: 'Ξεκίνα το δικό σου',
     heroStats: [
-      { value: '2', label: 'γλώσσες' },
-      { value: '3-14', label: 'ημέρες παράδοση' },
-      { value: '1', label: 'specialist' },
+      { value: 'Premium', label: 'design' },
+      { label: '1-ON-1 ΣΥΝΕΡΓΑΣΙΑ', hasAvatar: true },
+      { value: '3-10', label: 'ημέρες παράδοση' },
     ],
 
     problemLabel: 'Το online κενό',
@@ -379,19 +379,19 @@ function ExampleCard({ project, lang, index }) {
   const type = EXPERIENCE_TYPES[project.id]?.[safeLang] || EXPERIENCE_TYPES[project.id]?.en || 'Stay experience';
 
   // Editorial / Journal style asymmetric grid calculation for 7 items
-  const spanClass = 
+  const spanClass =
     index === 0 ? "md:col-span-12 lg:col-span-8" :
-    index === 1 ? "md:col-span-6 lg:col-span-4" :
-    index === 2 ? "md:col-span-6 lg:col-span-4" :
-    index === 3 ? "md:col-span-6 lg:col-span-4" :
-    index === 4 ? "md:col-span-12 lg:col-span-4" :
-    "md:col-span-6 lg:col-span-6"; // indices 5 and 6
+      index === 1 ? "md:col-span-6 lg:col-span-4" :
+        index === 2 ? "md:col-span-6 lg:col-span-4" :
+          index === 3 ? "md:col-span-6 lg:col-span-4" :
+            index === 4 ? "md:col-span-12 lg:col-span-4" :
+              "md:col-span-6 lg:col-span-6"; // indices 5 and 6
 
   // Varied aspect ratios for editorial feel
   const aspectClass =
     index === 0 ? "aspect-[4/3] md:aspect-[2/1] lg:aspect-[16/9]" :
-    index === 5 || index === 6 ? "aspect-[4/3] md:aspect-[3/2] lg:aspect-[16/9]" :
-    "aspect-[4/3] lg:aspect-[4/5]";
+      index === 5 || index === 6 ? "aspect-[4/3] md:aspect-[3/2] lg:aspect-[16/9]" :
+        "aspect-[4/3] lg:aspect-[4/5]";
 
   return (
     <Link to={project.path} className={`group block cursor-pointer flex flex-col h-full ${spanClass}`}>
@@ -466,7 +466,7 @@ export default function Landing({ lang = 'en', setLang }) {
       <StayfolioNav lang={lang} setLang={setLang} />
 
       <main>
-        <CinematicHero lang={lang} brand={BRAND} copy={c} />
+        <CinematicHero lang={lang} brand={BRAND} copy={c} onVideoOpen={() => setIsVideoModalOpen(true)} />
         <BeforeAfterTransformation lang={lang} brand={BRAND} copy={c} />
         <CapabilityBento brand={BRAND} copy={c} lang={lang} />
         {showLegacyLandingSections && (
@@ -611,15 +611,15 @@ export default function Landing({ lang = 'en', setLang }) {
                 <span className="align-middle">{c.whyTitle}</span>
                 <span className="ml-4 inline-flex items-center gap-3 align-middle">
                   <button
-                    onClick={() => setIsVideoModalOpen(true)}
-                    className="relative group cursor-pointer inline-block rounded-full p-1 shrink-0 transition-transform hover:scale-[1.02]" 
+                    onClick={() => lang === 'gr' && setIsVideoModalOpen(true)}
+                    className="relative group cursor-pointer inline-block rounded-full p-1 shrink-0 transition-transform hover:scale-[1.02]"
                     style={{ border: `1px solid ${BRAND.bronze}` }}
                     aria-label="Play video"
                   >
-                    <img 
-                      src="/assets/specialist.jpg" 
-                      alt="Stayfolio Specialist" 
-                      className="h-16 w-16 md:h-20 md:w-20 rounded-full object-cover" 
+                    <img
+                      src="/assets/specialist.jpg"
+                      alt="Stayfolio Specialist"
+                      className="h-16 w-16 md:h-20 md:w-20 rounded-full object-cover"
                     />
                     <div className="absolute inset-1 rounded-full bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                       <Play size={20} fill="white" color="white" />
@@ -674,7 +674,7 @@ export default function Landing({ lang = 'en', setLang }) {
             <p className="mt-7 max-w-xl text-base leading-8 text-white/60">{c.finalBody}</p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a
-                href="https://wa.me/306900000000"
+                href="https://wa.me/306972417067"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex cursor-pointer items-center justify-center gap-3 rounded-full px-8 py-4 text-xs font-black uppercase tracking-[0.18em]"
@@ -684,7 +684,7 @@ export default function Landing({ lang = 'en', setLang }) {
                 {c.secondaryCta}
               </a>
               <a
-                href="mailto:hello@stayfolio.gr"
+                href="mailto:stayfolio.gr@gmail.com"
                 className="inline-flex cursor-pointer items-center justify-center gap-3 rounded-full border px-8 py-4 text-xs font-black uppercase tracking-[0.18em]"
                 style={{ borderColor: 'rgba(247,243,234,0.22)', color: BRAND.stone }}
               >
@@ -752,7 +752,7 @@ export default function Landing({ lang = 'en', setLang }) {
               style={{ backgroundColor: BRAND.ink }}
             >
               <video
-                src="/assets/Απογείωσε Το Stay Σου.mov"
+                src="/assets/specialist-video.mov"
                 controls
                 autoPlay
                 className="w-full h-full object-contain"

@@ -19,9 +19,27 @@ const SPANS = [
   { col: 'span 3', row: 'span 1' },
 ];
 
-export default function Gallery() {
+const T = {
+  en: {
+    eyebrow: 'The Frames',
+    line1: 'Six rooms.',
+    line2italic: 'One unforgettable',
+    line2end: ' stay.',
+    enlarge: '↗ click to enlarge',
+  },
+  gr: {
+    eyebrow: 'Τα Δωμάτια',
+    line1: 'Έξι χώροι.',
+    line2italic: 'Μία αξέχαστη',
+    line2end: ' διαμονή.',
+    enlarge: '↗ κλικ για μεγέθυνση',
+  },
+};
+
+export default function Gallery({ lang = 'en' }) {
   const [box, setBox] = useState(null);
   const isMobile = useIsMobile();
+  const t = T[lang] || T.en;
 
   return (
     <section id="gallery" style={{ padding: isMobile ? '84px 20px' : '120px 60px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
@@ -31,14 +49,14 @@ export default function Gallery() {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 18 }}>
                 <div style={{ width: 28, height: 1, background: GOLD }} />
-                <span style={{ fontSize: 10, letterSpacing: '0.5em', textTransform: 'uppercase', color: GOLD }}>The Frames</span>
+                <span style={{ fontSize: 10, letterSpacing: '0.5em', textTransform: 'uppercase', color: GOLD }}>{t.eyebrow}</span>
               </div>
               <h2 style={{ fontFamily: "'Playfair Display', serif", fontWeight: 300, fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 0.95, margin: 0, color: 'white', letterSpacing: '-0.02em' }}>
-                Six rooms.<br />
-                <span style={{ fontStyle: 'italic', color: GOLD }}>One unforgettable</span> stay.
+                {t.line1}<br />
+                <span style={{ fontStyle: 'italic', color: GOLD }}>{t.line2italic}</span>{t.line2end}
               </h2>
             </div>
-            <div style={{ display: isMobile ? 'none' : 'block', fontSize: 10, letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)' }}>↗ click to enlarge</div>
+            <div style={{ display: isMobile ? 'none' : 'block', fontSize: 10, letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.35)' }}>{t.enlarge}</div>
           </div>
         </Reveal>
 

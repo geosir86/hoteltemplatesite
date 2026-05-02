@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
 import {
   ArrowRight,
   BarChart2,
@@ -45,6 +46,7 @@ const PACKAGES = [
     id: 'essential',
     name: 'Essential Presence',
     price: 249,
+    scarcityLimit: 100,
     recommended: false,
     desc: {
       en: 'For hosts who need a polished standalone page for a strong first impression.',
@@ -56,6 +58,7 @@ const PACKAGES = [
     id: 'direct',
     name: 'Direct Inquiry',
     price: 399,
+    scarcityLimit: 75,
     recommended: true,
     desc: {
       en: 'For owners who want a branded site that makes direct inquiry easy.',
@@ -67,6 +70,7 @@ const PACKAGES = [
     id: 'signature',
     name: 'Signature Stay',
     price: 699,
+    scarcityLimit: 50,
     recommended: false,
     desc: {
       en: 'For villas and boutique stays that need a more cinematic presentation.',
@@ -93,10 +97,28 @@ function FeatureRow({ id, lang, brand, mutedColor }) {
   );
 }
 
-function PricingCard({ pkg, lang, index, reduced, brand }) {
+function PricingCard({ pkg, lang, index, reduced, brand, onPriceReveal }) {
+  const [isRevealed, setIsRevealed] = useState(false);
   const safeLang = pkg.desc[lang] ? lang : 'en';
   const isRecommended = pkg.recommended;
   const mutedColor = isRecommended ? 'rgba(247,243,234,0.68)' : brand.taupe;
+
+  const handleReveal = () => {
+    if (!isRevealed) {
+      setIsRevealed(true);
+      if (onPriceReveal) onPriceReveal(pkg);
+    }
+  };
+
+  useEffect(() => {
+    let timer;
+    if (isRevealed) {
+      timer = setTimeout(() => {
+        setIsRevealed(false);
+      }, 6000); // Auto-hide after 6 seconds
+    }
+    return () => clearTimeout(timer);
+  }, [isRevealed]);
 
   return (
     <motion.article
@@ -134,14 +156,47 @@ function PricingCard({ pkg, lang, index, reduced, brand }) {
         <p className="text-[10px] font-black uppercase tracking-[0.22em]" style={{ color: isRecommended ? 'rgba(247,243,234,0.45)' : brand.taupe }}>
           {lang === 'en' ? 'from' : 'από'}
         </p>
-        <div className="mt-1 flex items-baseline gap-1">
-          <span className="text-3xl font-light" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-            €
-          </span>
-          <span className="text-6xl font-light leading-none" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-            {pkg.price}
-          </span>
-        </div>
+        <button
+          onClick={handleReveal}
+          className="mt-1 flex flex-col items-start gap-1 rounded-lg px-3 py-1 -mx-3 transition-colors hover:cursor-pointer hover:scale-105 active:scale-95 duration-200"
+          style={{ backgroundColor: isRecommended ? 'rgba(247,243,234,0.08)' : 'rgba(23,21,18,0.04)' }}
+          aria-label={lang === 'en' ? 'Reveal price' : 'Εμφάνιση τιμής'}
+        >
+          {isRevealed ? (
+            <motion.div
+              initial={{ opacity: 0, filter: 'blur(8px)' }}
+              animate={{ opacity: 1, filter: 'blur(0px)' }}
+              className="flex flex-col items-start gap-1"
+            >
+              <div className="flex items-baseline gap-1">
+                <span className="text-3xl font-light" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                  €
+                </span>
+                <span className="text-6xl font-light leading-none" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                  {pkg.price}
+                </span>
+              </div>
+              <motion.span
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="rounded-sm px-2 py-0.5 text-[9px] font-black uppercase tracking-[0.1em]"
+                style={{ backgroundColor: brand.bronze, color: brand.espresso }}
+              >
+                {lang === 'en' ? `Offer for first ${pkg.scarcityLimit}` : `Προσφορα για τους πρωτους ${pkg.scarcityLimit}`}
+              </motion.span>
+            </motion.div>
+          ) : (
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="py-2 text-3xl font-light italic leading-none"
+              style={{ fontFamily: "'Cormorant Garamond', serif", opacity: 0.8 }}
+            >
+              {lang === 'en' ? 'Reveal Price' : 'Εμφάνιση Τιμής'}
+            </motion.span>
+          )}
+        </button>
         <p className="mt-2 text-xs" style={{ color: isRecommended ? 'rgba(247,243,234,0.45)' : brand.taupe }}>
           {lang === 'en' ? 'one-time setup · year-one hosting included' : 'εφάπαξ setup · hosting πρώτου χρόνου included'}
         </p>
@@ -171,6 +226,17 @@ function PricingCard({ pkg, lang, index, reduced, brand }) {
 export default function PricingSection({ lang, brand = FALLBACK_BRAND }) {
   const reduced = useReducedMotion();
 
+  const handlePriceReveal = (pkg) => {
+    console.log('Price revealed:', pkg.name, pkg.price);
+    if (typeof window !== 'undefined') {
+      if (window.gtag) {
+        window.gtag('event', 'reveal_price', { package: pkg.name, price: pkg.price });
+      } else if (window.va) {
+        window.va('event', { name: 'reveal_price', data: { package: pkg.name, price: pkg.price } });
+      }
+    }
+  };
+
   return (
     <section id="pricing" className="px-5 py-24 md:px-10" style={{ backgroundColor: brand.stone }}>
       <div className="mx-auto max-w-[1220px]">
@@ -197,7 +263,7 @@ export default function PricingSection({ lang, brand = FALLBACK_BRAND }) {
 
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
           {PACKAGES.map((pkg, index) => (
-            <PricingCard key={pkg.id} pkg={pkg} lang={lang} index={index} reduced={reduced} brand={brand} />
+            <PricingCard key={pkg.id} pkg={pkg} lang={lang} index={index} reduced={reduced} brand={brand} onPriceReveal={handlePriceReveal} />
           ))}
         </div>
 

@@ -11,4 +11,14 @@ vite-dev*.log
 .env*
 !.env.example
 
-.vercel
+# Temp / dev-only files
+.tmp-vite.err.log
+capture-*.cjs
+video_analysis.*
+
+# Remotion build artifacts (not needed for site)
+my-remotion-video/build/
+my-remotion-video/public/*.mov
+my-remotion-video/public/*.mp4
+my-remotion-video/public/*.png
+my-remotion-video/audio.wav

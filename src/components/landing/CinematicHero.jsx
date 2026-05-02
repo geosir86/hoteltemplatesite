@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Send } from 'lucide-react';
+import { ArrowRight, Send, Play } from 'lucide-react';
 
 const EASE = [0.23, 1, 0.32, 1];
 // Keep empty until public/assets/stayfolio-hero-loop.mp4 exists, then set that path here.
@@ -12,6 +12,10 @@ const HERO_FRAMES = [
     image: '/assets/athens_flat_hero.png',
     typeLabel: { en: 'Studios', gr: 'Studios' },
     detail: { en: '45m² · Monastiraki, Athens', gr: '45τμ · Μοναστηράκι, Αθήνα' },
+    headline: {
+      en: 'City energy.\nYour story.',
+      gr: 'Ενέργεια πόλης.\nΗ δική σου ιστορία.',
+    },
     path: '/airbnb',
     timecode: '07:14',
   },
@@ -19,6 +23,10 @@ const HERO_FRAMES = [
     image: '/assets/greek_luxury_penthouse_acropolis_view_1776942386364.png',
     typeLabel: { en: 'Apartments', gr: 'Διαμερίσματα' },
     detail: { en: 'Penthouse · Acropolis view', gr: 'Penthouse · Θέα Ακρόπολης' },
+    headline: {
+      en: 'Above\nthe ordinary.',
+      gr: 'Πάνω από\nτα συνηθισμένα.',
+    },
     path: '/athens',
     timecode: '06:42',
   },
@@ -26,6 +34,10 @@ const HERO_FRAMES = [
     image: '/assets/cyclades_pool.png',
     typeLabel: { en: 'Island Villas', gr: 'Island Villas' },
     detail: { en: 'Clifftop pool · Cyclades', gr: 'Πισίνα με θέα · Κυκλάδες' },
+    headline: {
+      en: 'Where dreams\nhave a view.',
+      gr: 'Εκεί που τα όνειρα\nέχουν θέα.',
+    },
     path: '/cyclades',
     timecode: '08:30',
   },
@@ -33,6 +45,10 @@ const HERO_FRAMES = [
     image: '/assets/ionian_hero.png',
     typeLabel: { en: 'Nature Retreats', gr: 'Καταφύγια φύσης' },
     detail: { en: 'Forest & sea · Ionian coast', gr: 'Δάσος & θάλασσα · Ιόνιο' },
+    headline: {
+      en: 'Nature needs\nno filter.',
+      gr: 'Η φύση δεν\nχρειάζεται φίλτρο.',
+    },
     path: '/ionian',
     timecode: '09:05',
   },
@@ -40,6 +56,10 @@ const HERO_FRAMES = [
     image: '/assets/crete_hero.png',
     typeLabel: { en: 'Heritage Estates', gr: 'Παραδοσιακές επαύλεις' },
     detail: { en: 'Stone manor · Crete', gr: 'Πέτρινη έπαυλη · Κρήτη' },
+    headline: {
+      en: 'Centuries of story.\nOne listing.',
+      gr: 'Αιώνες ιστορίας.\nΈνα listing.',
+    },
     path: '/crete',
     timecode: '19:21',
   },
@@ -47,6 +67,10 @@ const HERO_FRAMES = [
     image: '/assets/nisi_hero.png',
     typeLabel: { en: 'Boutique Suites', gr: 'Boutique Suites' },
     detail: { en: 'Cave pool · Milos', gr: 'Cave pool · Μήλος' },
+    headline: {
+      en: 'Rare spaces\ndeserve rare pages.',
+      gr: 'Σπάνιοι χώροι\nαξίζουν σπάνιες σελίδες.',
+    },
     path: '/nisi',
     timecode: '08:03',
   },
@@ -54,6 +78,10 @@ const HERO_FRAMES = [
     image: '/assets/santorini_hero_day.png',
     typeLabel: { en: 'Signature Stays', gr: 'Signature Stays' },
     detail: { en: 'Caldera view · Oia', gr: 'Θέα Καλντέρας · Οία' },
+    headline: {
+      en: 'Some views deserve\na better frame.',
+      gr: 'Μερικές θέες αξίζουν\nκαλύτερο πλαίσιο.',
+    },
     path: '/santorini',
     timecode: '06:15',
   },
@@ -64,7 +92,7 @@ const KINETIC_WORDS = {
   gr: ['listing', 'ιστορία', 'ατμόσφαιρα', 'εμπειρία', 'brand'],
 };
 
-export default function CinematicHero({ lang = 'en', brand, copy }) {
+export default function CinematicHero({ lang = 'en', brand, copy, onVideoOpen }) {
   const reduced = useReducedMotion();
   const safeLang = KINETIC_WORDS[lang] ? lang : 'en';
   const [frameIndex, setFrameIndex] = useState(0);
@@ -146,7 +174,24 @@ export default function CinematicHero({ lang = 'en', brand, copy }) {
             }}
           />
 
-          <div className="absolute inset-x-5 top-5 z-[3] flex flex-col items-start gap-4 sm:flex-row sm:justify-between md:inset-x-8 md:top-8">
+          {/* Centered Headline Overlay */}
+          <div className="absolute inset-0 z-[3] flex items-center justify-center p-6 text-center">
+            <AnimatePresence mode="wait">
+              <motion.h2
+                key={frame.headline[safeLang]}
+                initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                exit={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
+                transition={{ duration: 0.8, ease: EASE }}
+                className="max-w-md whitespace-pre-line text-[clamp(1.8rem,5vw,3.2rem)] font-light leading-[1.1] text-white/90"
+                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              >
+                {frame.headline[safeLang] || frame.headline.en}
+              </motion.h2>
+            </AnimatePresence>
+          </div>
+
+          <div className="absolute inset-x-5 top-5 z-[3] flex items-start justify-between md:inset-x-8 md:top-8">
             <div className="flex flex-col gap-2">
               {HERO_FRAMES.map((item, index) => (
                 <span
@@ -157,11 +202,15 @@ export default function CinematicHero({ lang = 'en', brand, copy }) {
               ))}
             </div>
             <div
-              className="flex max-w-[5rem] shrink-0 items-center gap-2 overflow-hidden rounded-full border px-3 py-2 text-[9px] font-black uppercase tracking-[0.18em] text-white/80 backdrop-blur-md sm:max-w-none sm:text-[10px]"
+              className="flex items-center gap-2 rounded-full border px-3 py-2 text-[9px] font-black uppercase tracking-[0.18em] text-white/90 backdrop-blur-md sm:text-[10px]"
               style={{ borderColor: 'rgba(255,255,255,0.18)', backgroundColor: 'rgba(0,0,0,0.34)' }}
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
-              <span className="shrink-0">REC</span>
+              <motion.span 
+                className="h-1.5 w-1.5 rounded-full bg-red-500"
+                animate={{ opacity: [1, 0.4, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              <span className="shrink-0">{safeLang === 'gr' ? 'LIVE DEMO' : 'LIVE DEMO'}</span>
               <span className="hidden sm:inline">· {frame.timecode}</span>
             </div>
           </div>
@@ -190,7 +239,7 @@ export default function CinematicHero({ lang = 'en', brand, copy }) {
                 transform: hovered ? 'scale(1.04)' : 'scale(1)',
               }}
             >
-              {safeLang === 'gr' ? 'Δες την εμπειρία' : 'See the experience'}
+              {safeLang === 'gr' ? 'Δες τα Demo' : 'See the Demos'}
               <ArrowRight size={11} />
             </span>
           </div>
@@ -259,19 +308,44 @@ export default function CinematicHero({ lang = 'en', brand, copy }) {
               </a>
             </div>
             <div className="mt-8 grid grid-cols-3 border-y" style={{ borderColor: 'rgba(26,22,18,0.12)' }}>
-              {stats.map((stat) => (
-                <div key={stat.label} className="border-r py-5 text-center last:border-r-0" style={{ borderColor: 'rgba(26,22,18,0.1)' }}>
-                  <div
-                    className="text-3xl font-light italic leading-none"
-                    style={{ fontFamily: "'Cormorant Garamond', serif", color: brand.aegeanBlue }}
-                  >
-                    {stat.value}
+              {stats.map((stat, index) => {
+                const showAvatar = stat.hasAvatar;
+                return (
+                  <div key={stat.label || index} className="border-r py-5 flex flex-col items-center justify-center last:border-r-0" style={{ borderColor: 'rgba(26,22,18,0.1)' }}>
+                    {showAvatar && (
+                      <button
+                        onClick={() => safeLang === 'gr' && onVideoOpen()}
+                        className="relative group cursor-pointer inline-block rounded-full p-0.5 shrink-0 transition-transform hover:scale-[1.02] mb-3" 
+                        style={{ border: `1px solid ${brand.aegeanBlue}` }}
+                        aria-label="Play video"
+                      >
+                        <img 
+                          src="/assets/specialist.jpg" 
+                          alt="Stayfolio Specialist" 
+                          className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover" 
+                        />
+                        <div className="absolute inset-0.5 rounded-full bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                          <Play size={14} fill="white" color="white" />
+                        </div>
+                        <div className="absolute -bottom-1 -right-1 rounded-full p-1 shadow-lg flex items-center justify-center" style={{ backgroundColor: brand.aegeanBlue, color: brand.warmMarble }}>
+                          <Play size={8} fill="currentColor" />
+                        </div>
+                      </button>
+                    )}
+                    <div className={showAvatar ? "flex items-center gap-2" : "flex flex-col items-center"}>
+                      <div
+                        className="text-3xl font-light italic leading-none text-center"
+                        style={{ fontFamily: "'Cormorant Garamond', serif", color: brand.aegeanBlue }}
+                      >
+                        {stat.value}
+                      </div>
+                      <div className={`${showAvatar ? '' : 'mt-2'} text-[9px] font-black uppercase tracking-[0.18em] text-center`} style={{ color: brand.taupe }}>
+                        {stat.label}
+                      </div>
+                    </div>
                   </div>
-                  <div className="mt-2 text-[9px] font-black uppercase tracking-[0.18em]" style={{ color: brand.taupe }}>
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
           </div>
