@@ -9,6 +9,7 @@ import {
   Mail,
   Menu,
   MessageCircle,
+  Play,
   Send,
   X,
 } from 'lucide-react';
@@ -69,10 +70,10 @@ const EXPERIENCE_TYPES = {
 const COPY = {
   en: {
     brandLine: 'Premium websites for Greek stays',
-    heroEyebrow: 'Luxury hotel film · direct inquiry site',
+    heroEyebrow: 'Premium website · direct inquiry',
     heroTitle: 'Your stay deserves more than a listing.',
     heroSub:
-      'I build cinematic, bilingual websites for Greek villas, Airbnb hosts, and boutique stays, so their online presence feels as considered as the real stay.',
+      'I build cinematic, bilingual websites for Greek studios, apartments, Airbnb hosts, and villas — so their online presence feels as considered as the real stay.',
     heroTrust:
       'A clear, personal process with the person designing and building your site.',
     primaryCta: 'See the experiences',
@@ -157,10 +158,10 @@ const COPY = {
   },
   gr: {
     brandLine: 'Premium websites για καταλύματα στην Ελλάδα',
-    heroEyebrow: 'Luxury hotel film · direct inquiry site',
+    heroEyebrow: 'Premium website · άμεσο inquiry',
     heroTitle: 'Το κατάλυμά σου αξίζει κάτι περισσότερο από μία καταχώρηση.',
     heroSub:
-      'Φτιάχνω cinematic, δίγλωσσα websites για villas, Airbnb και boutique stays στην Ελλάδα, ώστε η online παρουσία τους να δείχνει όσο προσεγμένη είναι και η πραγματική εμπειρία.',
+      'Φτιάχνω cinematic, δίγλωσσα websites για studios, διαμερίσματα, Airbnb και villas στην Ελλάδα, ώστε η online παρουσία τους να δείχνει όσο προσεγμένη είναι και η πραγματική εμπειρία.',
     heroTrust:
       'Ένα καθαρό, προσωπικό process από τον άνθρωπο που σχεδιάζει και χτίζει το site σου.',
     primaryCta: 'Δες εμπειρίες',
@@ -448,6 +449,7 @@ function ExampleCard({ project, lang, index }) {
 }
 
 export default function Landing({ lang = 'en', setLang }) {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const c = COPY[lang] || COPY.en;
   const showLegacyLandingSections = false;
   const reduced = true;
@@ -603,7 +605,34 @@ export default function Landing({ lang = 'en', setLang }) {
           <div className="mx-auto grid max-w-[1120px] gap-10 md:grid-cols-[0.95fr_1.05fr] md:items-center">
             <div>
               <p className="text-[11px] font-black uppercase tracking-[0.28em]" style={{ color: BRAND.bronze }}>{c.whyLabel}</p>
-              <h2 className="mt-5 text-4xl font-light leading-tight md:text-6xl" style={{ fontFamily: "'Cormorant Garamond', serif" }}>{c.whyTitle}</h2>
+              <h2 className="mt-5 text-4xl font-light leading-tight md:text-6xl" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                <span className="align-middle">{c.whyTitle}</span>
+                <span className="ml-4 inline-flex items-center gap-3 align-middle">
+                  <button
+                    onClick={() => setIsVideoModalOpen(true)}
+                    className="relative group cursor-pointer inline-block rounded-full p-1 shrink-0 transition-transform hover:scale-[1.02]" 
+                    style={{ border: `1px solid ${BRAND.bronze}` }}
+                    aria-label="Play video"
+                  >
+                    <img 
+                      src="/assets/specialist.jpg" 
+                      alt="Stayfolio Specialist" 
+                      className="h-16 w-16 md:h-20 md:w-20 rounded-full object-cover" 
+                    />
+                    <div className="absolute inset-1 rounded-full bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Play size={20} fill="white" color="white" />
+                    </div>
+                    <div className="absolute -bottom-1 -right-1 rounded-full p-1.5 shadow-lg flex items-center justify-center" style={{ backgroundColor: BRAND.bronze, color: BRAND.espresso }}>
+                      <Play size={10} fill="currentColor" />
+                    </div>
+                  </button>
+                  <div className="flex flex-col justify-center text-left">
+                    <span className="text-[10px] uppercase tracking-[0.2em] font-black" style={{ color: BRAND.bronze }}>
+                      {lang === 'en' ? 'Play Video' : 'Δες το Video'}
+                    </span>
+                  </div>
+                </span>
+              </h2>
               <p className="mt-7 text-base leading-8" style={{ color: BRAND.taupe }}>{c.whyBody}</p>
             </div>
             <div className="grid gap-3">
@@ -694,6 +723,42 @@ export default function Landing({ lang = 'en', setLang }) {
           </button>
         </div>
       </footer>
+
+      <AnimatePresence>
+        {isVideoModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[1000] flex items-center justify-center p-4 md:p-10"
+            style={{ backgroundColor: 'rgba(20, 17, 14, 0.95)' }}
+          >
+            <button
+              onClick={() => setIsVideoModalOpen(false)}
+              className="absolute top-6 right-6 p-2 text-white/70 hover:text-white transition-colors cursor-pointer"
+              aria-label="Close video"
+            >
+              <X size={32} />
+            </button>
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.4, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+              className="w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-2xl relative"
+              style={{ backgroundColor: BRAND.ink }}
+            >
+              <video
+                src="/assets/Απογείωσε Το Stay Σου.mov"
+                controls
+                autoPlay
+                className="w-full h-full object-contain"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
