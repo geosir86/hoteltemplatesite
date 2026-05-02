@@ -9,24 +9,53 @@ const HERO_VIDEO_SRC = '';
 
 const HERO_FRAMES = [
   {
-    image: '/assets/santorini_hero_day.png',
-    caption: 'Oia · Santorini',
+    image: '/assets/athens_flat_hero.png',
+    typeLabel: { en: 'Studios', gr: 'Studios' },
+    detail: { en: '45m² · Monastiraki, Athens', gr: '45τμ · Μοναστηράκι, Αθήνα' },
+    path: '/airbnb',
+    timecode: '07:14',
+  },
+  {
+    image: '/assets/greek_luxury_penthouse_acropolis_view_1776942386364.png',
+    typeLabel: { en: 'Apartments', gr: 'Διαμερίσματα' },
+    detail: { en: 'Penthouse · Acropolis view', gr: 'Penthouse · Θέα Ακρόπολης' },
+    path: '/athens',
     timecode: '06:42',
   },
   {
     image: '/assets/cyclades_pool.png',
-    caption: 'Caldera · Cyclades',
-    timecode: '07:18',
+    typeLabel: { en: 'Island Villas', gr: 'Island Villas' },
+    detail: { en: 'Clifftop pool · Cyclades', gr: 'Πισίνα με θέα · Κυκλάδες' },
+    path: '/cyclades',
+    timecode: '08:30',
   },
   {
-    image: '/assets/greek_luxury_terrace_sunset_view_1776942676038.png',
-    caption: 'Terrace · Athens',
-    timecode: '19:54',
+    image: '/assets/ionian_hero.png',
+    typeLabel: { en: 'Nature Retreats', gr: 'Καταφύγια φύσης' },
+    detail: { en: 'Forest & sea · Ionian coast', gr: 'Δάσος & θάλασσα · Ιόνιο' },
+    path: '/ionian',
+    timecode: '09:05',
+  },
+  {
+    image: '/assets/crete_hero.png',
+    typeLabel: { en: 'Heritage Estates', gr: 'Παραδοσιακές επαύλεις' },
+    detail: { en: 'Stone manor · Crete', gr: 'Πέτρινη έπαυλη · Κρήτη' },
+    path: '/crete',
+    timecode: '19:21',
   },
   {
     image: '/assets/nisi_hero.png',
-    caption: 'Cave Suite · Milos',
+    typeLabel: { en: 'Boutique Suites', gr: 'Boutique Suites' },
+    detail: { en: 'Cave pool · Milos', gr: 'Cave pool · Μήλος' },
+    path: '/nisi',
     timecode: '08:03',
+  },
+  {
+    image: '/assets/santorini_hero_day.png',
+    typeLabel: { en: 'Signature Stays', gr: 'Signature Stays' },
+    detail: { en: 'Caldera view · Oia', gr: 'Θέα Καλντέρας · Οία' },
+    path: '/santorini',
+    timecode: '06:15',
   },
 ];
 
@@ -41,6 +70,7 @@ export default function CinematicHero({ lang = 'en', brand, copy }) {
   const [frameIndex, setFrameIndex] = useState(0);
   const [wordIndex, setWordIndex] = useState(0);
   const [videoReady, setVideoReady] = useState(Boolean(HERO_VIDEO_SRC));
+  const [hovered, setHovered] = useState(false);
   const frame = HERO_FRAMES[frameIndex];
   const words = KINETIC_WORDS[safeLang];
   const stats = useMemo(() => copy.heroStats || [], [copy.heroStats]);
@@ -71,7 +101,13 @@ export default function CinematicHero({ lang = 'en', brand, copy }) {
         className="mx-auto grid min-h-[calc(100dvh-7rem)] w-full max-w-[calc(100vw-2rem)] rounded-lg border lg:max-w-[1440px] lg:grid-cols-[58fr_42fr]"
         style={{ borderColor: 'rgba(26,22,18,0.12)', backgroundColor: brand.warmMarble }}
       >
-        <div className="relative min-h-[420px] min-w-0 overflow-hidden bg-black md:min-h-[560px] lg:min-h-0">
+        <Link
+          to={frame.path}
+          className="relative block min-h-[420px] min-w-0 overflow-hidden bg-black md:min-h-[560px] lg:min-h-0"
+          style={{ cursor: 'pointer', textDecoration: 'none' }}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+        >
           {videoReady && !reduced && (
             <video
               className="absolute inset-0 z-[1] h-full w-full object-cover"
@@ -101,7 +137,14 @@ export default function CinematicHero({ lang = 'en', brand, copy }) {
             />
           ))}
 
-          <div className="absolute inset-0 z-[2] bg-gradient-to-r from-black/45 via-black/10 to-black/35" />
+          <div
+            className="absolute inset-0 z-[2] transition-all duration-300"
+            style={{
+              background: hovered
+                ? 'linear-gradient(to right, rgba(0,0,0,0.62), rgba(0,0,0,0.15), rgba(0,0,0,0.48))'
+                : 'linear-gradient(to right, rgba(0,0,0,0.45), rgba(0,0,0,0.10), rgba(0,0,0,0.35))',
+            }}
+          />
 
           <div className="absolute inset-x-5 top-5 z-[3] flex flex-col items-start gap-4 sm:flex-row sm:justify-between md:inset-x-8 md:top-8">
             <div className="flex flex-col gap-2">
@@ -123,27 +166,35 @@ export default function CinematicHero({ lang = 'en', brand, copy }) {
             </div>
           </div>
 
-          <div className="absolute bottom-6 left-5 right-5 z-[3] flex flex-col gap-4 text-white md:bottom-8 md:left-8 md:right-8">
-            <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.28em] text-white/80">
-              <span className="h-px w-8" style={{ backgroundColor: brand.bronzeLight }} />
-              {frame.caption}
+          <div className="absolute bottom-6 left-5 right-5 z-[3] flex items-end justify-between gap-4 text-white md:bottom-8 md:left-8 md:right-8">
+            <div className="flex flex-col gap-1.5">
+              <div className="flex items-center gap-3">
+                <span className="h-px w-6 shrink-0" style={{ backgroundColor: brand.bronzeLight }} />
+                <span
+                  className="text-[10px] font-black uppercase tracking-[0.32em]"
+                  style={{ color: brand.bronzeLight }}
+                >
+                  {frame.typeLabel[safeLang] || frame.typeLabel.en}
+                </span>
+              </div>
+              <p className="pl-9 text-[11px] font-medium tracking-[0.12em] text-white/60">
+                {frame.detail[safeLang] || frame.detail.en}
+              </p>
             </div>
-            <div className="flex flex-wrap items-center gap-3">
-              <span
-                className="rounded-full border px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] backdrop-blur-md"
-                style={{ borderColor: 'rgba(255,255,255,0.18)', backgroundColor: 'rgba(20,17,14,0.54)' }}
-              >
-                Listing → Stayfolio
-              </span>
-              <span
-                className="rounded-full border px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] backdrop-blur-md"
-                style={{ borderColor: 'rgba(255,255,255,0.18)', backgroundColor: 'rgba(20,17,14,0.38)', color: brand.bronzeLight }}
-              >
-                Cinematic property presence
-              </span>
-            </div>
+            <span
+              className="flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] backdrop-blur-md transition-transform duration-200"
+              style={{
+                borderColor: 'rgba(255,255,255,0.22)',
+                backgroundColor: 'rgba(20,17,14,0.54)',
+                color: 'white',
+                transform: hovered ? 'scale(1.04)' : 'scale(1)',
+              }}
+            >
+              {safeLang === 'gr' ? 'Δες την εμπειρία' : 'See the experience'}
+              <ArrowRight size={11} />
+            </span>
           </div>
-        </div>
+        </Link>
 
         <div className="flex min-w-0 flex-col justify-between gap-12 px-6 py-8 md:px-10 md:py-10 lg:px-14 lg:py-14">
           <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
@@ -222,26 +273,7 @@ export default function CinematicHero({ lang = 'en', brand, copy }) {
                 </div>
               ))}
             </div>
-            {copy.propertyTypes?.length > 0 && (
-              <div className="mt-5 flex flex-wrap items-center gap-1">
-                {copy.propertyTypes.map((pt, i) => (
-                  <span key={pt.path} className="flex items-center gap-1">
-                    {i > 0 && (
-                      <span className="select-none text-[10px]" style={{ color: brand.taupe }}>·</span>
-                    )}
-                    <Link
-                      to={pt.path}
-                      className="text-[10px] font-black uppercase tracking-[0.22em] transition-colors duration-200"
-                      style={{ color: brand.taupe, textDecoration: 'none' }}
-                      onMouseEnter={e => (e.currentTarget.style.color = brand.bronze)}
-                      onMouseLeave={e => (e.currentTarget.style.color = brand.taupe)}
-                    >
-                      {pt.label}
-                    </Link>
-                  </span>
-                ))}
-              </div>
-            )}
+
           </div>
         </div>
       </div>
