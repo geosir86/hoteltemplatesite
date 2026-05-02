@@ -83,15 +83,7 @@ const COPY = {
       { value: '14 days', label: 'build cycle' },
       { value: '1', label: 'specialist' },
     ],
-    propertyTypes: [
-      { label: 'Studios',          path: '/airbnb' },
-      { label: 'Apartments',       path: '/athens' },
-      { label: 'Island Villas',    path: '/cyclades' },
-      { label: 'Nature Retreats',  path: '/ionian' },
-      { label: 'Heritage Estates', path: '/crete' },
-      { label: 'Boutique Suites',  path: '/nisi' },
-      { label: 'Signature Stays',  path: '/santorini' },
-    ],
+
     problemLabel: 'The online gap',
     problemTitle: 'Premium in person. Lost inside another listing online.',
     problemBody:
@@ -180,15 +172,7 @@ const COPY = {
       { value: '3-14', label: 'ημέρες παράδοση' },
       { value: '1', label: 'specialist' },
     ],
-    propertyTypes: [
-      { label: 'Studios',                    path: '/airbnb' },
-      { label: 'Διαμερίσματα',              path: '/athens' },
-      { label: 'Island Villas',             path: '/cyclades' },
-      { label: 'Καταφύγια φύσης',           path: '/ionian' },
-      { label: 'Παραδοσιακές επαύλεις',     path: '/crete' },
-      { label: 'Boutique Suites',           path: '/nisi' },
-      { label: 'Signature Stays',           path: '/santorini' },
-    ],
+
     problemLabel: 'Το online κενό',
     problemTitle: 'Από κοντά δείχνει premium. Online όμως χάνεται μέσα στις καταχωρήσεις.',
     problemBody:
