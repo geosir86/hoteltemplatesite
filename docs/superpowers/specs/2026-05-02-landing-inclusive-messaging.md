@@ -47,42 +47,81 @@ GR (new):  'Φτιάχνω cinematic, δίγλωσσα websites για studios,
             και η πραγματική εμπειρία.'
 ```
 
-### 3. Property Type Pill List
+### 3. Property Type Pill List (with demo links)
 
-A new inline element rendered directly below the existing 3-stat hero row (`2 languages · 14 days · 1 specialist`).
+A new inline element rendered directly below the existing 3-stat hero row (`2 languages · 14 days · 1 specialist`). Each property type is a clickable `<Link>` to its corresponding demo page — one type per demo, no duplicates.
 
-**Content:**
-```
-EN:  Studios  ·  Apartments  ·  Villas  ·  Boutique  ·  Airbnb  ·  Agrotourism
-GR:  Studios  ·  Διαμερίσματα  ·  Villas  ·  Boutique  ·  Airbnb  ·  Αγροτουρισμός
-```
+**Mapping (1-to-1 with demos):**
+
+| EN Label | GR Label | Demo path |
+|---|---|---|
+| Studios | Studios | `/airbnb` |
+| Apartments | Διαμερίσματα | `/athens` |
+| Island Villas | Island Villas | `/cyclades` |
+| Nature Retreats | Καταφύγια φύσης | `/ionian` |
+| Heritage Estates | Παραδοσιακές επαύλεις | `/crete` |
+| Boutique Suites | Boutique Suites | `/nisi` |
+| Signature Stays | Signature Stays | `/santorini` |
 
 **Style** (matches existing design system):
 - `fontSize: 10px`
 - `letterSpacing: '0.3em'`
 - `textTransform: 'uppercase'`
-- `color: BRAND.taupe` (`#6F685F`)
-- No background, no border — plain inline text with `·` dot separators
+- `color: BRAND.taupe` (`#6F685F`) at rest
+- `color: BRAND.bronze` (`#B8894A`) on hover — matches existing nav link hover color
+- No underline (`textDecoration: 'none'`)
+- Items separated by `·` plain text spans (not links)
 - `marginTop: 24px` below the stats row
-- Bilingual: reads from `COPY[lang]` object like every other string
+- Bilingual: reads from `COPY[lang]` object
 
-**Implementation:** Add `propertyTypes` array to both `COPY.en` and `COPY.gr`. Render inline in the hero JSX below the stats row. No new component needed.
+**Implementation:** Add `propertyTypes` array to both `COPY.en` and `COPY.gr`. Each item is `{ label, path }`. Render as inline `<Link>` elements from `react-router-dom`. No new component needed.
 
 ```js
 // COPY.en
-propertyTypes: ['Studios', 'Apartments', 'Villas', 'Boutique', 'Airbnb', 'Agrotourism'],
+propertyTypes: [
+  { label: 'Studios',          path: '/airbnb' },
+  { label: 'Apartments',       path: '/athens' },
+  { label: 'Island Villas',    path: '/cyclades' },
+  { label: 'Nature Retreats',  path: '/ionian' },
+  { label: 'Heritage Estates', path: '/crete' },
+  { label: 'Boutique Suites',  path: '/nisi' },
+  { label: 'Signature Stays',  path: '/santorini' },
+],
 
 // COPY.gr
-propertyTypes: ['Studios', 'Διαμερίσματα', 'Villas', 'Boutique', 'Airbnb', 'Αγροτουρισμός'],
+propertyTypes: [
+  { label: 'Studios',                    path: '/airbnb' },
+  { label: 'Διαμερίσματα',              path: '/athens' },
+  { label: 'Island Villas',             path: '/cyclades' },
+  { label: 'Καταφύγια φύσης',           path: '/ionian' },
+  { label: 'Παραδοσιακές επαύλεις',     path: '/crete' },
+  { label: 'Boutique Suites',           path: '/nisi' },
+  { label: 'Signature Stays',           path: '/santorini' },
+],
 ```
 
 Rendered as:
 ```jsx
-<p style={{ fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', color: BRAND.taupe, marginTop: 24 }}>
-  {c.propertyTypes.join('  ·  ')}
-</p>
+<div style={{ marginTop: 24, display: 'flex', flexWrap: 'wrap', gap: '0 4px', alignItems: 'center' }}>
+  {c.propertyTypes.map((pt, i) => (
+    <span key={pt.path} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+      {i > 0 && <span style={{ color: BRAND.taupe, fontSize: 10 }}>·</span>}
+      <Link
+        to={pt.path}
+        style={{
+          fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase',
+          color: BRAND.taupe, textDecoration: 'none', transition: 'color 0.2s',
+        }}
+        onMouseEnter={e => e.currentTarget.style.color = BRAND.bronze}
+        onMouseLeave={e => e.currentTarget.style.color = BRAND.taupe}
+      >
+        {pt.label}
+      </Link>
+    </span>
+  ))}
+</div>
 ```
-where `c = COPY[lang]`.
+`Link` is already imported from `react-router-dom` in `Landing.jsx`.
 
 ### 4. problemBody
 
@@ -121,6 +160,6 @@ GR (new):  'Airbnb και Booking είναι χρήσιμα, αλλά κάνου
 ## Self-Review
 
 - **Placeholders:** None.
-- **Consistency:** `propertyTypes` key added to both `COPY.en` and `COPY.gr`. Used once in hero JSX. No orphaned keys.
+- **Consistency:** `propertyTypes` key added to both `COPY.en` and `COPY.gr` with identical structure `{ label, path }[]`. Used once in hero JSX. `Link` already imported. No orphaned keys.
 - **Scope:** Single file, four copy changes + one small render addition. Tight.
 - **Ambiguity:** Pill list uses `BRAND.taupe` color — defined at top of `Landing.jsx` as `#6F685F`. No ambiguity.
