@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Send } from 'lucide-react';
 
@@ -221,6 +222,26 @@ export default function CinematicHero({ lang = 'en', brand, copy }) {
                 </div>
               ))}
             </div>
+            {copy.propertyTypes?.length > 0 && (
+              <div className="mt-5 flex flex-wrap items-center gap-1">
+                {copy.propertyTypes.map((pt, i) => (
+                  <span key={pt.path} className="flex items-center gap-1">
+                    {i > 0 && (
+                      <span className="select-none text-[10px]" style={{ color: brand.taupe }}>·</span>
+                    )}
+                    <Link
+                      to={pt.path}
+                      className="text-[10px] font-black uppercase tracking-[0.22em] transition-colors duration-200"
+                      style={{ color: brand.taupe, textDecoration: 'none' }}
+                      onMouseEnter={e => (e.currentTarget.style.color = brand.bronze)}
+                      onMouseLeave={e => (e.currentTarget.style.color = brand.taupe)}
+                    >
+                      {pt.label}
+                    </Link>
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
