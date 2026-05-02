@@ -95,7 +95,7 @@ const COPY = {
     problemLabel: 'The online gap',
     problemTitle: 'Premium in person. Lost inside another listing online.',
     problemBody:
-      'Airbnb and Booking pages are useful, but they make many properties feel the same. A dedicated site gives your stay a place to show its atmosphere, story, and value.',
+      'Airbnb and Booking pages are useful, but they make every property feel the same — studio, apartment, or villa alike. A dedicated site gives your stay a place to show its atmosphere, story, and value.',
     problemPoints: [
       'Raise perceived value before the first message.',
       'Give guests a branded place to understand the experience.',
@@ -192,7 +192,7 @@ const COPY = {
     problemLabel: 'Το online κενό',
     problemTitle: 'Από κοντά δείχνει premium. Online όμως χάνεται μέσα στις καταχωρήσεις.',
     problemBody:
-      'Airbnb και Booking είναι χρήσιμα, αλλά κάνουν πολλά καταλύματα να μοιάζουν ίδια. Ένα δικό σου site δίνει στο property χώρο να δείξει ατμόσφαιρα, ιστορία και αξία.',
+      'Airbnb και Booking είναι χρήσιμα, αλλά κάνουν κάθε κατάλυμα να μοιάζει ίδιο — studio, διαμέρισμα ή villa. Ένα δικό σου site δίνει στο property χώρο να δείξει ατμόσφαιρα, ιστορία και αξία.',
     problemPoints: [
       'Ανεβάζει την αντιληπτή αξία πριν το πρώτο μήνυμα.',
       'Δίνει στον επισκέπτη branded χώρο να καταλάβει την εμπειρία.',
