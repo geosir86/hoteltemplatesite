@@ -264,6 +264,7 @@ export default function CinematicHero({ lang = 'en', brand, copy, onVideoOpen })
               className="max-w-[9ch] text-[clamp(2.45rem,12vw,6.35rem)] font-light leading-[0.96] sm:max-w-none sm:text-[clamp(2.65rem,6.4vw,6.35rem)] sm:leading-[0.94]"
               style={{ fontFamily: "'Cormorant Garamond', serif", color: brand.deepInk }}
             >
+              <span className="sr-only">Premium Ιστοσελίδες για Airbnb & Καταλύματα στην Ελλάδα - </span>
               {copy.heroTitle}
             </h1>
             <div

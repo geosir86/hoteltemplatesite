@@ -25,6 +25,7 @@ export default function Greece({ lang }) {
           transition={{ duration: 10, ease: "linear" }}
           src="/assets/greece_hutstuf_hero_day.png" 
           className="w-full h-full object-cover opacity-60"
+          alt={content.title}
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
           <motion.p 
@@ -75,7 +76,7 @@ export default function Greece({ lang }) {
               className="group cursor-pointer"
             >
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
-                <img src={room.img} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <img src={room.img} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt={room.title} />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
               </div>
               <h3 className="text-lg font-serif">{room.title}</h3>

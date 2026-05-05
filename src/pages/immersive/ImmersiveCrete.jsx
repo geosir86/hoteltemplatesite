@@ -250,7 +250,7 @@ export default function ImmersiveCrete({ lang: initialLang = 'en' }) {
       {/* Final Aerial Section */}
       <section className="py-32 px-12 lg:px-24">
         <div className="relative rounded-[4rem] overflow-hidden group h-[80vh]">
-          <img src={data.aerialImage} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[4s]" alt="Aerial" />
+          <img src={data.aerialImage} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[4s]" alt="Crete Estate Aerial View - Premium Villa" />
           <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
             <motion.div 
               initial={{ opacity: 0 }}

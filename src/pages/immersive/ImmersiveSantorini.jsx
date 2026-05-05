@@ -57,7 +57,7 @@ const HutStufHero = ({ title, subtitle, image, isNight, videoUrl, nightVideoUrl,
           <source src={activeVideoUrl} type="video/mp4" />
         </video>
       ) : (
-        <img src={image} className="w-full h-full object-cover" alt="" />
+        <img src={image} className="w-full h-full object-cover" alt={title} />
       )}
       <div className="absolute inset-0 bg-black/10" />
     </motion.div>
@@ -119,7 +119,7 @@ const VolcanoSection = ({ title, text, image }) => (
       transition={{ duration: 2 }}
       className="absolute inset-0"
     >
-      <img src={image} className="w-full h-full object-cover" alt="" />
+      <img src={image} className="w-full h-full object-cover" alt={title} />
       <div className="absolute inset-0 bg-black/20" />
     </motion.div>
     
@@ -155,7 +155,7 @@ const EditorialSection = ({ title, text, image, reverse = false }) => (
         transition={{ duration: 1 }}
         className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl"
       >
-        <img src={image} className="w-full h-full object-cover" alt="" />
+        <img src={image} className="w-full h-full object-cover" alt={title} />
       </motion.div>
     </div>
     <div className={reverse ? 'lg:order-1' : ''}>

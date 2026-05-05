@@ -30,7 +30,7 @@ export default function DualCTA({ theme, price, currency, lang }) {
         </p>
 
         <motion.a
-          href="#"
+          href="#book"
           data-hover
           whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
           className="px-12 py-5 rounded-full text-sm font-bold tracking-widest uppercase cursor-pointer transition-opacity"

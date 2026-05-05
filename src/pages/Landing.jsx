@@ -16,6 +16,7 @@ import {
 import BeforeAfterTransformation from '../components/landing/BeforeAfterTransformation';
 import CapabilityBento from '../components/landing/CapabilityBento';
 import CinematicHero from '../components/landing/CinematicHero';
+import FAQSection from '../components/landing/FAQSection';
 import PricingSection from '../components/landing/PricingSection';
 import { DESTINATIONS, DESTINATION_LIST } from '../data/destinations';
 
@@ -406,7 +407,7 @@ function ExampleCard({ project, lang, index }) {
         <div className={`relative w-full overflow-hidden ${aspectClass}`}>
           <img
             src={project.heroImage}
-            alt={content.title}
+            alt={`${content.title} - ${content.location} | Premium Airbnb Website`}
             loading={index < 2 ? 'eager' : 'lazy'}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           />
@@ -523,7 +524,7 @@ export default function Landing({ lang = 'en', setLang }) {
                   <div className="relative overflow-hidden rounded-lg border" style={{ borderColor: 'rgba(23,21,18,0.1)' }}>
                     <img
                       src={featuredProject.heroImage}
-                      alt={featuredContent?.title || 'Greek stay example'}
+                      alt={featuredContent?.title ? `${featuredContent.title} - Premium Greek Stay Example` : 'Premium Airbnb Website Example Greece'}
                       className="aspect-[4/3] w-full object-cover md:aspect-[5/4]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
@@ -566,6 +567,7 @@ export default function Landing({ lang = 'en', setLang }) {
               <div>
                 <p className="text-[11px] font-black uppercase tracking-[0.28em]" style={{ color: BRAND.bronze }}>{c.problemLabel}</p>
                 <h2 className="mt-5 text-4xl font-light leading-tight md:text-6xl" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                  <span className="sr-only">Μείωση προμηθειών - </span>
                   {c.problemTitle}
                 </h2>
               </div>
@@ -590,6 +592,7 @@ export default function Landing({ lang = 'en', setLang }) {
               <div>
                 <p className="text-[11px] font-black uppercase tracking-[0.28em]" style={{ color: BRAND.bronze }}>{c.examplesLabel}</p>
                 <h2 className="mt-5 max-w-3xl text-4xl font-light leading-tight md:text-6xl" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                  <span className="sr-only">Premium παρουσίαση καταλύματος - </span>
                   {c.examplesTitle}
                 </h2>
               </div>
@@ -618,7 +621,7 @@ export default function Landing({ lang = 'en', setLang }) {
                   >
                     <img
                       src="/assets/specialist.jpg"
-                      alt="Stayfolio Specialist"
+                      alt="Stayfolio Specialist - Ιστοσελίδες για Airbnb & Βραχυχρόνια Μίσθωση"
                       className="h-16 w-16 md:h-20 md:w-20 rounded-full object-cover"
                     />
                     <div className="absolute inset-1 rounded-full bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -668,9 +671,23 @@ export default function Landing({ lang = 'en', setLang }) {
           </div>
         </section>
 
+        <FAQSection brand={BRAND} />
+
+        {/* SEO Copy Section */}
+        <section className="px-5 py-12 md:px-10 text-center" style={{ backgroundColor: BRAND.warmMarble, color: BRAND.taupe }}>
+          <div className="mx-auto max-w-[800px]">
+            <p className="text-sm leading-loose opacity-80" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+              Εξειδικευόμαστε στην κατασκευή premium ιστοσελίδων για Airbnb, πολυτελείς βίλες (villas) και boutique καταλύματα στην Ελλάδα. Δημιουργούμε direct booking websites που αναδεικνύουν την εμπειρία διαμονής χωρίς τις προμήθειες πλατφορμών.
+            </p>
+          </div>
+        </section>
+
         <section id="contact" className="px-5 py-24 md:px-10" style={{ backgroundColor: BRAND.espresso, color: BRAND.stone }}>
           <div className="mx-auto flex max-w-[900px] flex-col items-center text-center">
-            <h2 className="text-4xl font-light leading-tight md:text-7xl" style={{ fontFamily: "'Cormorant Garamond', serif" }}>{c.finalTitle}</h2>
+            <h2 className="text-4xl font-light leading-tight md:text-7xl" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+              <span className="sr-only">Direct bookings - </span>
+              {c.finalTitle}
+            </h2>
             <p className="mt-7 max-w-xl text-base leading-8 text-white/60">{c.finalBody}</p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a

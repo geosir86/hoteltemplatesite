@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stayfolio-gr.vercel.app/sitemap.xml

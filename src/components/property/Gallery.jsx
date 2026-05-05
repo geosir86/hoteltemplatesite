@@ -40,7 +40,7 @@ export default function Gallery({ photos, theme, title = 'The Space' }) {
               transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
             >
               <img
-                src={src} alt=""
+                src={src} alt={`${title} photo ${i + 1} - Premium Property Showcase`}
                 loading={i === 0 ? 'eager' : 'lazy'}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

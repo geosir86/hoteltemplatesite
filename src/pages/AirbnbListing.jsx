@@ -29,7 +29,7 @@ export default function AirbnbListing({ lang = 'en', setLang }) {
         <span style={{ letterSpacing: '0.2em', textTransform: 'uppercase', fontSize: 10 }}>© 2026 · Demo build · All rights reserved</span>
         <div style={{ display: 'flex', gap: 18, fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase' }}>
           {['Instagram', 'Pinterest', 'Email'].map(s => (
-            <a key={s} href="#" style={{ color: 'inherit', textDecoration: 'none' }}>{s}</a>
+            <a key={s} href={`/${s.toLowerCase()}`} style={{ color: 'inherit', textDecoration: 'none' }}>{s}</a>
           ))}
         </div>
       </footer>

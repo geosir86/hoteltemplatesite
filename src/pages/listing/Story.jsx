@@ -22,7 +22,7 @@ export default function Story({ lang }) {
         </Reveal>
         <Reveal delay={0.2}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginTop: 60 }}>
-            <img src="https://i.pravatar.cc/100?img=32" alt="" style={{ width: 44, height: 44, borderRadius: '50%', objectFit: 'cover', border: `2px solid ${GOLD}` }} />
+            <img src="https://i.pravatar.cc/100?img=32" alt="Eleni Marinos - Airbnb Superhost Athens" style={{ width: 44, height: 44, borderRadius: '50%', objectFit: 'cover', border: `2px solid ${GOLD}` }} />
             <div>
               <div style={{ fontSize: 12, color: 'white', fontWeight: 600 }}>Eleni Marinos</div>
               <div style={{ fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>Host · Superhost since 2019</div>

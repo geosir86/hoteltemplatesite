@@ -15,7 +15,7 @@ function MiniVisual({ type, brand }) {
   if (type === 'homepage') {
     return (
       <div className="relative h-44 overflow-hidden rounded-lg bg-black">
-        <img src="/assets/greek_luxury_terrace_sunset_view_1776942676038.png" alt="" className="h-full w-full object-cover opacity-80" />
+        <img src="/assets/greek_luxury_terrace_sunset_view_1776942676038.png" alt="Greek Luxury Terrace Sunset View - Premium Airbnb Website" className="h-full w-full object-cover opacity-80" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
         <div className="absolute bottom-4 left-4 right-4">
           <div className="h-2 w-24 rounded" style={{ backgroundColor: brand.bronzeLight }} />
@@ -28,9 +28,9 @@ function MiniVisual({ type, brand }) {
   if (type === 'gallery') {
     return (
       <div className="grid h-44 grid-cols-[2fr_1fr] grid-rows-2 gap-2 overflow-hidden rounded-lg">
-        <img src="/assets/cyclades_pool.png" alt="" className="row-span-2 h-full w-full rounded-lg object-cover" />
-        <img src="/assets/nisi_room.png" alt="" className="h-full w-full rounded-lg object-cover" />
-        <img src="/assets/ionian_terrace.png" alt="" className="h-full w-full rounded-lg object-cover" />
+        <img src="/assets/cyclades_pool.png" alt="Cyclades Pool - Custom Hotel Website" className="row-span-2 h-full w-full rounded-lg object-cover" />
+        <img src="/assets/nisi_room.png" alt="Nisi Room - Boutique Hotel Design" className="h-full w-full rounded-lg object-cover" />
+        <img src="/assets/ionian_terrace.png" alt="Ionian Terrace - Luxury Villa Website" className="h-full w-full rounded-lg object-cover" />
       </div>
     );
   }
@@ -84,6 +84,7 @@ export default function CapabilityBento({ brand, copy, lang }) {
             {copy.capabilities.label}
           </p>
           <h2 className="mt-5 text-4xl font-light leading-tight md:text-6xl" style={{ fontFamily: "'Cormorant Garamond', serif", color: brand.deepInk }}>
+            <span className="sr-only">AI video / cinematic content - </span>
             {copy.capabilities.title}
           </h2>
         </div>
